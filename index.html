@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HOODIE PLUSH | Site Officiel - Édition Collector 2026</title>
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
@@ -60,13 +57,11 @@
     .glass-nav {
       background: rgba(3, 5, 8, 0.85);
       backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid rgba(0, 240, 255, 0.15);
     }
     .glass-card {
       background: rgba(12, 19, 33, 0.65);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -115,7 +110,6 @@
       </nav>
 
       <div class="flex items-center gap-3">
-        <!-- Langue d'origine FR avec bascule EN fluide -->
         <button id="lang-btn" onclick="toggleLanguage()" class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-brand-cyan flex items-center gap-2 transition shadow-sm">
           <i data-lucide="globe" class="w-3.5 h-3.5"></i>
           <span id="lang-label">FR / EN</span>
@@ -184,7 +178,6 @@
             </div>
           </div>
 
-          <!-- Compteur & Progression -->
           <div class="glass-card p-6 rounded-3xl border border-brand-cyan/20 space-y-4 shadow-xl">
             <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
               <div class="flex items-center gap-2">
@@ -288,7 +281,7 @@
     </div>
   </section>
 
-  <!-- Section Galerie Photos (Remplace le 360°) -->
+  <!-- Section Galerie Photos -->
   <section id="gallery" class="py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -305,7 +298,6 @@
         </p>
       </div>
 
-      <!-- Grille de photos prête pour GitHub -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 shadow-xl">
@@ -366,14 +358,6 @@
             <h4 class="font-display font-bold text-lg text-white" data-i18n="gal_img5_title">Finitions du Dos</h4>
             <p class="text-xs text-slate-300 leading-relaxed" data-i18n="gal_img5_desc">Une capuche parfaitement ajustée et des coutures renforcées haut de gamme.</p>
           </div>
-        </div>
-
-        <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 shadow-xl flex flex-col justify-center items-center p-8 text-center bg-gradient-to-br from-brand-card to-brand-dark">
-          <div class="w-16 h-16 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan mb-4">
-            <i data-lucide="plus" class="w-8 h-8"></i>
-          </div>
-          <h4 class="font-display font-bold text-xl text-white mb-2" data-i18n="gal_more_title">Plus de photos à venir</h4>
-          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="gal_more_desc">Ajoutez vos propres fichiers images dans votre dépôt GitHub pour alimenter cette galerie en direct !</p>
         </div>
 
       </div>
@@ -608,7 +592,6 @@
   <script>
     lucide.createIcons();
 
-    // Langue d'origine : Français (FR), avec bascule vers l'Anglais (EN)
     let currentLang = 'fr';
 
     const translations = {
@@ -659,8 +642,6 @@
         gal_img4_desc: "Un format généreux, moelleux et parfaitement équilibré pour la prise en main.",
         gal_img5_title: "Finitions du Dos",
         gal_img5_desc: "Une capuche parfaitement ajustée et des coutures renforcées haut de gamme.",
-        gal_more_title: "Plus de photos à venir",
-        gal_more_desc: "Ajoutez vos propres fichiers images dans votre dépôt GitHub pour alimenter cette galerie en direct !",
         craft_badge: "Qualité & Logistique",
         craft_title: "FABRICATION, EMBALLAGE & LIVRAISON",
         craft_subtitle: "Un engagement total sur la qualité des matériaux, la transparence de production et le soin apporté à chaque colis envoyé chez vous.",
@@ -744,8 +725,6 @@
         gal_img4_desc: "A generous, soft, and perfectly balanced format for hand-held comfort.",
         gal_img5_title: "Back Details",
         gal_img5_desc: "A perfectly fitted hood and top-quality reinforced stitching.",
-        gal_more_title: "More photos coming soon",
-        gal_more_desc: "Add your own image files directly to your GitHub repository to feed this gallery live!",
         craft_badge: "Quality & Logistics",
         craft_title: "MANUFACTURING, PACKAGING & SHIPPING",
         craft_subtitle: "Total commitment to material quality, production transparency, and care for every single package sent to your home.",
@@ -796,7 +775,6 @@
       });
     }
 
-    // Particules diamant en arrière-plan
     const canvas = document.getElementById('sparkle-canvas');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
@@ -831,4 +809,3 @@
   </script>
 </body>
 </html>
-```eof
