@@ -1,618 +1,837 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark scroll-smooth">
+<html lang="fr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOODIE PLUSH - More Than Just A Plush... It's A Vibe</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            blue: '#00d2ff',
-                            electric: '#0072ff',
-                            dark: '#05070d',
-                            card: '#0c101d',
-                            border: '#1e2942',
-                            silver: '#e2e8f0'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Impact', 'sans-serif']
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'shimmer': 'shimmer 2.5s infinite linear',
-                        'glow': 'glow 3s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-12px)' },
-                        },
-                        shimmer: {
-                            '0%': { backgroundPosition: '-200% 0' },
-                            '100%': { backgroundPosition: '200% 0' },
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 15px rgba(0, 210, 255, 0.2)' },
-                            '100%': { boxShadow: '0 0 35px rgba(0, 210, 255, 0.6), 0 0 60px rgba(0, 114, 255, 0.3)' }
-                        }
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOODIE PLUSH | Site Vitrine Officiel - 2026</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              black: '#05070B',
+              dark: '#0B0F17',
+              card: 'rgba(15, 23, 42, 0.65)',
+              cyan: '#00F0FF',
+              blue: '#0066FF',
+              purple: '#7000FF',
+              silver: '#E2E8F0',
+              diamond: '#BAE6FD'
             }
+          },
+          animation: {
+            'glow-pulse': 'glowPulse 3s infinite alternate',
+            'float': 'float 5s ease-in-out infinite',
+            'sparkle-fade': 'sparkleFade 2.5s infinite ease-in-out',
+          },
+          keyframes: {
+            glowPulse: {
+              '0%': { boxShadow: '0 0 20px rgba(0, 240, 255, 0.25), 0 0 40px rgba(0, 102, 255, 0.15)' },
+              '100%': { boxShadow: '0 0 50px rgba(0, 240, 255, 0.65), 0 0 90px rgba(112, 0, 255, 0.35)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-12px) rotate(1deg)' },
+            },
+            sparkleFade: {
+              '0%, 100%': { opacity: '0.2', transform: 'scale(0.8)' },
+              '50%': { opacity: '1', transform: 'scale(1.3)' },
+            }
+          }
         }
-    </script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #05070d;
-            color: #f8fafc;
-            overflow-x: hidden;
-        }
+      }
+    }
+  </script>
 
-        .diamond-gradient {
-            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 50%, #0072ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .silver-glitter-bg {
-            background: linear-gradient(135deg, rgba(12, 16, 29, 0.95) 0%, rgba(5, 7, 13, 0.98) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 210, 255, 0.15);
-        }
-
-        .glass-panel {
-            background: rgba(12, 16, 29, 0.7);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .glass-panel:hover {
-            border-color: rgba(0, 210, 255, 0.4);
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #05070d;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e2942;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00d2ff;
-        }
-    </style>
+  <style>
+    .bg-diamond-pattern {
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 80% 50%, rgba(112, 0, 255, 0.08) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+    }
+    .text-silver-gradient {
+      background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 40%, #00F0FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-cyan-gradient {
+      background: linear-gradient(135deg, #00F0FF 0%, #3B82F6 50%, #7000FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-nav {
+      background: rgba(5, 7, 11, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(0, 240, 255, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px -10px rgba(0, 240, 255, 0.25);
+    }
+    #sparkle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .active-angle {
+      border-color: #00F0FF !important;
+      background: rgba(0, 240, 255, 0.15) !important;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    }
+  </style>
 </head>
-<body class="bg-[#05070d] text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
+<body class="bg-brand-black text-slate-100 font-sans selection:bg-brand-cyan selection:text-black overflow-x-hidden relative bg-diamond-pattern">
 
-    <!-- Navigation Bar -->
-    <header class="fixed top-0 left-0 right-0 z-50 silver-glitter-bg border-b border-cyan-500/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30 group-hover:scale-105 transition-transform">
-                    <i data-lucide="sparkles" class="w-6 h-6 text-white"></i>
-                </div>
-                <div>
-                    <span class="text-xl font-black tracking-wider diamond-gradient">HOODIE PLUSH</span>
-                    <span class="block text-[10px] tracking-widest text-cyan-400 font-semibold uppercase">Edition 2026</span>
-                </div>
+  <canvas id="sparkle-canvas"></canvas>
+
+  <header class="sticky top-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan via-brand-blue to-brand-purple flex items-center justify-center font-display font-black text-black text-xl shadow-lg shadow-brand-cyan/20">
+          H
+        </div>
+        <div>
+          <span class="font-display font-black text-xl tracking-wider text-white flex items-center gap-1">
+            HOODIE PLUSH <i data-lucide="sparkles" class="w-4 h-4 text-brand-cyan inline"></i>
+          </span>
+          <span class="block text-[10px] text-brand-cyan tracking-widest font-mono uppercase">Edition 2026</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-300">
+        <a href="#concept" class="hover:text-brand-cyan transition-colors" data-i18n="nav_concept">Concept</a>
+        <a href="#viewer360" class="hover:text-brand-cyan transition-colors" data-i18n="nav_viewer">Vue 360°</a>
+        <a href="#order" class="hover:text-brand-cyan transition-colors" data-i18n="nav_order">Précommande</a>
+        <a href="#transparency" class="hover:text-brand-cyan transition-colors" data-i18n="nav_about">Conception & IA</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="lang-btn" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-brand-cyan flex items-center gap-1.5 transition">
+          <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+          <span id="lang-label">FR / EN</span>
+        </button>
+
+        <a href="https://tiktok.com/@user3949202002" target="_blank" class="hidden sm:flex px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-semibold items-center gap-1.5 transition">
+          <i data-lucide="video" class="w-3.5 h-3.5 text-brand-cyan"></i>
+          <span>TikTok</span>
+        </a>
+
+        <a href="#order" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-90 transition shadow-md shadow-brand-cyan/20">
+          VIP
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="bg-gradient-to-r from-amber-500/20 via-brand-cyan/15 to-amber-500/20 border-b border-amber-500/30 py-2.5 px-4 text-center text-xs font-semibold text-amber-200 flex items-center justify-center gap-2">
+    <i data-lucide="clock" class="w-4 h-4 text-amber-400 animate-pulse"></i>
+    <span data-i18n="status_banner">COMMANDE INDISPONIBLE POUR LE MOMENT • PHASE DE PRÉ-LANCEMENT DE LA CAMPAGNE</span>
+  </div>
+
+  <section id="concept" class="relative pt-12 pb-20 overflow-hidden z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase tracking-widest">
+            <i data-lucide="gem" class="w-3.5 h-3.5"></i>
+            <span data-i18n="hero_badge">Design Futuriste 2026 & Effet Diamant</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-none tracking-tight">
+            MORE THAN JUST A PLUSH... <br>
+            <span class="text-silver-gradient">IT'S A VIBE.</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed" data-i18n="hero_desc">
+            Une pièce de collection streetwear unique. Habillée d'une doudoune brillante motif géométrique, d'une visière effet miroir et confectionnée avec des détails soignés pour financer plusieurs projets personnels.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="glass-card p-3 rounded-xl text-center">
+              <i data-lucide="gem" class="w-5 h-5 text-brand-cyan mx-auto mb-1"></i>
+              <span class="text-xs font-bold block text-white" data-i18n="feat_1_title">Matériaux Premium</span>
+              <span class="text-[10px] text-slate-400" data-i18n="feat_1_sub">Doux & Haute Qualité</span>
+            </div>
+            <div class="glass-card p-3 rounded-xl text-center">
+              <i data-lucide="cloud" class="w-5 h-5 text-brand-cyan mx-auto mb-1"></i>
+              <span class="text-xs font-bold block text-white" data-i18n="feat_2_title">Ultra Doux</span>
+              <span class="text-[10px] text-slate-400" data-i18n="feat_2_sub">Parfait pour les câlins</span>
+            </div>
+            <div class="glass-card p-3 rounded-xl text-center">
+              <i data-lucide="shield-check" class="w-5 h-5 text-brand-cyan mx-auto mb-1"></i>
+              <span class="text-xs font-bold block text-white" data-i18n="feat_3_title">Détails Soignés</span>
+              <span class="text-[10px] text-slate-400" data-i18n="feat_3_sub">Finition comme en vrai</span>
+            </div>
+            <div class="glass-card p-3 rounded-xl text-center">
+              <i data-lucide="gift" class="w-5 h-5 text-brand-cyan mx-auto mb-1"></i>
+              <span class="text-xs font-bold block text-white" data-i18n="feat_4_title">Idée Cadeau</span>
+              <span class="text-[10px] text-slate-400" data-i18n="feat_4_sub">Pour petits et grands</span>
+            </div>
+          </div>
+
+          <!-- Counter & Campaign Progress Bar -->
+          <div class="glass-card p-6 rounded-2xl border border-brand-cyan/20 space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
+              <div class="flex items-center gap-2">
+                <i data-lucide="timer" class="w-5 h-5 text-brand-cyan"></i>
+                <span class="text-sm font-bold text-white uppercase tracking-wider" data-i18n="countdown_title">Temps avant lancement :</span>
+              </div>
+              <span class="text-xl font-display font-black text-brand-cyan px-3 py-1 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30" data-i18n="countdown_val">
+                100 JOURS
+              </span>
+            </div>
+
+            <div class="space-y-1.5">
+              <div class="flex justify-between text-xs font-bold">
+                <span class="text-slate-400" data-i18n="progress_title">Évolution de la campagne</span>
+                <span class="text-brand-cyan" data-i18n="progress_val">0% (0 €)</span>
+              </div>
+              <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden p-0.5 border border-white/10">
+                <div class="h-full bg-gradient-to-r from-brand-cyan to-brand-blue rounded-full w-[0%] transition-all duration-500 shadow-lg shadow-brand-cyan/50"></div>
+              </div>
+              <p class="text-[11px] text-slate-400 text-center sm:text-left" data-i18n="progress_sub">
+                Objectif : Récolter des fonds pour lancer plusieurs projets personnels originaux.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
+            <button class="px-8 py-4 rounded-xl bg-slate-800 border border-slate-700 text-slate-400 font-bold text-sm cursor-not-allowed flex items-center justify-center gap-2 opacity-80">
+              <i data-lucide="lock" class="w-4 h-4"></i>
+              <span data-i18n="btn_unavailable">Commande indisponible</span>
+            </button>
+            <a href="#order" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-sm uppercase tracking-wider hover:scale-105 transition shadow-lg shadow-brand-cyan/25 flex items-center justify-center gap-2">
+              <i data-lucide="bell" class="w-4 h-4"></i>
+              <span data-i18n="btn_alert">Être averti du lancement VIP</span>
             </a>
+          </div>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#hero" class="text-slate-300 hover:text-cyan-400 transition-colors">Accueil</a>
-                <a href="#features" class="text-slate-300 hover:text-cyan-400 transition-colors">Caractéristiques</a>
-                <a href="#gallery" class="text-slate-300 hover:text-cyan-400 transition-colors">Lookbook 360°</a>
-                <a href="#project" class="text-slate-300 hover:text-cyan-400 transition-colors">Le Projet</a>
-                <a href="#preorder" class="text-slate-300 hover:text-cyan-400 transition-colors">Précommande</a>
-            </nav>
-
-            <!-- CTA Status & Mobile Toggle -->
-            <div class="flex items-center space-x-4">
-                <div class="hidden lg:flex items-center space-x-2 px-3 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-xs font-semibold text-cyan-300 animate-pulse">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-                    <span>Bientôt Disponible</span>
-                </div>
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-slate-800/80 text-slate-200 hover:text-cyan-400">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-[#05070d]/95 backdrop-blur-xl border-b border-cyan-500/20 px-4 pt-2 pb-6 space-y-3">
-            <a href="#hero" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-cyan-950/40 hover:text-cyan-400">Accueil</a>
-            <a href="#features" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-cyan-950/40 hover:text-cyan-400">Caractéristiques</a>
-            <a href="#gallery" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-cyan-950/40 hover:text-cyan-400">Lookbook 360°</a>
-            <a href="#project" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-cyan-950/40 hover:text-cyan-400">Le Projet</a>
-            <a href="#preorder" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-cyan-950/40 hover:text-cyan-400">Précommande</a>
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple rounded-3xl blur-xl opacity-60 group-hover:opacity-85 transition duration-1000"></div>
+            <div class="relative glass-card rounded-3xl p-4 border border-white/20 overflow-hidden max-w-md shadow-2xl">
+              <img id="hero-main-img" src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Hoodie Plush Showcase" class="w-full h-auto rounded-2xl object-cover transform hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x600/0b0f17/00f0ff?text=Hoodie+Plush+2026'">
+              <div class="absolute bottom-6 left-6 right-6 p-4 glass-nav rounded-xl border border-white/20 text-center">
+                <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest block mb-0.5" data-i18n="hero_card_sub">UN STYLE UNIQUE</span>
+                <span class="text-white font-display font-bold text-lg" data-i18n="hero_card_title">Le Compagnon Idéal</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        <!-- Glowing background effects -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Left Text Content -->
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 text-cyan-300 text-xs md:text-sm font-semibold tracking-wider uppercase animate-glow">
-                        <i data-lucide="crown" class="w-4 h-4 text-cyan-400"></i>
-                        <span>PLUSH TOY DESIGN • ÉDITION LIMITÉE 2026</span>
-                    </div>
+  <section id="viewer360" class="py-20 relative bg-brand-dark/60 border-y border-white/10 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="viewer_heading">
+          VISUALISEUR MULTI-ANGLES 360°
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base" data-i18n="viewer_sub">
+          Découvre la peluche sous toutes ses faces grâce aux 5 visuels officiels.
+        </p>
+      </div>
 
-                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-none">
-                        HOODIE <span class="diamond-gradient">PLUSH</span>
-                    </h1>
+      <div class="max-w-4xl mx-auto glass-card p-6 sm:p-8 rounded-3xl border border-brand-cyan/30 shadow-2xl">
+        
+        <div class="relative aspect-square sm:aspect-[16/10] rounded-2xl overflow-hidden bg-black/70 border border-white/10 flex items-center justify-center group">
+          
+          <!-- Image dynamique avec rendu SVG interactif pour la démo visualiseur -->
+          <div id="view-360-container" class="w-full h-full flex items-center justify-center p-4">
+            <img id="view-360-img" src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Aperçu angle" class="max-h-full max-w-full object-contain transition-all duration-300" onerror="handleImgError(this)">
+          </div>
 
-                    <p class="text-lg md:text-2xl font-medium text-slate-300 italic tracking-wide">
-                        "More than just a plush... <span class="text-cyan-400 font-bold not-italic">It's a vibe.</span>"
-                    </p>
+          <div class="absolute top-4 left-4 glass-card px-3 py-1.5 rounded-lg border border-brand-cyan/40 text-[11px] font-mono text-brand-cyan flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-cyan animate-ping"></span>
+            <span id="angle-indicator">0° (Image 1/5)</span>
+          </div>
 
-                    <p class="text-slate-400 text-sm md:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        Découvrez le compagnon idéal au style futuriste unique, conçu avec un tissu scintillant effet diamant, une visière réfléchissante et des finitions haute couture. Un projet exclusif pour financer des rêves et des créations uniques !
-                    </p>
+          <div class="absolute top-4 right-4 glass-card px-3 py-1.5 rounded-lg border border-white/20 text-xs font-bold text-white" id="angle-title">
+            1. Détails de la Peluche
+          </div>
 
-                    <!-- Status Box & Buttons -->
-                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <div class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-300 font-bold text-center flex items-center justify-center space-x-3 shadow-lg">
-                            <i data-lucide="lock" class="w-5 h-5 text-amber-400 animate-bounce"></i>
-                            <span>COMMANDE INDISPONIBLE POUR LE MOMENT</span>
-                        </div>
+          <button onclick="prevAngle()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-card border border-white/20 text-white flex items-center justify-center hover:bg-brand-cyan hover:text-black transition">
+            <i data-lucide="chevron-left" class="w-6 h-6"></i>
+          </button>
 
-                        <a href="#preorder" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold hover:shadow-lg hover:shadow-cyan-500/40 transition-all flex items-center justify-center space-x-2 group">
-                            <span>Être Notifié du Lancement</span>
-                            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                    </div>
+          <button onclick="nextAngle()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-card border border-white/20 text-white flex items-center justify-center hover:bg-brand-cyan hover:text-black transition">
+            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+          </button>
 
-                    <!-- Quick Badge Highlights -->
-                    <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-slate-800">
-                        <div class="flex items-center space-x-2 text-xs text-slate-400">
-                            <i data-lucide="gem" class="w-4 h-4 text-cyan-400 shrink-0"></i>
-                            <span>Matériaux Premium</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-xs text-slate-400">
-                            <i data-lucide="sparkle" class="w-4 h-4 text-cyan-400 shrink-0"></i>
-                            <span>Effet Brillant</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-xs text-slate-400">
-                            <i data-lucide="shield-check" class="w-4 h-4 text-cyan-400 shrink-0"></i>
-                            <span>Finition Soignée</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-xs text-slate-400">
-                            <i data-lucide="gift" class="w-4 h-4 text-cyan-400 shrink-0"></i>
-                            <span>Idée Cadeau Ultime</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Hero Image Showcase with Interactive Previewer -->
-                <div class="lg:col-span-5 relative">
-                    <div class="relative mx-auto max-w-md lg:max-w-none">
-                        <!-- Glow Frame Effect -->
-                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 opacity-30 blur-xl animate-pulse-slow"></div>
-                        
-                        <div class="relative glass-panel rounded-3xl p-4 shadow-2xl overflow-hidden group">
-                            <!-- Image Switcher Tabs -->
-                            <div class="flex justify-center space-x-2 mb-4 bg-slate-900/80 p-1.5 rounded-xl border border-slate-800">
-                                <button onclick="switchHeroImage('blister')" id="btn-blister" class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all bg-cyan-500 text-black shadow-md">
-                                    Pack / Blister
-                                </button>
-                                <button onclick="switchHeroImage('detailed')" id="btn-detailed" class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white">
-                                    Packshot Pro
-                                </button>
-                            </div>
-
-                            <!-- Main Image Display -->
-                            <div class="relative rounded-2xl overflow-hidden bg-slate-950 aspect-[4/5] flex items-center justify-center">
-                                <img id="hero-main-img" src="f741e46c-c583-4ac0-9042-ef8f8a2a712b.png" alt="HOODIE PLUSH Blister" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                                
-                                <div class="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md p-3 rounded-xl border border-cyan-500/20 flex items-center justify-between">
-                                    <div>
-                                        <p id="hero-img-title" class="text-xs font-bold text-cyan-300">Emballage Blister Exclusif</p>
-                                        <p class="text-[10px] text-slate-400">Prêt à offrir, emballage protecteur design</p>
-                                    </div>
-                                    <span class="px-2.5 py-1 rounded-md bg-cyan-500/20 text-cyan-400 text-[10px] font-bold">2026 Edition</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+          <button id="auto-spin-btn" onclick="toggleAutoSpin()" class="absolute bottom-4 right-4 glass-card px-4 py-2 rounded-xl border border-brand-cyan/40 text-xs font-bold text-brand-cyan flex items-center gap-2 hover:bg-brand-cyan hover:text-black transition">
+            <i data-lucide="rotate-cw" class="w-4 h-4" id="spin-icon"></i>
+            <span id="spin-label" data-i18n="btn_auto_spin">Rotation Auto</span>
+          </button>
         </div>
-    </section>
 
-    <!-- Preorder Campaign & Countdown Section -->
-    <section id="preorder" class="py-16 relative bg-gradient-to-b from-[#05070d] via-[#090e1a] to-[#05070d]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-panel rounded-3xl p-8 md:p-12 relative overflow-hidden">
-                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
-                    <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold">
-                            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
-                            <span>LANCEMENT OFFICIEL EN COURS DE PRÉPARATION</span>
-                        </div>
-
-                        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
-                            Campagne de Financement & <span class="diamond-gradient">Précommandes</span>
-                        </h2>
-
-                        <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-                            Ce projet HOODIE PLUSH évolue pas à pas pour donner vie à plusieurs initiatives personnelles ambitieuses. Chaque précommande soutient directement la création et le développement de nouveaux produits exclusifs.
-                        </p>
-
-                        <!-- Countdown Timer -->
-                        <div class="grid grid-cols-4 gap-3 pt-2">
-                            <div class="bg-slate-900/80 border border-cyan-500/20 rounded-2xl p-3 text-center">
-                                <span id="days" class="block text-2xl md:text-3xl font-black text-cyan-400">45</span>
-                                <span class="text-[10px] uppercase tracking-wider text-slate-400">Jours</span>
-                            </div>
-                            <div class="bg-slate-900/80 border border-cyan-500/20 rounded-2xl p-3 text-center">
-                                <span id="hours" class="block text-2xl md:text-3xl font-black text-cyan-400">12</span>
-                                <span class="text-[10px] uppercase tracking-wider text-slate-400">Heures</span>
-                            </div>
-                            <div class="bg-slate-900/80 border border-cyan-500/20 rounded-2xl p-3 text-center">
-                                <span id="minutes" class="block text-2xl md:text-3xl font-black text-cyan-400">30</span>
-                                <span class="text-[10px] uppercase tracking-wider text-slate-400">Minutes</span>
-                            </div>
-                            <div class="bg-slate-900/80 border border-cyan-500/20 rounded-2xl p-3 text-center">
-                                <span id="seconds" class="block text-2xl md:text-3xl font-black text-cyan-400">15</span>
-                                <span class="text-[10px] uppercase tracking-wider text-slate-400">Secondes</span>
-                            </div>
-                        </div>
-
-                        <!-- Progress Bar -->
-                        <div class="space-y-2 pt-2">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">Objectif de la campagne</span>
-                                <span class="text-cyan-400">68% Financé (Phase 1)</span>
-                            </div>
-                            <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden p-0.5 border border-slate-800">
-                                <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full w-[68%] relative">
-                                    <div class="absolute inset-0 bg-white/20 animate-shimmer"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Notification Email Form -->
-                    <div class="lg:col-span-6 bg-slate-950/80 p-6 md:p-8 rounded-2xl border border-cyan-500/20 relative">
-                        <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2">
-                            <span class="px-3 py-1 bg-cyan-500 text-black text-[10px] font-black uppercase rounded-full tracking-widest shadow-lg">Prioritaire</span>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">Soyez les premiers informés</h3>
-                        <p class="text-slate-400 text-xs mb-6">
-                            Inscrivez-vous pour recevoir une alerte exclusive dès l'ouverture des précommandes et accéder à l'édition collector limitée.
-                        </p>
-
-                        <form id="notify-form" onsubmit="handleNotify(event)" class="space-y-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-300 mb-1">Votre Adresse E-mail</label>
-                                <div class="relative">
-                                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
-                                        <i data-lucide="mail" class="w-4 h-4"></i>
-                                    </span>
-                                    <input type="email" required placeholder="nom@exemple.com" class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm text-slate-200 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all">
-                                </div>
-                            </div>
-
-                            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-[1.01] transition-all flex items-center justify-center space-x-2">
-                                <i data-lucide="bell" class="w-4 h-4"></i>
-                                <span>M'inscrire à l'Alerte Précommande</span>
-                            </button>
-
-                            <p id="form-success-msg" class="hidden text-center text-xs text-cyan-400 font-semibold pt-2">
-                                ✨ Merci ! Vous êtes bien inscrit sur la liste prioritaire VIP.
-                            </p>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
+        <!-- 5 Vues dans l'ordre exact demandé -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-6">
+          <button onclick="setAngle(0)" class="angle-nav-btn active-angle p-3 rounded-xl glass-card text-center border">
+            <span class="text-[10px] text-slate-400 block font-mono">VUE 1</span>
+            <span class="text-xs font-bold text-white" data-i18n="v1">Détails</span>
+          </button>
+          <button onclick="setAngle(1)" class="angle-nav-btn p-3 rounded-xl glass-card text-center border">
+            <span class="text-[10px] text-slate-400 block font-mono">VUE 2</span>
+            <span class="text-xs font-bold text-white" data-i18n="v2">Packaging</span>
+          </button>
+          <button onclick="setAngle(2)" class="angle-nav-btn p-3 rounded-xl glass-card text-center border">
+            <span class="text-[10px] text-slate-400 block font-mono">VUE 3</span>
+            <span class="text-xs font-bold text-white" data-i18n="v3">Face</span>
+          </button>
+          <button onclick="setAngle(3)" class="angle-nav-btn p-3 rounded-xl glass-card text-center border">
+            <span class="text-[10px] text-slate-400 block font-mono">VUE 4</span>
+            <span class="text-xs font-bold text-white" data-i18n="v4">Côté</span>
+          </button>
+          <button onclick="setAngle(4)" class="angle-nav-btn p-3 rounded-xl glass-card text-center border">
+            <span class="text-[10px] text-slate-400 block font-mono">VUE 5</span>
+            <span class="text-xs font-bold text-white" data-i18n="v5">Dos</span>
+          </button>
         </div>
-    </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                <span class="text-cyan-400 font-semibold text-xs tracking-widest uppercase">Design & Finitions</span>
-                <h2 class="text-3xl md:text-5xl font-black tracking-tight">Caractéristiques <span class="diamond-gradient">Premium</span></h2>
-                <p class="text-slate-400 text-sm md:text-base">
-                    Chaque détail a été pensé pour offrir un style urbain irrésistible, futuriste et d'une douceur absolue.
-                </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="order" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+            <span data-i18n="order_badge">Espace Commande & Informations</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-5xl font-black text-white">
+            HOODIE PLUSH <br>
+            <span class="text-cyan-gradient">EDITION COLLECTOR 2026</span>
+          </h2>
+
+          <p class="text-slate-300 leading-relaxed text-sm sm:text-base" data-i18n="order_desc">
+            Pensée comme un objet de collection unique, chaque peluche est livrée dans son packaging sac individuel prêt à offrir, avec fermeture zippée et tissu brillant de haute qualité.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            <div class="glass-card p-4 rounded-xl flex items-start gap-4">
+              <div class="p-2.5 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white" data-i18n="spec1_title">Capuche & Tissu Premium</h4>
+                <p class="text-xs text-slate-400" data-i18n="spec1_desc">Tissu brillant effet diamant avec détails soignés et toucher ultra doux.</p>
+              </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Feature 1 -->
-                <div class="glass-panel p-6 rounded-2xl space-y-4 hover:-translate-y-1 transition-all duration-300 group">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black transition-colors">
-                        <i data-lucide="gem" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-lg font-bold">Matériaux Premium</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Tissu scintillant effet diamant ultra-résistant, doux et de haute qualité pour une durabilité exceptionnelle.
-                    </p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="glass-panel p-6 rounded-2xl space-y-4 hover:-translate-y-1 transition-all duration-300 group">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black transition-colors">
-                        <i data-lucide="cloud" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-lg font-bold">Ultra Doux</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Conçu avec un rembourrage moelleux et des velours doux parfaits pour les câlins et le réconfort au quotidien.
-                    </p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="glass-panel p-6 rounded-2xl space-y-4 hover:-translate-y-1 transition-all duration-300 group">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black transition-colors">
-                        <i data-lucide="shield-check" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-lg font-bold">Détails Soignés</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Finition premium inspirée des vrais vêtements streetwear : capuche ajustable, visière futuriste et zipper fonctionnel.
-                    </p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="glass-panel p-6 rounded-2xl space-y-4 hover:-translate-y-1 transition-all duration-300 group">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black transition-colors">
-                        <i data-lucide="gift" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-lg font-bold">Idée Cadeau Parfaite</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Pour les petits et grands fans de style, livré dans son emballage individuel blister prêt à offrir.
-                    </p>
-                </div>
+            <div class="glass-card p-4 rounded-xl flex items-start gap-4">
+              <div class="p-2.5 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan">
+                <i data-lucide="eye" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white" data-i18n="spec2_title">Visière Miroir & Zipper</h4>
+                <p class="text-xs text-slate-400" data-i18n="spec2_desc">Visière style masque de ski moderne et fermeture éclair fonctionnelle.</p>
+              </div>
             </div>
+
+            <div class="glass-card p-4 rounded-xl flex items-start gap-4">
+              <div class="p-2.5 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan">
+                <i data-lucide="box" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white" data-i18n="spec3_title">Packaging Blister Individuel</h4>
+                <p class="text-xs text-slate-400" data-i18n="spec3_desc">Sac packaging officiel imprimé avec visuels de présentation.</p>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Lookbook / Gallery Section -->
-    <section id="gallery" class="py-20 bg-slate-950/50 border-y border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                <span class="text-cyan-400 font-semibold text-xs tracking-widest uppercase">Lookbook 360°</span>
-                <h2 class="text-3xl md:text-5xl font-black tracking-tight">Sous toutes les <span class="diamond-gradient">Coutures</span></h2>
-                <p class="text-slate-400 text-sm md:text-base">
-                    Explorez chaque angle de la peluche HOODIE PLUSH : de sa visière réfléchissante à ses finitions de vêtements.
-                </p>
+        <div class="lg:col-span-6">
+          <div class="glass-card p-8 rounded-3xl border border-brand-cyan/30 relative overflow-hidden shadow-2xl">
+            
+            <div class="flex justify-between items-start mb-6 border-b border-white/10 pb-6">
+              <div>
+                <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase block mb-1" data-i18n="price_label">PRIX DE PRÉCOMMANDE</span>
+                <span class="font-display font-black text-4xl text-white">39,99 € <span class="text-xs text-slate-400 font-normal">TTC</span></span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold" data-i18n="stock_badge">
+                Phase Pré-lancement
+              </span>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <!-- Big Featured View -->
-                <div class="lg:col-span-7">
-                    <div class="glass-panel p-4 rounded-3xl relative overflow-hidden group">
-                        <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center">
-                            <img id="gallery-active-img" src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="HOODIE PLUSH Lookbook" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div class="mt-4 flex items-center justify-between px-2">
-                            <div>
-                                <h4 id="gallery-title" class="font-bold text-sm text-cyan-300">Packshot Officiel & Vues Détaillées</h4>
-                                <p id="gallery-desc" class="text-xs text-slate-400">Vue d'ensemble et détails de conception du petit héros du quotidien</p>
-                            </div>
-                            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold">2026 Vibe</span>
-                        </div>
-                    </div>
-                </div>
+            <form id="vip-form" onsubmit="handleVipSubmit(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2" data-i18n="form_label">S'inscrire à la liste VIP</label>
+                <input type="email" required placeholder="Ton adresse email..." class="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan text-sm">
+              </div>
 
-                <!-- Thumbnail Navigation Grid -->
-                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-                    <div onclick="setGalleryImage('532c176e-c523-495f-bc6b-4c3a5d5682c6.png', 'Packshot Officiel & Vues Détaillées', 'Vue principale et cadrages de présentation')" class="glass-panel p-3 rounded-2xl cursor-pointer hover:border-cyan-500/60 transition-all group">
-                        <div class="aspect-video rounded-xl overflow-hidden bg-slate-900 mb-2">
-                            <img src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Vue principale" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                        </div>
-                        <p class="text-xs font-bold truncate">Vue d'ensemble</p>
-                        <p class="text-[10px] text-slate-400">Packshot global</p>
-                    </div>
+              <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200 flex items-start gap-2.5">
+                <i data-lucide="info" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                <span data-i18n="form_warning"><strong>Commande indisponible pour le moment :</strong> Laisse ton e-mail pour recevoir l'accès prioritaire dès l'ouverture de la boutique !</span>
+              </div>
 
-                    <div onclick="setGalleryImage('f741e46c-c583-4ac0-9042-ef8f8a2a712b.png', 'Packaging Blister Original', 'Sac individuel étanche et design prêt à offrir')" class="glass-panel p-3 rounded-2xl cursor-pointer hover:border-cyan-500/60 transition-all group">
-                        <div class="aspect-video rounded-xl overflow-hidden bg-slate-900 mb-2">
-                            <img src="f741e46c-c583-4ac0-9042-ef8f8a2a712b.png" alt="Packaging" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                        </div>
-                        <p class="text-xs font-bold truncate">Packaging Blister</p>
-                        <p class="text-[10px] text-slate-400">Sac individuel design</p>
-                    </div>
+              <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-black text-sm uppercase tracking-wider hover:opacity-95 transition shadow-lg shadow-brand-cyan/20 flex items-center justify-center gap-2">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span data-i18n="form_btn">Rejoindre la liste VIP (J-100)</span>
+              </button>
+            </form>
 
-                    <div onclick="setGalleryImage('532c176e-c523-495f-bc6b-4c3a5d5682c6.png', 'Capuche & Tissu Scintillant', 'Effet brillant haute qualité et coutures renforcées')" class="glass-panel p-3 rounded-2xl cursor-pointer hover:border-cyan-500/60 transition-all group">
-                        <div class="aspect-video rounded-xl overflow-hidden bg-slate-900 mb-2">
-                            <img src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Tissu & Capuche" class="w-full h-full object-cover group-hover:scale-110 transition-transform object-top">
-                        </div>
-                        <p class="text-xs font-bold truncate">Capuche & Tissu</p>
-                        <p class="text-[10px] text-slate-400">Effet pailleté diamant</p>
-                    </div>
-
-                    <div onclick="setGalleryImage('532c176e-c523-495f-bc6b-4c3a5d5682c6.png', 'Visière & Zipper Fonctionnel', 'Masque futuriste et fermeture éclair décorative pratique')" class="glass-panel p-3 rounded-2xl cursor-pointer hover:border-cyan-500/60 transition-all group">
-                        <div class="aspect-video rounded-xl overflow-hidden bg-slate-900 mb-2">
-                            <img src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Visière & Zipper" class="w-full h-full object-cover group-hover:scale-110 transition-transform object-bottom">
-                        </div>
-                        <p class="text-xs font-bold truncate">Visière & Zipper</p>
-                        <p class="text-[10px] text-slate-400">Détails futuristes</p>
-                    </div>
-                </div>
+            <div id="vip-success" class="hidden text-center py-8 space-y-3">
+              <div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto">
+                <i data-lucide="check" class="w-6 h-6"></i>
+              </div>
+              <h4 class="font-bold text-white text-lg" data-i18n="success_title">Tu es inscrit sur la liste VIP !</h4>
+              <p class="text-xs text-slate-300" data-i18n="success_desc">Tu seras prévenu en premier dès que la campagne sera officiellement ouverte.</p>
             </div>
+
+          </div>
         </div>
-    </section>
 
-    <!-- About Project Section -->
-    <section id="project" class="py-20 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-panel rounded-3xl p-8 md:p-14 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      </div>
 
-                <div class="max-w-3xl space-y-6">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold">
-                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                        <span>HISTOIRE DU PROJET</span>
-                    </div>
+    </div>
+  </section>
 
-                    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
-                        Pourquoi créer <span class="diamond-gradient">HOODIE PLUSH</span> ?
-                    </h2>
+  <section id="transparency" class="py-16 bg-brand-dark/80 border-t border-white/10 z-10 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-bold uppercase">
+        <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+        <span data-i18n="transparency_badge">Transparence & Processus</span>
+      </div>
 
-                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-                        HOODIE PLUSH n'est pas seulement un objet de collection : c'est un projet artistique et entrepreneurial né d'une passion pour le design streetwear et les univers futuristes. 
-                    </p>
+      <h3 class="font-display text-2xl sm:text-4xl font-black text-white" data-i18n="transparency_title">
+        CRÉATION DU SITE AVEC L'IA & PELUCHE 100% HUMAINE
+      </h3>
 
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Chaque étape de la création, du choix des tissus scintillants effet diamant jusqu'au packaging blister individuel, est réalisée avec une exigence absolue. En précommandant cette peluche, vous participez directement à la concrétisation de plusieurs projets personnels et créatifs ambitieux.
-                    </p>
-
-                    <div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
-                            <span class="block text-2xl font-black text-cyan-400">100%</span>
-                            <span class="text-xs text-slate-400">Exclusif & Indépendant</span>
-                        </div>
-                        <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
-                            <span class="block text-2xl font-black text-cyan-400">2026</span>
-                            <span class="text-xs text-slate-400">Design Futuriste Vibe</span>
-                        </div>
-                        <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
-                            <span class="block text-2xl font-black text-cyan-400">VIP</span>
-                            <span class="text-xs text-slate-400">Accès Premiers Soutiens</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left pt-4">
+        
+        <div class="glass-card p-6 rounded-2xl space-y-2 border-brand-cyan/20">
+          <div class="flex items-center gap-2 text-brand-cyan font-bold text-sm">
+            <i data-lucide="bot" class="w-5 h-5"></i>
+            <span data-i18n="ia_box_title">Création du Site Web (IA)</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="ia_box_desc">
+            Nous affirmons travailler avec l'IA pour le développement et la création de ce site web, afin d'offrir un design vitrine moderne et interactif.
+          </p>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center">
-                    <i data-lucide="sparkles" class="w-4 h-4 text-white"></i>
-                </div>
-                <span class="font-bold tracking-wider diamond-gradient">HOODIE PLUSH</span>
-            </div>
-
-            <p class="text-xs text-slate-500 text-center">
-                © 2026 HOODIE PLUSH. Tous droits réservés. More than just a plush... It's a vibe.
-            </p>
-
-            <div class="flex items-center space-x-4 text-xs text-slate-400">
-                <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 font-semibold">
-                    Commande Indisponible
-                </span>
-            </div>
+        <div class="glass-card p-6 rounded-2xl space-y-2 border-emerald-500/20">
+          <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+            <i data-lucide="user-check" class="w-5 h-5"></i>
+            <span data-i18n="human_box_title">Peluche 100% Humaine</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="human_box_desc">
+            Le produit lui-même est 100% humain : le design est créé par notre équipe et la peluche est fabriquée sur-mesure avec précision dans des usines spécialisées en Chine.
+          </p>
         </div>
-    </footer>
 
-    <!-- JavaScript Logic -->
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
+      </div>
 
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+    </div>
+  </section>
 
-        // Hero Image Switcher
-        function switchHeroImage(type) {
-            const mainImg = document.getElementById('hero-main-img');
-            const titleEl = document.getElementById('hero-img-title');
-            const btnBlister = document.getElementById('btn-blister');
-            const btnDetailed = document.getElementById('btn-detailed');
+  <footer class="py-12 border-t border-white/10 glass-nav z-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center font-display font-black text-black text-base">
+          H
+        </div>
+        <span class="font-display font-bold text-white text-sm">HOODIE PLUSH © 2026</span>
+      </div>
 
-            if (type === 'blister') {
-                mainImg.src = 'f741e46c-c583-4ac0-9042-ef8f8a2a712b.png';
-                titleEl.textContent = 'Emballage Blister Exclusif';
-                btnBlister.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all bg-cyan-500 text-black shadow-md';
-                btnDetailed.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white';
-            } else {
-                mainImg.src = '532c176e-c523-495f-bc6b-4c3a5d5682c6.png';
-                titleEl.textContent = 'Packshot Officiel & Vues Détaillées';
-                btnDetailed.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all bg-cyan-500 text-black shadow-md';
-                btnBlister.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white';
-            }
+      <div class="flex items-center gap-6 text-xs text-slate-400">
+        <a href="https://tiktok.com/@user3949202002" target="_blank" class="hover:text-brand-cyan transition flex items-center gap-1.5">
+          <i data-lucide="video" class="w-4 h-4 text-brand-cyan"></i>
+          <span>TikTok: @user3949202002</span>
+        </a>
+        <span data-i18n="footer_rights">Tous droits réservés</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // 1. Multilingual Support (FR / EN)
+    let currentLang = 'fr';
+
+    const translations = {
+      fr: {
+        nav_concept: "Concept",
+        nav_viewer: "Vue 360°",
+        nav_order: "Précommande",
+        nav_about: "Conception & IA",
+        status_banner: "COMMANDE INDISPONIBLE POUR LE MOMENT • PHASE DE PRÉ-LANCEMENT DE LA CAMPAGNE",
+        hero_badge: "Design Futuriste 2026 & Effet Diamant",
+        hero_desc: "Une pièce de collection streetwear unique. Habillée d'une doudoune brillante motif géométrique, d'une visière effet miroir et confectionnée avec des détails soignés pour financer plusieurs projets personnels.",
+        feat_1_title: "Matériaux Premium",
+        feat_1_sub: "Doux & Haute Qualité",
+        feat_2_title: "Ultra Doux",
+        feat_2_sub: "Parfait pour les câlins",
+        feat_3_title: "Détails Soignés",
+        feat_3_sub: "Finition comme en vrai",
+        feat_4_title: "Idée Cadeau",
+        feat_4_sub: "Pour petits et grands",
+        countdown_title: "Temps avant lancement :",
+        countdown_val: "100 JOURS",
+        progress_title: "Évolution de la campagne",
+        progress_val: "0% (0 €)",
+        progress_sub: "Objectif : Récolter des fonds pour lancer plusieurs projets personnels originaux.",
+        btn_unavailable: "Commande indisponible",
+        btn_alert: "Être averti du lancement VIP",
+        hero_card_sub: "UN STYLE UNIQUE",
+        hero_card_title: "Le Compagnon Idéal",
+        viewer_heading: "VISUALISEUR MULTI-ANGLES 360°",
+        viewer_sub: "Découvre la peluche sous toutes ses faces grâce aux 5 visuels officiels.",
+        btn_auto_spin: "Rotation Auto",
+        v1: "Détails",
+        v2: "Packaging",
+        v3: "Face",
+        v4: "Côté",
+        v5: "Dos",
+        order_badge: "Espace Commande & Informations",
+        order_desc: "Pensée comme un objet de collection unique, chaque peluche est livrée dans son packaging sac individuel prêt à offrir, avec fermeture zippée et tissu brillant de haute qualité.",
+        spec1_title: "Capuche & Tissu Premium",
+        spec1_desc: "Tissu brillant effet diamant avec détails soignés et toucher ultra doux.",
+        spec2_title: "Visière Miroir & Zipper",
+        spec2_desc: "Visière style masque de ski moderne et fermeture éclair fonctionnelle.",
+        spec3_title: "Packaging Blister Individuel",
+        spec3_desc: "Sac packaging officiel imprimé avec visuels de présentation.",
+        price_label: "PRIX DE PRÉCOMMANDE",
+        stock_badge: "Phase Pré-lancement",
+        form_label: "S'inscrire à la liste VIP",
+        form_warning: "Commande indisponible pour le moment : Laisse ton e-mail pour recevoir l'accès prioritaire dès l'ouverture de la boutique !",
+        form_btn: "Rejoindre la liste VIP (J-100)",
+        success_title: "Tu es inscrit sur la liste VIP !",
+        success_desc: "Tu seras prévenu en premier dès que la campagne sera officiellement ouverte.",
+        transparency_badge: "Transparence & Processus",
+        transparency_title: "CRÉATION DU SITE AVEC L'IA & PELUCHE 100% HUMAINE",
+        ia_box_title: "Création du Site Web (IA)",
+        ia_box_desc: "Nous affirmons travailler avec l'IA pour le développement et la création de ce site web, afin d'offrir un design vitrine moderne et interactif.",
+        human_box_title: "Peluche 100% Humaine",
+        human_box_desc: "Le produit lui-même est 100% humain : le design est créé par notre équipe et la peluche est fabriquée sur-mesure avec précision dans des usines spécialisées en Chine.",
+        footer_rights: "Tous droits réservés"
+      },
+      en: {
+        nav_concept: "Concept",
+        nav_viewer: "360° View",
+        nav_order: "Pre-order",
+        nav_about: "Craft & AI",
+        status_banner: "ORDER UNAVAILABLE FOR NOW • CAMPAIGN PRE-LAUNCH PHASE",
+        hero_badge: "Futuristic Design 2026 & Diamond Effect",
+        hero_desc: "A unique streetwear collector piece. Dressed in a shiny geometric pattern jacket, mirror visor, and crafted with meticulous details to fund personal projects.",
+        feat_1_title: "Premium Materials",
+        feat_1_sub: "Soft & High Quality",
+        feat_2_title: "Ultra Soft",
+        feat_2_sub: "Perfect for Cuddles",
+        feat_3_title: "Meticulous Details",
+        feat_3_sub: "Lifelike Finish",
+        feat_4_title: "Great Gift Idea",
+        feat_4_sub: "For all ages",
+        countdown_title: "Time before launch:",
+        countdown_val: "100 DAYS",
+        progress_title: "Campaign Progress",
+        progress_val: "0% (€0)",
+        progress_sub: "Goal: Raise funds to launch multiple original personal projects.",
+        btn_unavailable: "Order Unavailable",
+        btn_alert: "Get Notified for VIP Launch",
+        hero_card_sub: "A UNIQUE STYLE",
+        hero_card_title: "The Ultimate Companion",
+        viewer_heading: "360° MULTI-ANGLE VIEWER",
+        viewer_sub: "Discover the plush from all angles through 5 official visuals.",
+        btn_auto_spin: "Auto Rotation",
+        v1: "Details",
+        v2: "Packaging",
+        v3: "Front",
+        v4: "Side",
+        v5: "Back",
+        order_badge: "Order Space & Information",
+        order_desc: "Designed as a unique collector item, each plush comes in its individual gift-ready zip bag with high-quality shiny fabric.",
+        spec1_title: "Premium Hood & Fabric",
+        spec1_desc: "Shiny diamond-effect fabric with fine details and ultra-soft touch.",
+        spec2_title: "Mirror Visor & Zipper",
+        spec2_desc: "Modern ski-goggles visor style and functional zipper.",
+        spec3_title: "Individual Bag Packaging",
+        spec3_desc: "Official printed presentation bag.",
+        price_label: "PRE-ORDER PRICE",
+        stock_badge: "Pre-launch Phase",
+        form_label: "Join VIP List",
+        form_warning: "Order unavailable at the moment: Leave your email to get priority access as soon as the shop opens!",
+        form_btn: "Join VIP List (D-100)",
+        success_title: "You are on the VIP List!",
+        success_desc: "You will be notified first as soon as the campaign officially launches.",
+        transparency_badge: "Transparency & Process",
+        transparency_title: "WEBSITE CREATED WITH AI & 100% HUMAN PLUSH",
+        ia_box_title: "Website Creation (AI)",
+        ia_box_desc: "We state that we work with AI for the development and creation of this website to deliver a modern, interactive showcase.",
+        human_box_title: "100% Human Plush",
+        human_box_desc: "The product itself is 100% human: designed by our team and custom-crafted with precision in specialized factories in China.",
+        footer_rights: "All rights reserved"
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'fr' ? 'en' : 'fr';
+      document.getElementById('lang-label').innerText = currentLang.toUpperCase();
+      
+      document.querySelectorAll('[data-i18n]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          elem.innerHTML = translations[currentLang][key];
+        }
+      });
+      
+      // Refresh current angle title
+      updateAngleDisplay();
+    }
+
+    // 2. Visualiseur 360° Data & Logic
+    const angleViews = [
+      {
+        angle: "0° (1/5)",
+        titleFr: "1. Details & Matériaux de la Peluche",
+        titleEn: "1. Plush Details & Materials",
+        src: "532c176e-c523-495f-bc6b-4c3a5d5682c6.png",
+        svgText: "VUE 1 - DÉTAILS"
+      },
+      {
+        angle: "72° (2/5)",
+        titleFr: "2. Packaging Sac & Blister de Présentation",
+        titleEn: "2. Presentation Bag & Packaging",
+        src: "f741e46c-c583-4ac0-9042-ef8f8a2a712b.png",
+        svgText: "VUE 2 - PACKAGING"
+      },
+      {
+        angle: "144° (3/5)",
+        titleFr: "3. Vue de Face Officielle",
+        titleEn: "3. Official Front View",
+        src: "532c176e-c523-495f-bc6b-4c3a5d5682c6.png",
+        svgText: "VUE 3 - FACE"
+      },
+      {
+        angle: "216° (4/5)",
+        titleFr: "4. Vue de Côté & Profil",
+        titleEn: "4. Side & Profile View",
+        src: "f741e46c-c583-4ac0-9042-ef8f8a2a712b.png",
+        svgText: "VUE 4 - CÔTÉ"
+      },
+      {
+        angle: "288° (5/5)",
+        titleFr: "5. Vue de Dos & Finitions",
+        titleEn: "5. Back View & Finish",
+        src: "532c176e-c523-495f-bc6b-4c3a5d5682c6.png",
+        svgText: "VUE 5 - DOS"
+      }
+    ];
+
+    let currentAngleIndex = 0;
+    let autoSpinInterval = null;
+
+    function handleImgError(imgElem) {
+      // Inline SVG fallback so viewer is always visual & runnable
+      const view = angleViews[currentAngleIndex];
+      imgElem.style.display = 'none';
+      let svgElem = document.getElementById('placeholder-svg');
+      if (!svgElem) {
+        svgElem = document.createElement('div');
+        svgElem.id = 'placeholder-svg';
+        document.getElementById('view-360-container').appendChild(svgElem);
+      }
+      svgElem.innerHTML = `
+        <svg class="w-64 h-64 text-brand-cyan animate-pulse" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="200" rx="30" fill="#0b0f17" stroke="#00f0ff" stroke-width="2"/>
+          <path d="M60,60 Q100,20 140,60 Q180,100 140,140 Q100,180 60,140 Q20,100 60,60 Z" fill="none" stroke="#7000FF" stroke-width="4"/>
+          <circle cx="100" cy="85" r="35" fill="#00f0ff" opacity="0.8"/>
+          <text x="100" y="160" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">${view.svgText}</text>
+        </svg>
+      `;
+    }
+
+    function setAngle(index) {
+      currentAngleIndex = index;
+      updateAngleDisplay();
+    }
+
+    function prevAngle() {
+      currentAngleIndex = (currentAngleIndex - 1 + angleViews.length) % angleViews.length;
+      updateAngleDisplay();
+    }
+
+    function nextAngle() {
+      currentAngleIndex = (currentAngleIndex + 1) % angleViews.length;
+      updateAngleDisplay();
+    }
+
+    function updateAngleDisplay() {
+      const view = angleViews[currentAngleIndex];
+      const imgElem = document.getElementById('view-360-img');
+      const svgPlaceholder = document.getElementById('placeholder-svg');
+
+      if (svgPlaceholder) svgPlaceholder.remove();
+      imgElem.style.display = 'block';
+      imgElem.src = view.src;
+
+      document.getElementById('angle-indicator').innerText = view.angle;
+      document.getElementById('angle-title').innerText = currentLang === 'fr' ? view.titleFr : view.titleEn;
+
+      // Active state on buttons
+      const buttons = document.querySelectorAll('.angle-nav-btn');
+      buttons.forEach((btn, idx) => {
+        if (idx === currentAngleIndex) {
+          btn.classList.add('active-angle');
+        } else {
+          btn.classList.remove('active-angle');
+        }
+      });
+    }
+
+    function toggleAutoSpin() {
+      if (autoSpinInterval) {
+        clearInterval(autoSpinInterval);
+        autoSpinInterval = null;
+        document.getElementById('spin-label').innerText = currentLang === 'fr' ? "Rotation Auto" : "Auto Rotation";
+      } else {
+        autoSpinInterval = setInterval(() => {
+          nextAngle();
+        }, 1800);
+        document.getElementById('spin-label').innerText = currentLang === 'fr' ? "Pause" : "Pause";
+      }
+    }
+
+    // 3. VIP Form Handler
+    function handleVipSubmit(e) {
+      e.preventDefault();
+      document.getElementById('vip-form').classList.add('hidden');
+      document.getElementById('vip-success').classList.remove('hidden');
+    }
+
+    const canvas = document.getElementById('sparkle-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Sparkle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2.5 + 0.5;
+        this.speedY = Math.random() * 0.4 - 0.2;
+        this.speedX = Math.random() * 0.4 - 0.2;
+        this.opacity = Math.random();
+        this.fade = Math.random() * 0.02 + 0.005;
+        this.color = Math.random() > 0.5 ? '#00F0FF' : '#7000FF';
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.opacity += this.fade;
+
+        if (this.opacity >= 1 || this.opacity <= 0) {
+          this.fade = -this.fade;
         }
 
-        // Gallery Image Switcher
-        function setGalleryImage(src, title, desc) {
-            const activeImg = document.getElementById('gallery-active-img');
-            const titleEl = document.getElementById('gallery-title');
-            const descEl = document.getElementById('gallery-desc');
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+          this.reset();
+        }
+      }
 
-            activeImg.src = src;
-            titleEl.textContent = title;
-            descEl.textContent = desc;
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.opacity);
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
 
-            // Scroll smoothly on mobile to preview
-            if (window.innerWidth < 1024) {
-                activeImg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
+        // Sparkle cross shine
+        if (this.size > 1.8) {
+          ctx.strokeStyle = '#FFFFFF';
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(this.x - this.size * 2, this.y);
+          ctx.lineTo(this.x + this.size * 2, this.y);
+          ctx.moveTo(this.x, this.y - this.size * 2);
+          ctx.lineTo(this.x, this.y + this.size * 2);
+          ctx.stroke();
         }
 
-        // Handle Newsletter / Notification Form
-        function handleNotify(event) {
-            event.preventDefault();
-            const successMsg = document.getElementById('form-success-msg');
-            successMsg.classList.remove('hidden');
-            event.target.reset();
+        ctx.restore();
+      }
+    }
 
-            setTimeout(() => {
-                successMsg.classList.add('hidden');
-            }, 6000);
-        }
+    for (let i = 0; i < 70; i++) {
+      particles.push(new Sparkle());
+    }
 
-        // Countdown Timer simulation
-        function updateCountdown() {
-            // Set target date 45 days in future
-            const targetTime = new Date().getTime() + (45 * 24 * 60 * 60 * 1000);
+    function animateSparkles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateSparkles);
+    }
 
-            setInterval(() => {
-                const now = new Date().getTime();
-                const distance = targetTime - now;
+    window.onload = function() {
+      animateSparkles();
+    };
+  </script>
 
-                if (distance > 0) {
-                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                    document.getElementById('days').textContent = String(days).padStart(2, '0');
-                    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-                }
-            }, 1000);
-        }
-
-        updateCountdown();
-    </script>
 </body>
 </html>
