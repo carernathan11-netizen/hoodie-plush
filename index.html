@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HOODIE PLUSH | Site Vitrine Officiel - 2026</title>
+  <title>HOODIE PLUSH | Site Officiel - Édition Collector 2026</title>
   
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
@@ -21,12 +24,13 @@
           },
           colors: {
             brand: {
-              black: '#05070B',
-              dark: '#0B0F17',
-              card: 'rgba(15, 23, 42, 0.65)',
+              black: '#030508',
+              dark: '#080C14',
+              card: 'rgba(12, 19, 33, 0.7)',
               cyan: '#00F0FF',
               blue: '#0066FF',
               purple: '#7000FF',
+              silver: '#E2E8F0',
             }
           }
         }
@@ -37,32 +41,39 @@
   <style>
     .bg-diamond-pattern {
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.12) 0%, transparent 60%),
-        radial-gradient(circle at 80% 50%, rgba(112, 0, 255, 0.08) 0%, transparent 50%),
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+        radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.15) 0%, transparent 55%),
+        radial-gradient(circle at 85% 45%, rgba(112, 0, 255, 0.1) 0%, transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
     }
     .text-silver-gradient {
-      background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 40%, #00F0FF 100%);
+      background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 40%, #00F0FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-cyan-gradient {
+      background: linear-gradient(135deg, #00F0FF 0%, #3B82F6 60%, #7000FF 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .glass-nav {
-      background: rgba(5, 7, 11, 0.85);
-      backdrop-filter: blur(20px);
+      background: rgba(3, 5, 8, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid rgba(0, 240, 255, 0.15);
     }
     .glass-card {
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(12, 19, 33, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .glass-card:hover {
       border-color: rgba(0, 240, 255, 0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 35px -10px rgba(0, 240, 255, 0.25);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -15px rgba(0, 240, 255, 0.25);
     }
     #sparkle-canvas {
       position: fixed;
@@ -73,341 +84,719 @@
       pointer-events: none;
       z-index: 1;
     }
-    .active-angle {
-      border-color: #00F0FF !important;
-      background: rgba(0, 240, 255, 0.15) !important;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-    }
   </style>
 </head>
-<body class="bg-brand-black text-slate-100 font-sans overflow-x-hidden relative bg-diamond-pattern">
+<body class="bg-brand-black text-slate-100 font-sans selection:bg-brand-cyan selection:text-black overflow-x-hidden relative bg-diamond-pattern">
 
   <canvas id="sparkle-canvas"></canvas>
 
+  <!-- Navigation -->
   <header class="sticky top-0 z-50 glass-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan via-brand-blue to-brand-purple flex items-center justify-center font-display font-black text-black text-xl shadow-lg shadow-brand-cyan/20">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-cyan via-brand-blue to-brand-purple flex items-center justify-center font-display font-black text-black text-xl shadow-lg shadow-brand-cyan/30">
           H
         </div>
         <div>
-          <span class="font-display font-black text-xl tracking-wider text-white flex items-center gap-1">
+          <span class="font-display font-black text-xl tracking-wider text-white flex items-center gap-1.5">
             HOODIE PLUSH <i data-lucide="sparkles" class="w-4 h-4 text-brand-cyan inline"></i>
           </span>
-          <span class="block text-[10px] text-brand-cyan tracking-widest font-mono uppercase">Edition 2026</span>
+          <span class="block text-[10px] text-brand-cyan tracking-widest font-mono uppercase" data-i18n="nav_edition">Édition Collector 2026</span>
         </div>
       </div>
 
       <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-300">
         <a href="#concept" class="hover:text-brand-cyan transition-colors" data-i18n="nav_concept">Concept</a>
-        <a href="#viewer360" class="hover:text-brand-cyan transition-colors" data-i18n="nav_viewer">Vue 360°</a>
+        <a href="#story" class="hover:text-brand-cyan transition-colors" data-i18n="nav_story">Histoire & Origine</a>
+        <a href="#gallery" class="hover:text-brand-cyan transition-colors" data-i18n="nav_gallery">Galerie</a>
+        <a href="#craft" class="hover:text-brand-cyan transition-colors" data-i18n="nav_craft">Fabrication & Colis</a>
         <a href="#order" class="hover:text-brand-cyan transition-colors" data-i18n="nav_order">Précommande</a>
-        <a href="#transparency" class="hover:text-brand-cyan transition-colors" data-i18n="nav_about">Conception & IA</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <button id="lang-btn" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-brand-cyan flex items-center gap-1.5 transition">
+        <!-- Langue d'origine FR avec bascule EN fluide -->
+        <button id="lang-btn" onclick="toggleLanguage()" class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-brand-cyan flex items-center gap-2 transition shadow-sm">
           <i data-lucide="globe" class="w-3.5 h-3.5"></i>
           <span id="lang-label">FR / EN</span>
         </button>
-        <a href="https://tiktok.com/@user3949202002" target="_blank" class="hidden sm:flex px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-semibold items-center gap-1.5 transition">
+
+        <a href="https://tiktok.com/@user3949202002" target="_blank" class="hidden sm:flex px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-semibold items-center gap-1.5 transition">
           <i data-lucide="video" class="w-3.5 h-3.5 text-brand-cyan"></i>
           <span>TikTok</span>
         </a>
-        <a href="#order" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-90 transition shadow-md shadow-brand-cyan/20">
+
+        <a href="#order" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-xs uppercase tracking-wider hover:scale-105 transition shadow-lg shadow-brand-cyan/25">
           VIP
         </a>
       </div>
+
     </div>
   </header>
 
-  <div class="bg-gradient-to-r from-amber-500/20 via-brand-cyan/15 to-amber-500/20 border-b border-amber-500/30 py-2.5 px-4 text-center text-xs font-semibold text-amber-200 flex items-center justify-center gap-2">
+  <!-- Banner -->
+  <div class="bg-gradient-to-r from-amber-500/20 via-brand-cyan/15 to-amber-500/20 border-b border-amber-500/30 py-2.5 px-4 text-center text-xs font-semibold text-amber-200 flex items-center justify-center gap-2 z-20 relative">
     <i data-lucide="clock" class="w-4 h-4 text-amber-400 animate-pulse"></i>
     <span data-i18n="status_banner">COMMANDE INDISPONIBLE POUR LE MOMENT • PHASE DE PRÉ-LANCEMENT DE LA CAMPAGNE</span>
   </div>
 
-  <section id="concept" class="relative pt-12 pb-20 overflow-hidden z-10">
+  <!-- Hero Section -->
+  <section id="concept" class="relative pt-16 pb-24 overflow-hidden z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase tracking-widest">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase tracking-widest shadow-inner">
             <i data-lucide="gem" class="w-3.5 h-3.5"></i>
             <span data-i18n="hero_badge">Design Futuriste 2026 & Effet Diamant</span>
           </div>
+
           <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-none tracking-tight">
             MORE THAN JUST A PLUSH... <br>
             <span class="text-silver-gradient">IT'S A VIBE.</span>
           </h1>
+
           <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed" data-i18n="hero_desc">
-            Une pièce de collection streetwear unique. Habillée d'une doudoune brillante motif géométrique, d'une visière effet miroir et confectionnée avec des détails soignés pour financer plusieurs projets personnels.
+            Une pièce de collection streetwear unique. Habillée d'une doudoune brillante à motif géométrique, d'une visière effet miroir et confectionnée avec des finitions haut de gamme pour financer plusieurs projets personnels originaux.
           </p>
 
-          <div class="glass-card p-6 rounded-2xl border border-brand-cyan/20 space-y-4">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="glass-card p-3.5 rounded-2xl text-center">
+              <i data-lucide="gem" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
+              <span class="text-xs font-bold block text-white" data-i18n="feat_1_title">Matériaux Premium</span>
+              <span class="text-[10px] text-slate-400" data-i18n="feat_1_sub">Tissu scintillant</span>
+            </div>
+            <div class="glass-card p-3.5 rounded-2xl text-center">
+              <i data-lucide="cloud" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
+              <span class="text-xs font-bold block text-white" data-i18n="feat_2_title">Ultra Doux</span>
+              <span class="text-[10px] text-slate-400" data-i18n="feat_2_sub">Toucher velours</span>
+            </div>
+            <div class="glass-card p-3.5 rounded-2xl text-center">
+              <i data-lucide="shield-check" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
+              <span class="text-xs font-bold block text-white" data-i18n="feat_3_title">Détails Soignés</span>
+              <span class="text-[10px] text-slate-400" data-i18n="feat_3_sub">Visière & Zippers</span>
+            </div>
+            <div class="glass-card p-3.5 rounded-2xl text-center">
+              <i data-lucide="gift" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
+              <span class="text-xs font-bold block text-white" data-i18n="feat_4_title">Objet Collector</span>
+              <span class="text-[10px] text-slate-400" data-i18n="feat_4_sub">Packaging inclus</span>
+            </div>
+          </div>
+
+          <!-- Compteur & Progression -->
+          <div class="glass-card p-6 rounded-3xl border border-brand-cyan/20 space-y-4 shadow-xl">
             <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
               <div class="flex items-center gap-2">
                 <i data-lucide="timer" class="w-5 h-5 text-brand-cyan"></i>
                 <span class="text-sm font-bold text-white uppercase tracking-wider" data-i18n="countdown_title">Temps avant lancement :</span>
               </div>
-              <span class="text-xl font-display font-black text-brand-cyan px-3 py-1 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30">100 JOURS</span>
+              <span class="text-xl font-display font-black text-brand-cyan px-3 py-1 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30">
+                100 JOURS
+              </span>
             </div>
+
             <div class="space-y-1.5">
               <div class="flex justify-between text-xs font-bold">
                 <span class="text-slate-400" data-i18n="progress_title">Évolution de la campagne</span>
                 <span class="text-brand-cyan">0% (0 €)</span>
               </div>
-              <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden p-0.5 border border-white/10">
-                <div class="h-full bg-gradient-to-r from-brand-cyan to-brand-blue rounded-full w-[0%] transition-all duration-500"></div>
+              <div class="w-full h-3 bg-slate-900/80 rounded-full overflow-hidden p-0.5 border border-white/10">
+                <div class="h-full bg-gradient-to-r from-brand-cyan to-brand-blue rounded-full w-[0%] transition-all duration-500 shadow-lg shadow-brand-cyan/50"></div>
               </div>
-              <p class="text-[11px] text-slate-400" data-i18n="progress_sub">Objectif : Récolter des fonds pour lancer plusieurs projets personnels originaux.</p>
+              <p class="text-[11px] text-slate-400 text-center sm:text-left" data-i18n="progress_sub">
+                Objectif : Récolter des fonds pour concrétiser nos projets artistiques et créatifs.
+              </p>
             </div>
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
-            <button class="px-8 py-4 rounded-xl bg-slate-800 border border-slate-700 text-slate-400 font-bold text-sm cursor-not-allowed flex items-center justify-center gap-2 opacity-80">
+            <button class="px-8 py-4 rounded-2xl bg-slate-900 border border-slate-700 text-slate-400 font-bold text-sm cursor-not-allowed flex items-center justify-center gap-2 opacity-80">
               <i data-lucide="lock" class="w-4 h-4"></i>
               <span data-i18n="btn_unavailable">Commande indisponible</span>
             </button>
-            <a href="#order" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-sm uppercase tracking-wider hover:scale-105 transition shadow-lg shadow-brand-cyan/25 flex items-center justify-center gap-2">
+            <a href="#order" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-sm uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/30 flex items-center justify-center gap-2">
               <i data-lucide="bell" class="w-4 h-4"></i>
-              <span data-i18n="btn_alert">Être averti du lancement</span>
+              <span data-i18n="btn_alert">Être averti du lancement VIP</span>
             </a>
           </div>
+
         </div>
 
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative group">
-            <div class="absolute -inset-1 bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple rounded-3xl blur-xl opacity-60"></div>
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition duration-1000"></div>
             <div class="relative glass-card rounded-3xl p-4 border border-white/20 overflow-hidden max-w-md shadow-2xl">
-              <img src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Hoodie Plush Showcase" class="w-full h-auto rounded-2xl object-cover">
-              <div class="absolute bottom-6 left-6 right-6 p-4 glass-nav rounded-xl border border-white/20 text-center">
-                <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest block mb-0.5">UN STYLE UNIQUE</span>
-                <span class="text-white font-display font-bold text-lg">Le Compagnon Idéal</span>
+              <img src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Hoodie Plush Showcase" class="w-full h-auto rounded-2xl object-cover transform hover:scale-105 transition duration-700" onerror="this.src='https://placehold.co/600x600/0b0f17/00f0ff?text=Hoodie+Plush+2026'">
+              <div class="absolute bottom-6 left-6 right-6 p-4 glass-nav rounded-2xl border border-white/20 text-center shadow-lg">
+                <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest block mb-0.5" data-i18n="hero_card_sub">STREETWEAR COLLECTION</span>
+                <span class="text-white font-display font-bold text-lg" data-i18n="hero_card_title">Le Compagnon 2026</span>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Section 360° avec l'ordre strict demandé -->
-  <section id="viewer360" class="py-20 relative bg-brand-dark/60 border-y border-white/10 z-10">
+  <!-- Section Histoire & Origine -->
+  <section id="story" class="py-24 relative bg-brand-dark/40 border-y border-white/10 z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
-        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="viewer_heading">VISUALISEUR MULTI-ANGLES 360°</h2>
-        <p class="text-slate-400 text-sm sm:text-base" data-i18n="viewer_sub">Découvre la peluche sous toutes ses faces grâce aux 5 visuels officiels.</p>
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span data-i18n="story_badge">Genèse d'un Projet Innovant</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="story_title">
+          L'HISTOIRE DE HOODIE PLUSH
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="story_subtitle">
+          Né d'une fusion entre la culture streetwear urbaine et l'univers du design futuriste de 2026, Hoodie Plush redéfinit le concept de la peluche de collection.
+        </p>
       </div>
 
-      <div class="max-w-4xl mx-auto glass-card p-6 sm:p-8 rounded-3xl border border-brand-cyan/30 shadow-2xl">
-        <div class="relative aspect-square sm:aspect-[16/10] rounded-2xl overflow-hidden bg-black/70 border border-white/10 flex items-center justify-center group">
-          <div id="view-360-container" class="w-full h-full flex items-center justify-center p-4">
-            <img id="view-360-img" src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Aperçu angle" class="max-h-full max-w-full object-contain transition-all duration-300">
-          </div>
-
-          <div class="absolute top-4 left-4 glass-card px-3 py-1.5 rounded-lg border border-brand-cyan/40 text-[11px] font-mono text-brand-cyan flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-brand-cyan animate-ping"></span>
-            <span id="angle-indicator">Vue 1/5</span>
-          </div>
-
-          <div class="absolute top-4 right-4 glass-card px-3 py-1.5 rounded-lg border border-white/20 text-xs font-bold text-white" id="angle-title">
-            1. Détails & Matériaux de la Peluche
-          </div>
-
-          <button onclick="prevAngle()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-card border border-white/20 text-white flex items-center justify-center hover:bg-brand-cyan hover:text-black transition">
-            <i data-lucide="chevron-left" class="w-6 h-6"></i>
-          </button>
-          <button onclick="nextAngle()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-card border border-white/20 text-white flex items-center justify-center hover:bg-brand-cyan hover:text-black transition">
-            <i data-lucide="chevron-right" class="w-6 h-6"></i>
-          </button>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="glass-card p-8 rounded-3xl space-y-4 relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan font-display font-black text-lg">01</div>
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="story_card1_title">L'Étincelle Créative</h3>
+          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="story_card1_desc">
+            L'idée originale est née de l'envie de créer un objet physique unique, inspiré des codes vestimentaires contemporains (doudounes oversize, visières futuristes) tout en gardant l'aspect réconfortant d'une peluche de qualité supérieure.
+          </p>
         </div>
 
-        <!-- 5 Vues dans l'ordre strict : Détails, Packaging, Face, Côté, Dos -->
-        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-6">
-          <button onclick="setAngle(0)" class="angle-nav-btn active-angle p-3 rounded-xl glass-card text-center border">
-            <span class="text-[10px] text-slate-400 block font-mono">VUE 1</span>
-            <span class="text-xs font-bold text-white" data-i18n="v1">Détails</span>
-          </button>
-          <button onclick="setAngle(1)" class="angle-nav-btn p-3 rounded-xl glass-card text-center border">
-            <span class="text-[10px] text-slate-400 block font-mono">VUE 2</span>
-            <span class="text-xs font-bold text-white" data-i18n="v2">Packaging</span>
-          </button>
-          <button onclick="setAngle(2)" class="angle-nav-btn p-3 rounded-xl glass-card text-center border">
-            <span class="text-[10px] text-slate-400 block font-mono">VUE 3</span>
-            <span class="text-xs font-bold text-white" data-i18n="v3">Face</span>
-          </button>
-          <button onclick="setAngle(3)" class="angle-nav-btn p-3 rounded-xl glass-card text-center border">
-            <span class="text-[10px] text-slate-400 block font-mono">VUE 4</span>
-            <span class="text-xs font-bold text-white" data-i18n="v4">Côté</span>
-          </button>
-          <button onclick="setAngle(4)" class="angle-nav-btn p-3 rounded-xl glass-card text-center border">
-            <span class="text-[10px] text-slate-400 block font-mono">VUE 5</span>
-            <span class="text-xs font-bold text-white" data-i18n="v5">Dos</span>
-          </button>
+        <div class="glass-card p-8 rounded-3xl space-y-4 relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue font-display font-black text-lg">02</div>
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="story_card2_title">Le Concept & Le Design</h3>
+          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="story_card2_desc">
+            Chaque détail a été pensé pour marquer les esprits : une doudoune étincelante effet diamant, un design géométrique rigoureux et une attention particulière portée aux finitions pour en faire un véritable objet d'art de salon.
+          </p>
         </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-4 relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-display font-black text-lg">03</div>
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="story_card3_title">Financement & Avenir</h3>
+          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="story_card3_desc">
+            Cette campagne de pré-lancement permet de réunir les passionnés et de financer la production initiale ainsi que le développement de nos futurs projets créatifs indépendants.
+          </p>
+        </div>
+
       </div>
+
     </div>
   </section>
 
-  <!-- Formulaire de précommande / Web3Forms intégré -->
-  <section id="order" class="py-20 relative z-10">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="glass-card p-8 rounded-3xl border border-brand-cyan/30 shadow-2xl space-y-6">
-        <div class="text-center space-y-2">
-          <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">ÉDITION COLLECTOR 2026 • 39,99 €</span>
-          <h3 class="font-display text-3xl font-black text-white">Inscris-toi pour le Lancement</h3>
-          <p class="text-slate-300 text-sm">Les commandes sont momentanément indisponibles. Reçois un email prioritaire dès l'ouverture de la campagne !</p>
+  <!-- Section Galerie Photos (Remplace le 360°) -->
+  <section id="gallery" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+          <i data-lucide="image" class="w-3.5 h-3.5"></i>
+          <span data-i18n="gallery_badge">Visuels Officiels</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="gallery_title">
+          GALERIE DE LA PELUCHE
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="gallery_subtitle">
+          Découvrez sous tous les angles les détails de fabrication, les textures et le packaging exclusif de notre Édition Collector 2026.
+        </p>
+      </div>
+
+      <!-- Grille de photos prête pour GitHub -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 shadow-xl">
+          <div class="aspect-square bg-black/60 overflow-hidden relative">
+            <img src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Détails de la Peluche" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/0b0f17/00f0ff?text=Vue+1+-+Details'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-xl bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-xs font-mono font-bold">01 / DÉTAILS</span>
+          </div>
+          <div class="p-6 space-y-2">
+            <h4 class="font-display font-bold text-lg text-white" data-i18n="gal_img1_title">Texture & Doudoune Brillante</h4>
+            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="gal_img1_desc">Zoom sur le tissu brillant effet diamant et les finitions soignées de la capuche.</p>
+          </div>
         </div>
 
-        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4 max-w-md mx-auto">
-          <!-- Remplace par ta clé Web3Forms gratuite si besoin -->
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
-          <input type="hidden" name="subject" value="Nouvelle Inscription VIP - Hoodie Plush">
-          <input type="hidden" name="from_name" value="Hoodie Plush Site">
-
-          <div>
-            <input type="email" name="email" required placeholder="Ton adresse e-mail..." class="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan text-sm">
+        <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 shadow-xl">
+          <div class="aspect-square bg-black/60 overflow-hidden relative">
+            <img src="f741e46c-c583-43a0-9042-ef8f8a2a712b.png" alt="Packaging Sac" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/0b0f17/00f0ff?text=Vue+2+-+Packaging'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-xl bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-xs font-mono font-bold">02 / PACKAGING</span>
           </div>
+          <div class="p-6 space-y-2">
+            <h4 class="font-display font-bold text-lg text-white" data-i18n="gal_img2_title">Sac Blister de Présentation</h4>
+            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="gal_img2_desc">Chaque peluche est livrée dans son sac de protection personnalisé, prêt à offrir.</p>
+          </div>
+        </div>
 
-          <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-black text-sm uppercase tracking-wider hover:opacity-95 transition shadow-lg shadow-brand-cyan/20 flex items-center justify-center gap-2">
-            <i data-lucide="send" class="w-4 h-4"></i>
-            <span>Rejoindre la liste VIP</span>
-          </button>
-        </form>
+        <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 shadow-xl">
+          <div class="aspect-square bg-black/60 overflow-hidden relative">
+            <img src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Vue de Face" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/0b0f17/00f0ff?text=Vue+3+-+Face'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-xl bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-xs font-mono font-bold">03 / FACE</span>
+          </div>
+          <div class="p-6 space-y-2">
+            <h4 class="font-display font-bold text-lg text-white" data-i18n="gal_img3_title">Vue de Face & Visière Miroir</h4>
+            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="gal_img3_desc">Le regard unique avec la visière style masque de ski et les expressions attachantes.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 shadow-xl">
+          <div class="aspect-square bg-black/60 overflow-hidden relative">
+            <img src="f741e46c-c583-43a0-9042-ef8f8a2a712b.png" alt="Vue de Côté" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/0b0f17/00f0ff?text=Vue+4+-+Cote'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-xl bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-xs font-mono font-bold">04 / CÔTÉ</span>
+          </div>
+          <div class="p-6 space-y-2">
+            <h4 class="font-display font-bold text-lg text-white" data-i18n="gal_img4_title">Profil & Volume</h4>
+            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="gal_img4_desc">Un format généreux, moelleux et parfaitement équilibré pour la prise en main.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 shadow-xl">
+          <div class="aspect-square bg-black/60 overflow-hidden relative">
+            <img src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Vue de Dos" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/0b0f17/00f0ff?text=Vue+5+-+Dos'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-xl bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-xs font-mono font-bold">05 / DOS</span>
+          </div>
+          <div class="p-6 space-y-2">
+            <h4 class="font-display font-bold text-lg text-white" data-i18n="gal_img5_title">Finitions du Dos</h4>
+            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="gal_img5_desc">Une capuche parfaitement ajustée et des coutures renforcées haut de gamme.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 shadow-xl flex flex-col justify-center items-center p-8 text-center bg-gradient-to-br from-brand-card to-brand-dark">
+          <div class="w-16 h-16 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan mb-4">
+            <i data-lucide="plus" class="w-8 h-8"></i>
+          </div>
+          <h4 class="font-display font-bold text-xl text-white mb-2" data-i18n="gal_more_title">Plus de photos à venir</h4>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="gal_more_desc">Ajoutez vos propres fichiers images dans votre dépôt GitHub pour alimenter cette galerie en direct !</p>
+        </div>
+
       </div>
+
     </div>
   </section>
 
-  <!-- Transparence IA & Humain -->
-  <section id="transparency" class="py-16 bg-brand-dark/80 border-t border-white/10 z-10 relative">
+  <!-- Section Fabrication, Emballage & Livraison -->
+  <section id="craft" class="py-24 relative bg-brand-dark/50 border-t border-white/10 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+          <i data-lucide="package" class="w-3.5 h-3.5"></i>
+          <span data-i18n="craft_badge">Qualité & Logistique</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="craft_title">
+          FABRICATION, EMBALLAGE & LIVRAISON
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="craft_subtitle">
+          Un engagement total sur la qualité des matériaux, la transparence de production et le soin apporté à chaque colis envoyé chez vous.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="glass-card p-8 rounded-3xl space-y-4 border border-white/10">
+          <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
+            <i data-lucide="factory" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="craft_col1_title">Fabrication Sur-Mesure</h3>
+          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="craft_col1_desc">
+            Le design et les prototypes sont entièrement imaginés par notre équipe. La production physique est ensuite réalisée dans des usines spécialisées partenaires en Chine, reconnues pour leur savoir-faire d'excellence dans le textile peluche haut de gamme.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-400 pt-2 border-t border-white/10">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> <span data-i18n="craft_li1">Matériaux hypoallergéniques</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> <span data-i18n="craft_li2">Coutures renforcées anti-usure</span></li>
+          </ul>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-4 border border-white/10">
+          <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue">
+            <i data-lucide="gift" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="craft_col2_title">Emballage Collector</h3>
+          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="craft_col2_desc">
+            Chaque Hoodie Plush est conditionné individuellement dans un sac de protection étanche et soigné, faisant office de packaging cadeau premium. Idéal pour les collectionneurs ou pour offrir à un proche.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-400 pt-2 border-t border-white/10">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> <span data-i18n="craft_li3">Sac blister individuel zippé</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> <span data-i18n="craft_li4">Protection antichoc renforcée</span></li>
+          </ul>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-4 border border-white/10">
+          <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+            <i data-lucide="truck" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="craft_col3_title">Livraison Sécurisée</h3>
+          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="craft_col3_desc">
+            Dès la fin de la campagne et la fabrication finalisée, vos colis sont préparés avec le plus grand soin et expédiés avec numéro de suivi directement à votre domicile, partout en France et à l'international.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-400 pt-2 border-t border-white/10">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> <span data-i18n="craft_li5">Suivi de colis en temps réel</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> <span data-i18n="craft_li6">Expédition soignée et rapide</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Espace Commande & Inscription VIP -->
+  <section id="order" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+            <span data-i18n="order_badge">Espace Commande & Informations</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-5xl font-black text-white">
+            HOODIE PLUSH <br>
+            <span class="text-cyan-gradient">EDITION COLLECTOR 2026</span>
+          </h2>
+
+          <p class="text-slate-300 leading-relaxed text-sm sm:text-base" data-i18n="order_desc">
+            Pensée comme un objet de collection unique, chaque peluche est livrée dans son packaging sac individuel prêt à offrir, avec fermeture zippée et tissu brillant de haute qualité.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            <div class="glass-card p-4 rounded-2xl flex items-start gap-4">
+              <div class="p-2.5 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white" data-i18n="spec1_title">Capuche & Tissu Premium</h4>
+                <p class="text-xs text-slate-400" data-i18n="spec1_desc">Tissu brillant effet diamant avec détails soignés et toucher ultra doux.</p>
+              </div>
+            </div>
+
+            <div class="glass-card p-4 rounded-2xl flex items-start gap-4">
+              <div class="p-2.5 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan">
+                <i data-lucide="eye" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white" data-i18n="spec2_title">Visière Miroir & Zipper</h4>
+                <p class="text-xs text-slate-400" data-i18n="spec2_desc">Visière style masque de ski moderne et fermeture éclair fonctionnelle.</p>
+              </div>
+            </div>
+
+            <div class="glass-card p-4 rounded-2xl flex items-start gap-4">
+              <div class="p-2.5 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan">
+                <i data-lucide="box" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white" data-i18n="spec3_title">Packaging Blister Individuel</h4>
+                <p class="text-xs text-slate-400" data-i18n="spec3_desc">Sac packaging officiel imprimé avec visuels de présentation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="glass-card p-8 sm:p-10 rounded-3xl border border-brand-cyan/30 relative overflow-hidden shadow-2xl">
+            
+            <div class="flex justify-between items-start mb-6 border-b border-white/10 pb-6">
+              <div>
+                <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase block mb-1" data-i18n="price_label">PRIX DE PRÉCOMMANDE</span>
+                <span class="font-display font-black text-4xl text-white">39,99 € <span class="text-xs text-slate-400 font-normal">TTC</span></span>
+              </div>
+              <span class="px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold" data-i18n="stock_badge">
+                Phase Pré-lancement
+              </span>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+              <input type="hidden" name="subject" value="Nouvelle Inscription VIP - Hoodie Plush">
+              <input type="hidden" name="from_name" value="Hoodie Plush Site">
+
+              <div>
+                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2" data-i18n="form_label">S'inscrire à la liste VIP</label>
+                <input type="email" name="email" required placeholder="Ton adresse email..." class="w-full px-4 py-3.5 rounded-2xl bg-black/60 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan text-sm">
+              </div>
+
+              <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200 flex items-start gap-2.5">
+                <i data-lucide="info" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                <span data-i18n="form_warning"><strong>Commande indisponible pour le moment :</strong> Laisse ton e-mail pour recevoir l'accès prioritaire dès l'ouverture de la boutique !</span>
+              </div>
+
+              <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-black text-sm uppercase tracking-wider hover:opacity-95 transition shadow-lg shadow-brand-cyan/20 flex items-center justify-center gap-2">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span data-i18n="form_btn">Rejoindre la liste VIP (J-100)</span>
+              </button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Transparence IA / Humain -->
+  <section class="py-16 bg-brand-dark/80 border-t border-white/10 z-10 relative">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-bold uppercase">
+      
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-bold uppercase">
         <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-        <span>Transparence & Processus</span>
+        <span data-i18n="transparency_badge">Transparence & Processus</span>
       </div>
-      <h3 class="font-display text-2xl sm:text-4xl font-black text-white">
+
+      <h3 class="font-display text-2xl sm:text-4xl font-black text-white" data-i18n="transparency_title">
         CRÉATION DU SITE AVEC L'IA & PELUCHE 100% HUMAINE
       </h3>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left pt-4">
+        
         <div class="glass-card p-6 rounded-2xl space-y-2 border-brand-cyan/20">
           <div class="flex items-center gap-2 text-brand-cyan font-bold text-sm">
             <i data-lucide="bot" class="w-5 h-5"></i>
-            <span>Création du Site Web (IA)</span>
+            <span data-i18n="ia_box_title">Création du Site Web (IA)</span>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Nous affirmons travailler avec l'IA pour le développement et la création de ce site web, afin d'offrir un design vitrine moderne et interactif.
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="ia_box_desc">
+            Nous affirmons travailler avec l'IA pour le développement et la création de ce site web, afin d'offrir un design vitrine moderne, fluide et interactif.
           </p>
         </div>
+
         <div class="glass-card p-6 rounded-2xl space-y-2 border-emerald-500/20">
           <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
             <i data-lucide="user-check" class="w-5 h-5"></i>
-            <span>Peluche 100% Humaine</span>
+            <span data-i18n="human_box_title">Peluche 100% Humaine</span>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="human_box_desc">
             Le produit lui-même est 100% humain : le design est créé par notre équipe et la peluche est fabriquée sur-mesure avec précision dans des usines spécialisées en Chine.
           </p>
         </div>
+
       </div>
+
     </div>
   </section>
 
-  <footer class="py-8 border-t border-white/10 glass-nav text-center text-xs text-slate-400 relative z-10">
-    HOODIE PLUSH © 2026 • TikTok: @user3949202002
+  <!-- Footer -->
+  <footer class="py-12 border-t border-white/10 glass-nav z-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center font-display font-black text-black text-sm">
+          H
+        </div>
+        <span class="font-display font-bold text-white text-sm">HOODIE PLUSH © 2026</span>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs text-slate-400">
+        <a href="https://tiktok.com/@user3949202002" target="_blank" class="hover:text-brand-cyan transition flex items-center gap-1.5">
+          <i data-lucide="video" class="w-4 h-4 text-brand-cyan"></i>
+          <span>TikTok: @user3949202002</span>
+        </a>
+        <span data-i18n="footer_rights">Tous droits réservés</span>
+      </div>
+
+    </div>
   </footer>
 
   <script>
     lucide.createIcons();
 
+    // Langue d'origine : Français (FR), avec bascule vers l'Anglais (EN)
     let currentLang = 'fr';
+
     const translations = {
       fr: {
+        nav_edition: "Édition Collector 2026",
         nav_concept: "Concept",
-        nav_viewer: "Vue 360°",
+        nav_story: "Histoire & Origine",
+        nav_gallery: "Galerie",
+        nav_craft: "Fabrication & Colis",
         nav_order: "Précommande",
-        nav_about: "Conception & IA",
         status_banner: "COMMANDE INDISPONIBLE POUR LE MOMENT • PHASE DE PRÉ-LANCEMENT DE LA CAMPAGNE",
         hero_badge: "Design Futuriste 2026 & Effet Diamant",
-        hero_desc: "Une pièce de collection streetwear unique. Habillée d'une doudoune brillante motif géométrique, d'une visière effet miroir et confectionnée avec des détails soignés pour financer plusieurs projets personnels.",
+        hero_desc: "Une pièce de collection streetwear unique. Habillée d'une doudoune brillante à motif géométrique, d'une visière effet miroir et confectionnée avec des finitions haut de gamme pour financer plusieurs projets personnels originaux.",
+        feat_1_title: "Matériaux Premium",
+        feat_1_sub: "Tissu scintillant",
+        feat_2_title: "Ultra Doux",
+        feat_2_sub: "Toucher velours",
+        feat_3_title: "Détails Soignés",
+        feat_3_sub: "Visière & Zippers",
+        feat_4_title: "Objet Collector",
+        feat_4_sub: "Packaging inclus",
         countdown_title: "Temps avant lancement :",
         progress_title: "Évolution de la campagne",
-        progress_sub: "Objectif : Récolter des fonds pour lancer plusieurs projets personnels originaux.",
+        progress_sub: "Objectif : Récolter des fonds pour concrétiser nos projets artistiques et créatifs.",
         btn_unavailable: "Commande indisponible",
-        btn_alert: "Être averti du lancement",
-        viewer_heading: "VISUALISEUR MULTI-ANGLES 360°",
-        viewer_sub: "Découvre la peluche sous toutes ses faces grâce aux 5 visuels officiels.",
-        v1: "Détails", v2: "Packaging", v3: "Face", v4: "Côté", v5: "Dos"
+        btn_alert: "Être averti du lancement VIP",
+        hero_card_sub: "STREETWEAR COLLECTION",
+        hero_card_title: "Le Compagnon 2026",
+        story_badge: "Genèse d'un Projet Innovant",
+        story_title: "L'HISTOIRE DE HOODIE PLUSH",
+        story_subtitle: "Né d'une fusion entre la culture streetwear urbaine et l'univers du design futuriste de 2026, Hoodie Plush redéfinit le concept de la peluche de collection.",
+        story_card1_title: "L'Étincelle Créative",
+        story_card1_desc: "L'idée originale est née de l'envie de créer un objet physique unique, inspiré des codes vestimentaires contemporains (doudounes oversize, visières futuristes) tout en gardant l'aspect réconfortant d'une peluche de qualité supérieure.",
+        story_card2_title: "Le Concept & Le Design",
+        story_card2_desc: "Chaque détail a été pensé pour marquer les esprits : une doudoune étincelante effet diamant, un design géométrique rigoureux et une attention particulière portée aux finitions pour en faire un véritable objet d'art de salon.",
+        story_card3_title: "Financement & Avenir",
+        story_card3_desc: "Cette campagne de pré-lancement permet de réunir les passionnés et de financer la production initiale ainsi que le développement de nos futurs projets créatifs indépendants.",
+        gallery_badge: "Visuels Officiels",
+        gallery_title: "GALERIE DE LA PELUCHE",
+        gallery_subtitle: "Découvrez sous tous les angles les détails de fabrication, les textures et le packaging exclusif de notre Édition Collector 2026.",
+        gal_img1_title: "Texture & Doudoune Brillante",
+        gal_img1_desc: "Zoom sur le tissu brillant effet diamant et les finitions soignées de la capuche.",
+        gal_img2_title: "Sac Blister de Présentation",
+        gal_img2_desc: "Chaque peluche est livrée dans son sac de protection personnalisé, prêt à offrir.",
+        gal_img3_title: "Vue de Face & Visière Miroir",
+        gal_img3_desc: "Le regard unique avec la visière style masque de ski et les expressions attachantes.",
+        gal_img4_title: "Profil & Volume",
+        gal_img4_desc: "Un format généreux, moelleux et parfaitement équilibré pour la prise en main.",
+        gal_img5_title: "Finitions du Dos",
+        gal_img5_desc: "Une capuche parfaitement ajustée et des coutures renforcées haut de gamme.",
+        gal_more_title: "Plus de photos à venir",
+        gal_more_desc: "Ajoutez vos propres fichiers images dans votre dépôt GitHub pour alimenter cette galerie en direct !",
+        craft_badge: "Qualité & Logistique",
+        craft_title: "FABRICATION, EMBALLAGE & LIVRAISON",
+        craft_subtitle: "Un engagement total sur la qualité des matériaux, la transparence de production et le soin apporté à chaque colis envoyé chez vous.",
+        craft_col1_title: "Fabrication Sur-Mesure",
+        craft_col1_desc: "Le design et les prototypes sont entièrement imaginés par notre équipe. La production physique est ensuite réalisée dans des usines spécialisées partenaires en Chine, reconnues pour leur savoir-faire d'excellence dans le textile peluche haut de gamme.",
+        craft_li1: "Matériaux hypoallergéniques",
+        craft_li2: "Coutures renforcées anti-usure",
+        craft_col2_title: "Emballage Collector",
+        craft_col2_desc: "Chaque Hoodie Plush est conditionné individuellement dans un sac de protection étanche et soigné, faisant office de packaging cadeau premium. Idéal pour les collectionneurs ou pour offrir à un proche.",
+        craft_li3: "Sac blister individuel zippé",
+        craft_li4: "Protection antichoc renforcée",
+        craft_col3_title: "Livraison Sécurisée",
+        craft_col3_desc: "Dès la fin de la campagne et la fabrication finalisée, vos colis sont préparés avec le plus grand soin et expédiés avec numéro de suivi directement à votre domicile, partout en France et à l'international.",
+        craft_li5: "Suivi de colis en temps réel",
+        craft_li6: "Expédition soignée et rapide",
+        order_badge: "Espace Commande & Informations",
+        order_desc: "Pensée comme un objet de collection unique, chaque peluche est livrée dans son packaging sac individuel prêt à offrir, avec fermeture zippée et tissu brillant de haute qualité.",
+        spec1_title: "Capuche & Tissu Premium",
+        spec1_desc: "Tissu brillant effet diamant avec détails soignés et toucher ultra doux.",
+        spec2_title: "Visière Miroir & Zipper",
+        spec2_desc: "Visière style masque de ski moderne et fermeture éclair fonctionnelle.",
+        spec3_title: "Packaging Blister Individuel",
+        spec3_desc: "Sac packaging officiel imprimé avec visuels de présentation.",
+        price_label: "PRIX DE PRÉCOMMANDE",
+        stock_badge: "Phase Pré-lancement",
+        form_label: "S'inscrire à la liste VIP",
+        form_warning: "Commande indisponible pour le moment : Laisse ton e-mail pour recevoir l'accès prioritaire dès l'ouverture de la boutique !",
+        form_btn: "Rejoindre la liste VIP (J-100)",
+        transparency_badge: "Transparence & Processus",
+        transparency_title: "CRÉATION DU SITE AVEC L'IA & PELUCHE 100% HUMAINE",
+        ia_box_title: "Création du Site Web (IA)",
+        ia_box_desc: "Nous affirmons travailler avec l'IA pour le développement et la création de ce site web, afin d'offrir un design vitrine moderne, fluide et interactif.",
+        human_box_title: "Peluche 100% Humaine",
+        human_box_desc: "Le produit lui-même est 100% humain : le design est créé par notre équipe et la peluche est fabriquée sur-mesure avec précision dans des usines spécialisées en Chine.",
+        footer_rights: "Tous droits réservés"
       },
       en: {
+        nav_edition: "Collector Edition 2026",
         nav_concept: "Concept",
-        nav_viewer: "360° View",
+        nav_story: "Story & Origin",
+        nav_gallery: "Gallery",
+        nav_craft: "Craft & Shipping",
         nav_order: "Pre-order",
-        nav_about: "Craft & AI",
         status_banner: "ORDER UNAVAILABLE FOR NOW • CAMPAIGN PRE-LAUNCH PHASE",
         hero_badge: "Futuristic Design 2026 & Diamond Effect",
-        hero_desc: "A unique streetwear collector piece. Dressed in a shiny geometric pattern jacket, mirror visor, and crafted with meticulous details to fund personal projects.",
+        hero_desc: "A unique streetwear collector piece. Dressed in a shiny geometric pattern jacket, mirror visor, and crafted with high-end finishes to fund original personal projects.",
+        feat_1_title: "Premium Materials",
+        feat_1_sub: "Shiny fabric",
+        feat_2_title: "Ultra Soft",
+        feat_2_sub: "Velvet touch",
+        feat_3_title: "Meticulous Details",
+        feat_3_sub: "Visor & Zippers",
+        feat_4_title: "Collector Item",
+        feat_4_sub: "Packaging included",
         countdown_title: "Time before launch:",
         progress_title: "Campaign Progress",
-        progress_sub: "Goal: Raise funds to launch multiple original personal projects.",
-        btn_unavailable: "Order Unavailable",
-        btn_alert: "Get Notified",
-        viewer_heading: "360° MULTI-ANGLE VIEWER",
-        viewer_sub: "Discover the plush from all angles through 5 official visuals.",
-        v1: "Details", v2: "Packaging", v3: "Front", v4: "Side", v5: "Back"
+        progress_sub: "Goal: Raise funds to bring our artistic and creative projects to life.",
+        btn_unavailable: "Order unavailable",
+        btn_alert: "Get notified for VIP launch",
+        hero_card_sub: "STREETWEAR COLLECTION",
+        hero_card_title: "The 2026 Companion",
+        story_badge: "Genesis of an Innovative Project",
+        story_title: "THE STORY OF HOODIE PLUSH",
+        story_subtitle: "Born from a fusion of urban streetwear culture and 2026 futuristic design, Hoodie Plush redefines the collector plush concept.",
+        story_card1_title: "The Creative Spark",
+        story_card1_desc: "The original idea came from wanting to create a unique physical object, inspired by contemporary fashion codes (oversized puffer jackets, futuristic visors) while keeping the comforting feel of a top-tier plush toy.",
+        story_card2_title: "Concept & Design",
+        story_card2_desc: "Every detail was crafted to stand out: a sparkling diamond-effect puffer jacket, rigorous geometric design, and meticulous finishing touches to make it a true living-room art piece.",
+        story_card3_title: "Funding & Future",
+        story_card3_desc: "This pre-launch campaign brings enthusiasts together to fund the initial production run as well as the development of our upcoming independent creative projects.",
+        gallery_badge: "Official Visuals",
+        gallery_title: "PLUSH GALLERY",
+        gallery_subtitle: "Discover from every angle the manufacturing details, textures, and exclusive packaging of our 2026 Collector Edition.",
+        gal_img1_title: "Texture & Shiny Puffer",
+        gal_img1_desc: "Close-up on the diamond-effect shiny fabric and neat hood finishes.",
+        gal_img2_title: "Presentation Blister Bag",
+        gal_img2_desc: "Each plush comes in its personalized protective bag, ready to gift.",
+        gal_img3_title: "Front View & Mirror Visor",
+        gal_img3_desc: "The unique look featuring the ski-goggles style visor and endearing expressions.",
+        gal_img4_title: "Profile & Volume",
+        gal_img4_desc: "A generous, soft, and perfectly balanced format for hand-held comfort.",
+        gal_img5_title: "Back Details",
+        gal_img5_desc: "A perfectly fitted hood and top-quality reinforced stitching.",
+        gal_more_title: "More photos coming soon",
+        gal_more_desc: "Add your own image files directly to your GitHub repository to feed this gallery live!",
+        craft_badge: "Quality & Logistics",
+        craft_title: "MANUFACTURING, PACKAGING & SHIPPING",
+        craft_subtitle: "Total commitment to material quality, production transparency, and care for every single package sent to your home.",
+        craft_col1_title: "Custom Manufacturing",
+        craft_col1_desc: "Design and prototypes are entirely imagined by our team. Physical production is then carried out in specialized partner factories in China, renowned for their excellence in high-end plush textiles.",
+        craft_li1: "Hypoallergenic materials",
+        craft_li2: "Anti-wear reinforced stitching",
+        craft_col2_title: "Collector Packaging",
+        craft_col2_desc: "Each Hoodie Plush is individually packed in a sealed, neat protective bag acting as a premium gift packaging. Perfect for collectors or as a gift.",
+        craft_li3: "Individual zippered blister bag",
+        craft_li4: "Reinforced shock protection",
+        craft_col3_title: "Secure Shipping",
+        craft_col3_desc: "As soon as the campaign ends and manufacturing is complete, your packages are prepared with utmost care and shipped with tracking directly to your door, across France and worldwide.",
+        craft_li5: "Real-time package tracking",
+        craft_li6: "Careful and fast shipping",
+        order_badge: "Order Space & Information",
+        order_desc: "Designed as a unique collector item, each plush comes in its individual gift-ready zip bag with high-quality shiny fabric.",
+        spec1_title: "Premium Hood & Fabric",
+        spec1_desc: "Shiny diamond-effect fabric with fine details and ultra-soft touch.",
+        spec2_title: "Mirror Visor & Zipper",
+        spec2_desc: "Modern ski-goggles visor style and functional zipper.",
+        spec3_title: "Individual Bag Packaging",
+        spec3_desc: "Official printed presentation bag.",
+        price_label: "PRE-ORDER PRICE",
+        stock_badge: "Pre-launch Phase",
+        form_label: "Join VIP List",
+        form_warning: "Order unavailable at the moment: Leave your email to get priority access as soon as the shop opens!",
+        form_btn: "Join VIP List (D-100)",
+        transparency_badge: "Transparency & Process",
+        transparency_title: "WEBSITE CREATED WITH AI & 100% HUMAN PLUSH",
+        ia_box_title: "Website Creation (AI)",
+        ia_box_desc: "We state that we work with AI for the development and creation of this website to deliver a modern, smooth, and interactive showcase.",
+        human_box_title: "100% Human Plush",
+        human_box_desc: "The product itself is 100% human: designed by our team and custom-crafted with precision in specialized factories in China.",
+        footer_rights: "All rights reserved"
       }
     };
 
     function toggleLanguage() {
       currentLang = currentLang === 'fr' ? 'en' : 'fr';
-      document.getElementById('lang-label').innerText = currentLang.toUpperCase();
+      document.getElementById('lang-label').innerText = currentLang === 'fr' ? 'FR / EN' : 'EN / FR';
+      
       document.querySelectorAll('[data-i18n]').forEach(elem => {
         const key = elem.getAttribute('data-i18n');
         if (translations[currentLang][key]) {
-          elem.innerText = translations[currentLang][key];
-        }
-      });
-      updateAngleDisplay();
-    }
-
-    const angleViews = [
-      { titleFr: "1. Détails & Matériaux de la Peluche", titleEn: "1. Plush Details & Materials", src: "532c176e-c523-495f-bc6b-4c3a5d5682c6.png" },
-      { titleFr: "2. Packaging Sac & Blister de Présentation", titleEn: "2. Presentation Bag & Packaging", src: "f741e46c-c583-4ac0-9042-ef8f8a2a712b.png" },
-      { titleFr: "3. Vue de Face Officielle", titleEn: "3. Official Front View", src: "532c176e-c523-495f-bc6b-4c3a5d5682c6.png" },
-      { titleFr: "4. Vue de Côté & Profil", titleEn: "4. Side & Profile View", src: "f741e46c-c583-4ac0-9042-ef8f8a2a712b.png" },
-      { titleFr: "5. Vue de Dos & Finitions", titleEn: "5. Back View & Finish", src: "532c176e-c523-495f-bc6b-4c3a5d5682c6.png" }
-    ];
-
-    let currentAngleIndex = 0;
-
-    function setAngle(idx) {
-      currentAngleIndex = idx;
-      updateAngleDisplay();
-    }
-
-    function prevAngle() {
-      currentAngleIndex = (currentAngleIndex - 1 + angleViews.length) % angleViews.length;
-      updateAngleDisplay();
-    }
-
-    function nextAngle() {
-      currentAngleIndex = (currentAngleIndex + 1) % angleViews.length;
-      updateAngleDisplay();
-    }
-
-    function updateAngleDisplay() {
-      const view = angleViews[currentAngleIndex];
-      document.getElementById('view-360-img').src = view.src;
-      document.getElementById('angle-indicator').innerText = `Vue ${currentAngleIndex + 1}/5`;
-      document.getElementById('angle-title').innerText = currentLang === 'fr' ? view.titleFr : view.titleEn;
-
-      document.querySelectorAll('.angle-nav-btn').forEach((btn, idx) => {
-        if (idx === currentAngleIndex) {
-          btn.classList.add('active-angle');
-        } else {
-          btn.classList.remove('active-angle');
+          elem.innerHTML = translations[currentLang][key];
         }
       });
     }
 
-    // Particules de fond
+    // Particules diamant en arrière-plan
     const canvas = document.getElementById('sparkle-canvas');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
@@ -421,9 +810,9 @@
     const particles = Array.from({ length: 45 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      size: Math.random() * 2 + 0.5,
+      size: Math.random() * 2.2 + 0.5,
       alpha: Math.random(),
-      speed: Math.random() * 0.015 + 0.005
+      speed: Math.random() * 0.012 + 0.004
     }));
 
     function animateSparkles() {
@@ -431,7 +820,7 @@
       particles.forEach(p => {
         p.alpha += p.speed;
         if (p.alpha > 1 || p.alpha < 0) p.speed = -p.speed;
-        ctx.fillStyle = `rgba(0, 240, 255, ${Math.abs(p.alpha) * 0.7})`;
+        ctx.fillStyle = `rgba(0, 240, 255, ${Math.abs(p.alpha) * 0.75})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
