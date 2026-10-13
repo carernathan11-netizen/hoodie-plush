@@ -106,7 +106,7 @@
         <a href="#story" class="hover:text-brand-cyan transition-colors" data-i18n="nav_story">Histoire & Origine</a>
         <a href="#gallery" class="hover:text-brand-cyan transition-colors" data-i18n="nav_gallery">Galerie</a>
         <a href="#craft" class="hover:text-brand-cyan transition-colors" data-i18n="nav_craft">Fabrication & Colis</a>
-        <a href="#order" class="hover:text-brand-cyan transition-colors" data-i18n="nav_order">Précommande</a>
+        <a href="#order" class="hover:text-brand-cyan transition-colors" data-i18n="nav_order">Soutenir / Don</a>
       </nav>
 
       <div class="flex items-center gap-3">
@@ -121,7 +121,7 @@
         </a>
 
         <a href="#order" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-xs uppercase tracking-wider hover:scale-105 transition shadow-lg shadow-brand-cyan/25">
-          VIP
+          Don
         </a>
       </div>
 
@@ -131,7 +131,7 @@
   <!-- Banner -->
   <div class="bg-gradient-to-r from-amber-500/20 via-brand-cyan/15 to-amber-500/20 border-b border-amber-500/30 py-2.5 px-4 text-center text-xs font-semibold text-amber-200 flex items-center justify-center gap-2 z-20 relative">
     <i data-lucide="clock" class="w-4 h-4 text-amber-400 animate-pulse"></i>
-    <span data-i18n="status_banner">COMMANDE DIRECTE OUVERTE • PAIEMENT SÉCURISÉ STRIPE</span>
+    <span data-i18n="status_banner">COMMANDES DE PELUCHES TEMPORAIREMENT BLOQUÉES • SOUTENEZ LE PROJET VIA UN DON LIBRE</span>
   </div>
 
   <!-- Hero Section -->
@@ -179,9 +179,9 @@
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
-            <a href="Https://buy.stripe.com/6oUfZg33N723ezeaOAgYU00" target="_blank" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-sm uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/30 flex items-center justify-center gap-2">
-              <i data-lucide="credit-card" class="w-4 h-4"></i>
-              <span data-i18n="btn_buy">Commander (32,98 € TTC)</span>
+            <a href="#order" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-sm uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/30 flex items-center justify-center gap-2">
+              <i data-lucide="heart" class="w-4 h-4"></i>
+              <span data-i18n="btn_donate">Faire un don libre</span>
             </a>
           </div>
 
@@ -241,9 +241,9 @@
 
         <div class="glass-card p-8 rounded-3xl space-y-4 relative overflow-hidden group">
           <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-display font-black text-lg">03</div>
-          <h3 class="font-display font-bold text-xl text-white" data-i18n="story_card3_title">Financement & Avenir</h3>
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="story_card3_title">Soutien & Avenir</h3>
           <p class="text-sm text-slate-300 leading-relaxed" data-i18n="story_card3_desc">
-            Chaque achat contribue directement à la production initiale et au développement de nos futurs projets artistiques indépendants.
+            Votre participation via un don libre permet de financer directement la production et le développement de nos projets artistiques indépendants.
           </p>
         </div>
 
@@ -293,7 +293,7 @@
     </div>
   </section>
 
-  <!-- Section Fabrication, Emballage & Livraison -->
+  <!-- Section Fabrication & Logistique -->
   <section id="craft" class="py-24 relative bg-brand-dark/50 border-t border-white/10 z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -318,7 +318,7 @@
           </div>
           <h3 class="font-display font-bold text-xl text-white" data-i18n="craft_col1_title">Fabrication Sur-Mesure</h3>
           <p class="text-sm text-slate-300 leading-relaxed" data-i18n="craft_col1_desc">
-            Le design et les prototypes sont imaginés par notre équipe. La production physique est réalisée dans des usines spécialisées partenaires en Chine, reconnues pour leur excellence dans le textile peluche haut de gamme.
+            Le design et les prototypes sont imaginés par notre équipe. La production physique est réalisée dans des usines spécialisées partenaires en Chine, reconnues pour leur excellence.
           </p>
         </div>
 
@@ -338,7 +338,7 @@
           </div>
           <h3 class="font-display font-bold text-xl text-white" data-i18n="craft_col3_title">Livraison Sécurisée</h3>
           <p class="text-sm text-slate-300 leading-relaxed" data-i18n="craft_col3_desc">
-            Vos colis sont préparés avec le plus grand soin et expédiés avec numéro de suivi directement à votre domicile (Frais de port : 2,99 €).
+            Vos colis sont préparés avec le plus grand soin et expédiés avec numéro de suivi directement à votre domicile.
           </p>
         </div>
 
@@ -347,39 +347,26 @@
     </div>
   </section>
 
-  <!-- Espace Achat & Paiement Stripe -->
+  <!-- Espace Don Libre (Stripe Link personnalisé) -->
   <section id="order" class="py-24 relative z-10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="glass-card p-8 sm:p-10 rounded-3xl border border-brand-cyan/30 shadow-2xl space-y-6">
+      <div class="glass-card p-8 sm:p-10 rounded-3xl border border-brand-cyan/30 shadow-2xl space-y-6 text-center">
         
-        <div class="text-center space-y-2">
-          <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase" data-i18n="order_badge">ÉDITION COLLECTOR 2026</span>
-          <h3 class="font-display text-3xl font-black text-white" data-i18n="order_title">Espace de Commande Sécurisé</h3>
-          <p class="text-slate-300 text-sm" data-i18n="order_desc">Procédez au paiement direct de votre peluche via notre passerelle bancaire Stripe.</p>
+        <div class="space-y-2 max-w-lg mx-auto">
+          <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase" data-i18n="order_badge">SOUTIEN & FINANCEMENT</span>
+          <h3 class="font-display text-3xl font-black text-white" data-i18n="order_title">Faire un don libre pour le projet</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="order_desc">
+            Les commandes directes sont temporairement bloquées. Tu peux choisir librement le montant de ton choix pour soutenir l'aventure Hoodie Plush et contribuer au lancement.
+          </p>
         </div>
 
-        <div class="space-y-4 border-y border-white/10 py-6 max-w-md mx-auto">
-          <div class="flex justify-between items-center">
-            <span class="text-sm text-slate-300" data-i18n="price_label">Prix de la peluche</span>
-            <span class="font-bold text-white text-lg">29,99 € TTC</span>
-          </div>
-          <div class="flex justify-between items-center">
-            <span class="text-sm text-slate-300" data-i18n="shipping_label">Frais de livraison</span>
-            <span class="font-bold text-brand-cyan text-lg">2,99 €</span>
-          </div>
-          <div class="flex justify-between items-center pt-3 border-t border-white/10">
-            <span class="font-display font-black text-white text-base" data-i18n="total_label">Total de la commande</span>
-            <span class="font-display font-black text-2xl text-white">32,98 € TTC</span>
-          </div>
-        </div>
-
-        <div class="max-w-md mx-auto space-y-4">
-          <!-- Lien de paiement direct Stripe -->
-          <a href="Https://buy.stripe.com/6oUfZg33N723ezeaOAgYU00" target="_blank" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-black text-sm uppercase tracking-wider hover:opacity-95 transition shadow-lg shadow-brand-cyan/20 flex items-center justify-center gap-2 text-center">
-            <i data-lucide="lock" class="w-4 h-4"></i>
-            <span data-i18n="pay_btn">Payer par Carte / Apple Pay (32,98 €)</span>
+        <div class="max-w-md mx-auto space-y-4 pt-4">
+          <!-- Lien Stripe Don Libre intégré -->
+          <a href="Https://buy.stripe.com/9B6bJ0eMvaef76M4qcgYU01" target="_blank" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-black text-sm uppercase tracking-wider hover:opacity-95 transition shadow-lg shadow-brand-cyan/20 flex items-center justify-center gap-2 text-center">
+            <i data-lucide="heart" class="w-4 h-4"></i>
+            <span data-i18n="donate_btn">Choisir mon montant et faire un don</span>
           </a>
-          <p class="text-[11px] text-slate-400 text-center" data-i18n="secure_note">Paiement 100% sécurisé géré par Stripe. Vos coordonnées bancaires ne transitent jamais par notre serveur.</p>
+          <p class="text-[11px] text-slate-400 text-center" data-i18n="secure_note">Paiement 100% sécurisé via Stripe. Tu choisis le montant que tu souhaites donner.</p>
         </div>
 
       </div>
@@ -420,8 +407,8 @@
         nav_story: "Histoire & Origine",
         nav_gallery: "Galerie",
         nav_craft: "Fabrication & Colis",
-        nav_order: "Précommande",
-        status_banner: "COMMANDE DIRECTE OUVERTE • PAIEMENT SÉCURISÉ STRIPE",
+        nav_order: "Soutenir / Don",
+        status_banner: "COMMANDES DE PELUCHES TEMPORAIREMENT BLOQUÉES • SOUTENEZ LE PROJET VIA UN DON LIBRE",
         hero_badge: "Design Futuriste 2026 & Effet Diamant",
         hero_desc: "Une pièce de collection streetwear unique. Habillée d'une doudoune brillante à motif géométrique, d'une visière effet miroir et confectionnée avec des finitions haut de gamme.",
         feat_1_title: "Matériaux Premium",
@@ -432,38 +419,12 @@
         feat_3_sub: "Visière & Zippers",
         feat_4_title: "Objet Collector",
         feat_4_sub: "Packaging inclus",
-        btn_buy: "Commander (32,98 € TTC)",
-        hero_card_sub: "STREETWEAR COLLECTION",
-        hero_card_title: "Le Compagnon 2026",
-        story_badge: "Genèse d'un Projet Innovant",
-        story_title: "L'HISTOIRE DE HOODIE PLUSH",
-        story_subtitle: "Né d'une fusion entre la culture streetwear urbaine et l'univers du design futuriste de 2026, Hoodie Plush redéfinit le concept de la peluche de collection.",
-        story_card1_title: "L'Étincelle Créative",
-        story_card1_desc: "L'idée originale est née de l'envie de créer un objet physique unique, inspiré des codes vestimentaires contemporains tout en gardant l'aspect réconfortant d'une peluche de qualité supérieure.",
-        story_card2_title: "Le Concept & Le Design",
-        story_card2_desc: "Chaque détail a été pensé pour marquer les esprits : une doudoune étincelante effet diamant, un design géométrique rigoureux et une attention particulière portée aux finitions.",
-        story_card3_title: "Financement & Avenir",
-        story_card3_desc: "Chaque achat contribue directement à la production initiale et au développement de nos futurs projets artistiques indépendants.",
-        gallery_badge: "Visuels Officiels",
-        gallery_title: "GALERIE DE LA PELUCHE",
-        gallery_subtitle: "Découvrez en images les détails de fabrication, les textures et le packaging exclusif de notre Édition Collector 2026.",
-        craft_badge: "Qualité & Logistique",
-        craft_title: "FABRICATION, EMBALLAGE & LIVRAISON",
-        craft_subtitle: "Un engagement total sur la qualité des matériaux, la transparence de production et le soin apporté à chaque colis envoyé chez vous.",
-        craft_col1_title: "Fabrication Sur-Mesure",
-        craft_col1_desc: "Le design et les prototypes sont imaginés par notre équipe. La production physique est réalisée dans des usines spécialisées partenaires en Chine, reconnues pour leur excellence dans le textile peluche haut de gamme.",
-        craft_col2_title: "Emballage Collector",
-        craft_col2_desc: "Chaque Hoodie Plush est conditionné individuellement dans un sac de protection étanche et soigné, faisant office de packaging cadeau premium.",
-        craft_col3_title: "Livraison Sécurisée",
-        craft_col3_desc: "Vos colis sont préparés avec le plus grand soin et expédiés avec numéro de suivi directement à votre domicile (Frais de port : 2,99 €).",
-        order_badge: "ÉDITION COLLECTOR 2026",
-        order_title: "Espace de Commande Sécurisé",
-        order_desc: "Procédez au paiement direct de votre peluche via notre passerelle bancaire Stripe.",
-        price_label: "Prix de la peluche",
-        shipping_label: "Frais de livraison",
-        total_label: "Total de la commande",
-        pay_btn: "Payer par Carte / Apple Pay (32,98 €)",
-        secure_note: "Paiement 100% sécurisé géré par Stripe. Vos coordonnées bancaires ne transitent jamais par notre serveur.",
+        btn_donate: "Faire un don libre",
+        order_badge: "SOUTIEN & FINANCEMENT",
+        order_title: "Faire un don libre pour le projet",
+        order_desc: "Les commandes directes sont temporairement bloquées. Tu peux choisir librement le montant de ton choix pour soutenir l'aventure Hoodie Plush et contribuer au lancement.",
+        donate_btn: "Choisir mon montant et faire un don",
+        secure_note: "Paiement 100% sécurisé via Stripe. Tu choisis le montant que tu souhaites donner.",
         footer_rights: "Tous droits réservés"
       },
       en: {
@@ -472,8 +433,8 @@
         nav_story: "Story & Origin",
         nav_gallery: "Gallery",
         nav_craft: "Craft & Shipping",
-        nav_order: "Pre-order",
-        status_banner: "DIRECT ORDER OPEN • SECURE STRIPE PAYMENT",
+        nav_order: "Support / Donate",
+        status_banner: "PLUSH ORDERS TEMPORARILY BLOCKED • SUPPORT THE PROJECT VIA A FREE DONATION",
         hero_badge: "Futuristic Design 2026 & Diamond Effect",
         hero_desc: "A unique streetwear collector piece. Dressed in a shiny geometric pattern jacket, mirror visor, and crafted with high-end finishes.",
         feat_1_title: "Premium Materials",
@@ -484,38 +445,12 @@
         feat_3_sub: "Visor & Zippers",
         feat_4_title: "Collector Item",
         feat_4_sub: "Packaging included",
-        btn_buy: "Order Now (€32.99 incl. tax)",
-        hero_card_sub: "STREETWEAR COLLECTION",
-        hero_card_title: "The 2026 Companion",
-        story_badge: "Genesis of an Innovative Project",
-        story_title: "THE STORY OF HOODIE PLUSH",
-        story_subtitle: "Born from a fusion of urban streetwear culture and 2026 futuristic design, Hoodie Plush redefines the collector plush concept.",
-        story_card1_title: "The Creative Spark",
-        story_card1_desc: "The original idea came from wanting to create a unique physical object, inspired by contemporary fashion codes while keeping the comforting feel of a top-tier plush toy.",
-        story_card2_title: "Concept & Design",
-        story_card2_desc: "Every detail was crafted to stand out: a sparkling diamond-effect puffer jacket, rigorous geometric design, and meticulous finishing touches.",
-        story_card3_title: "Funding & Future",
-        story_card3_desc: "Each purchase directly contributes to the initial production run and the development of our future independent artistic projects.",
-        gallery_badge: "Official Visuals",
-        gallery_title: "PLUSH GALLERY",
-        gallery_subtitle: "Discover through images the manufacturing details, textures, and exclusive packaging of our 2026 Collector Edition.",
-        craft_badge: "Quality & Logistics",
-        craft_title: "MANUFACTURING, PACKAGING & SHIPPING",
-        craft_subtitle: "Total commitment to material quality, production transparency, and care for every single package sent to your home.",
-        craft_col1_title: "Custom Manufacturing",
-        craft_col1_desc: "Design and prototypes are entirely imagined by our team. Physical production is then carried out in specialized partner factories in China, renowned for their excellence in high-end plush textiles.",
-        craft_col2_title: "Collector Packaging",
-        craft_col2_desc: "Each Hoodie Plush is individually packed in a sealed, neat protective bag acting as a premium gift packaging.",
-        craft_col3_title: "Secure Shipping",
-        craft_col3_desc: "Your packages are prepared with utmost care and shipped with tracking directly to your door (Shipping fee: €2.99).",
-        order_badge: "COLLECTOR EDITION 2026",
-        order_title: "Secure Checkout Space",
-        order_desc: "Proceed to the direct payment of your plush via our secure Stripe payment gateway.",
-        price_label: "Plush price",
-        shipping_label: "Shipping fee",
-        total_label: "Order total",
-        pay_btn: "Pay by Card / Apple Pay (€32.98)",
-        secure_note: "100% secure payment managed by Stripe. Your banking details never pass through our server.",
+        btn_donate: "Make a free donation",
+        order_badge: "SUPPORT & FUNDING",
+        order_title: "Make a free donation for the project",
+        order_desc: "Direct orders are temporarily blocked. You can freely choose the amount you want to support the Hoodie Plush adventure and contribute to the launch.",
+        donate_btn: "Choose my amount and donate",
+        secure_note: "100% secure payment via Stripe. You choose the amount you want to donate.",
         footer_rights: "All rights reserved"
       }
     };
