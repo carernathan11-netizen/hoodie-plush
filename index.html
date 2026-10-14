@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HOODIE PLUSH | Site Officiel - Édition Collector 2026</title>
+  <title>HOODIE PLUSH | Site Officiel - Édition Collector 2026-2027</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -100,7 +100,7 @@
           <span class="font-display font-black text-base sm:text-xl tracking-wider text-white flex items-center gap-1">
             HOODIE PLUSH <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-cyan inline"></i>
           </span>
-          <span class="block text-[9px] sm:text-[10px] text-brand-cyan tracking-widest font-mono uppercase" data-i18n="nav_edition">Collector 2026</span>
+          <span class="block text-[9px] sm:text-[10px] text-brand-cyan tracking-widest font-mono uppercase" data-i18n="nav_edition">Collector 2027</span>
         </div>
       </div>
 
@@ -108,13 +108,14 @@
         <a href="#concept" class="hover:text-brand-cyan transition-colors" data-i18n="nav_concept">Concept</a>
         <a href="#story" class="hover:text-brand-cyan transition-colors" data-i18n="nav_story">Histoire</a>
         <a href="#gallery" class="hover:text-brand-cyan transition-colors" data-i18n="nav_gallery">Galerie</a>
+        <a href="#advantages" class="hover:text-brand-cyan transition-colors" data-i18n="nav_advantages">Avantages VIP</a>
         <a href="#simulator" class="hover:text-brand-cyan transition-colors" data-i18n="nav_sim">Impact Don</a>
         <a href="#reviews" class="hover:text-brand-cyan transition-colors" data-i18n="nav_reviews">Avis Communauté</a>
         <a href="#order" class="hover:text-brand-cyan transition-colors" data-i18n="nav_order">Soutenir / Don</a>
       </nav>
 
       <div class="flex items-center gap-2 sm:gap-3">
-        <!-- Bouton Musique -->
+        <!-- Musique -->
         <button id="music-btn" onclick="toggleAudio()" class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-slate-300 flex items-center gap-1.5 transition">
           <i data-lucide="music" class="w-4 h-4 text-brand-cyan"></i>
           <span id="music-text" class="hidden sm:inline">Ambiance OFF</span>
@@ -135,7 +136,7 @@
     </div>
   </header>
 
-  <!-- Status Banner & Compte à Rebours 100 Jours -->
+  <!-- Banner Compte à Rebours Fixé au 5 Mars 2027 -->
   <div class="bg-gradient-to-r from-purple-900/40 via-brand-cyan/20 to-purple-900/40 border-b border-brand-cyan/30 py-3 px-4 text-center text-xs font-semibold text-cyan-200 z-20 relative">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3">
       <div class="flex items-center gap-2">
@@ -143,11 +144,11 @@
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
         </span>
-        <span data-i18n="status_banner">LANCEMENT OFFICIEL DANS :</span>
+        <span data-i18n="status_banner">COMMANDES OFFICIELLES LE 5 MARS 2027 • DÉCOMPTE :</span>
       </div>
-      <!-- Timer -->
-      <div id="countdown" class="font-mono font-black text-brand-cyan bg-black/40 px-3 py-1 rounded-lg border border-brand-cyan/30 flex gap-2 text-sm tracking-widest shadow-inner">
-        <span><b id="c-days">100</b>d</span> :
+      <!-- Timer jusqu'au 5 mars 2027 -->
+      <div id="countdown" class="font-mono font-black text-brand-cyan bg-black/50 px-3 py-1 rounded-lg border border-brand-cyan/40 flex gap-2 text-sm tracking-widest shadow-inner">
+        <span><b id="c-days">000</b>j</span> :
         <span><b id="c-hours">00</b>h</span> :
         <span><b id="c-mins">00</b>m</span> :
         <span><b id="c-secs">00</b>s</span>
@@ -176,6 +177,17 @@
             Le compagnon idéal de 15 cm pour votre lit, votre bureau ou votre décoration streetwear. Habillée d'une doudoune brillante à motif géométrique et d'une visière effet miroir.
           </p>
 
+          <!-- Barre de progression communautaire -->
+          <div class="glass-card p-4 rounded-2xl border border-white/10 space-y-2">
+            <div class="flex justify-between text-xs font-bold">
+              <span class="text-slate-300">Objectif Campagne 2027</span>
+              <span class="text-brand-cyan">68% Financé</span>
+            </div>
+            <div class="w-full h-2.5 bg-black/60 rounded-full overflow-hidden p-0.5 border border-white/10">
+              <div class="h-full bg-gradient-to-r from-brand-cyan to-brand-blue rounded-full w-[68%] animate-pulse"></div>
+            </div>
+          </div>
+
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             <div class="glass-card p-3.5 rounded-2xl text-center">
               <i data-lucide="ruler" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
@@ -199,7 +211,7 @@
             </div>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+          <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
             <a href="#order" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-sm uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/30 flex items-center justify-center gap-2">
               <i data-lucide="heart" class="w-4 h-4"></i>
               <span data-i18n="btn_donate">Soutenir & Faire un Don Libre</span>
@@ -229,8 +241,62 @@
     </div>
   </section>
 
+  <!-- Section Avantages VIP Donateurs -->
+  <section id="advantages" class="py-20 bg-brand-dark/40 border-t border-white/10 z-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+          <i data-lucide="crown" class="w-3.5 h-3.5"></i>
+          <span>Privilèges Inédits</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white">
+          POURQUOI DEVENIR DONATEUR VIP ?
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          Soutenir la phase de production avant le 5 mars 2027 vous débloque des avantages uniques :
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="glass-card p-8 rounded-3xl space-y-4 border border-brand-cyan/20 relative">
+          <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
+            <i data-lucide="truck" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white">Expédition Prioritaire</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Les donateurs seront servis en tout premier lors de la sortie officielle le 5 mars 2027, avant l'ouverture du grand public.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-4 border border-brand-purple/20 relative">
+          <div class="w-12 h-12 rounded-2xl bg-brand-purple/10 border border-brand-purple/30 flex items-center justify-center text-brand-purple">
+            <i data-lucide="award" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white">Badge Créateur VIP</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Votre nom ou pseudo sera gravé dans la liste officielle des fondateurs du projet sur le site et la communauté TikTok.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-4 border border-brand-blue/20 relative">
+          <div class="w-12 h-12 rounded-2xl bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue">
+            <i data-lucide="key" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white">Accès Discord & Coulisses</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Suivez la fabrication en temps réel avec des photos exclusives des coulisses en usine et des prototypes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- Section Histoire -->
-  <section id="story" class="py-24 relative bg-brand-dark/40 border-y border-white/10 z-10">
+  <section id="story" class="py-24 relative bg-brand-dark/20 border-y border-white/10 z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -290,7 +356,7 @@
           GALERIE EXCLUSIVE
         </h2>
         <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="gallery_subtitle">
-          Découvrez en images la peluche de 15 cm sous tous ses angles et les détails exceptionnels de l'Édition Collector 2026.
+          Découvrez en images la peluche de 15 cm sous tous ses angles et les détails exceptionnels de l'Édition Collector.
         </p>
       </div>
 
@@ -331,37 +397,40 @@
     </div>
   </section>
 
-  <!-- NOUVELLE SECTION INTERACTIVE : Simualteur d'Impact de Don -->
+  <!-- SECTION INTERACTIVE : Simulateur d'Impact de Don & Badges -->
   <section id="simulator" class="py-20 bg-brand-dark/50 border-t border-white/10 z-10 relative">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
       
       <div class="space-y-2">
-        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">SIMULATEUR D'IMPACT</span>
+        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">SIMULATEUR D'IMPACT & STATUT VIP</span>
         <h2 class="font-display text-3xl sm:text-4xl font-black text-white">À QUOI SERT VOTRE DON ?</h2>
         <p class="text-sm text-slate-300">Glissez le curseur pour voir comment votre don contribue concrètement au projet :</p>
       </div>
 
       <div class="glass-card p-8 rounded-3xl border border-brand-cyan/30 space-y-6">
         <div class="flex justify-between items-center font-display font-black text-2xl text-brand-cyan">
-          <span>Montant du don :</span>
+          <span>Montant de votre don :</span>
           <span id="donation-amount">15 €</span>
         </div>
 
         <input type="range" id="donation-range" min="5" max="100" step="5" value="15" oninput="updateImpact(this.value)" class="w-full accent-brand-cyan cursor-pointer h-2 bg-slate-800 rounded-lg">
 
-        <div id="impact-card" class="p-4 rounded-2xl bg-white/5 border border-white/10 text-left space-y-2">
-          <div class="flex items-center gap-2 font-bold text-white text-base">
-            <i data-lucide="sparkles" class="w-5 h-5 text-brand-cyan"></i>
-            <span id="impact-title">Financement de la Visière Miroir (Prototype)</span>
+        <div id="impact-card" class="p-5 rounded-2xl bg-white/5 border border-white/10 text-left space-y-3">
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2 font-bold text-white text-base">
+              <i data-lucide="sparkles" class="w-5 h-5 text-brand-cyan"></i>
+              <span id="impact-title">Financement de la Visière Miroir (Prototype)</span>
+            </div>
+            <span id="vip-badge" class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] font-bold uppercase tracking-wider">Statut Argent</span>
           </div>
-          <p id="impact-desc" class="text-xs text-slate-300">Votre don de 15 € permet de mouler et prototyper la visière réfléchissante haute précision pour une peluche.</p>
+          <p id="impact-desc" class="text-xs text-slate-300 leading-relaxed">Votre don de 15 € permet de mouler et prototyper la visière réfléchissante haute précision pour une peluche.</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- NOUVELLE SECTION INTERACTIVE : Avis & Commentaires Publics -->
+  <!-- SECTION INTERACTIVE : Avis & Commentaires Publics -->
   <section id="reviews" class="py-24 relative z-10 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
@@ -380,7 +449,7 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- Formulaire de dépôt d'avis -->
+        <!-- Formulaire -->
         <div class="lg:col-span-5 glass-card p-6 rounded-3xl border border-brand-cyan/30 space-y-4">
           <h3 class="font-display font-bold text-lg text-white">Laissez votre message</h3>
           <form id="comment-form" onsubmit="addComment(event)" class="space-y-4">
@@ -412,8 +481,7 @@
 
         <!-- Liste des avis publics -->
         <div class="lg:col-span-7 space-y-4" id="comments-container">
-          <!-- Avis par défaut -->
-          <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-2 animate-fade-in">
+          <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-2">
             <div class="flex justify-between items-center">
               <span class="font-bold text-sm text-white flex items-center gap-2">
                 <span class="w-7 h-7 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 flex items-center justify-center text-brand-cyan text-xs">M</span>
@@ -421,11 +489,11 @@
               </span>
               <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
             </div>
-            <p class="text-xs text-slate-300">"Le format 15 cm est juste parfait pour dormir avec ou poser sur le bureau. Vraiment hâte !"</p>
+            <p class="text-xs text-slate-300">"Le format 15 cm est juste parfait pour poser sur le bureau. Vivement le 5 mars 2027 !"</p>
             <span class="text-[10px] text-slate-500 block">Publié à l'instant • Membre VIP</span>
           </div>
 
-          <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-2 animate-fade-in">
+          <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-2">
             <div class="flex justify-between items-center">
               <span class="font-bold text-sm text-white flex items-center gap-2">
                 <span class="w-7 h-7 rounded-full bg-brand-purple/20 border border-brand-purple/40 flex items-center justify-center text-brand-purple text-xs">S</span>
@@ -452,7 +520,7 @@
           <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">SOUTIEN & FINANCEMENT</span>
           <h3 class="font-display text-3xl sm:text-4xl font-black text-white">Faire un don libre pour le projet</h3>
           <p class="text-slate-300 text-sm leading-relaxed">
-            Les commandes directes sont temporairement bloquées pendant les 100 jours de préparation. Tu peux choisir librement le montant de ton choix pour soutenir l'aventure Hoodie Plush 15 cm !
+            Les commandes directes ouvriront officiellement le <strong>5 mars 2027</strong>. Tu peux choisir librement le montant de ton choix dès aujourd'hui pour soutenir l'aventure Hoodie Plush 15 cm !
           </p>
         </div>
 
@@ -479,7 +547,7 @@
         <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center font-display font-black text-black text-sm">
           H
         </div>
-        <span class="font-display font-bold text-white text-sm">HOODIE PLUSH © 2026</span>
+        <span class="font-display font-bold text-white text-sm">HOODIE PLUSH © 2026-2027</span>
       </div>
 
       <div class="flex items-center gap-6 text-xs text-slate-400">
@@ -496,11 +564,17 @@
   <script>
     lucide.createIcons();
 
-    // Compte à Rebours 100 Jours
-    const targetDate = new Date().getTime() + (100 * 24 * 60 * 60 * 1000);
-    setInterval(() => {
+    // Compte à Rebours Fixé exactement au 5 Mars 2027 00:00:00
+    const targetDate = new Date("March 5, 2027 00:00:00").getTime();
+    
+    function updateCountdown() {
       const now = new Date().getTime();
       const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = "LANCÉ !";
+        return;
+      }
 
       const d = Math.floor(diff / (1000 * 60 * 60 * 24));
       const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -511,7 +585,9 @@
       document.getElementById('c-hours').innerText = h < 10 ? '0' + h : h;
       document.getElementById('c-mins').innerText = m < 10 ? '0' + m : m;
       document.getElementById('c-secs').innerText = s < 10 ? '0' + s : s;
-    }, 1000);
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
     // Audio Player
     let isPlaying = false;
@@ -528,24 +604,33 @@
       isPlaying = !isPlaying;
     }
 
-    // Simulateur d'impact
+    // Simulateur d'impact & Badges VIP
     function updateImpact(val) {
       document.getElementById('donation-amount').innerText = val + ' €';
       const title = document.getElementById('impact-title');
       const desc = document.getElementById('impact-desc');
+      const badge = document.getElementById('vip-badge');
 
       if (val < 15) {
         title.innerText = "Financement du Tissu Scintillant";
         desc.innerText = "Permet de commander les échantillons de doudoune argentée à effet diamant.";
+        badge.innerText = "Statut Bronze";
+        badge.className = "px-3 py-1 rounded-full bg-amber-700/20 border border-amber-600/40 text-amber-400 text-[10px] font-bold uppercase tracking-wider";
       } else if (val < 35) {
         title.innerText = "Moulage Visière Miroir 15 cm";
         desc.innerText = "Finance la création du moule spécifique pour la visière miroir réfléchissante.";
+        badge.innerText = "Statut Argent";
+        badge.className = "px-3 py-1 rounded-full bg-slate-400/20 border border-slate-300/40 text-slate-200 text-[10px] font-bold uppercase tracking-wider";
       } else if (val < 70) {
         title.innerText = "Packaging Cadeau Premium";
         desc.innerText = "Finance le sac étanche scellé et l'emballage collector individuel.";
+        badge.innerText = "Statut Or VIP";
+        badge.className = "px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-400/40 text-yellow-300 text-[10px] font-bold uppercase tracking-wider";
       } else {
         title.innerText = "Financement Prototype Intégral VIP";
         desc.innerText = "Couvre l'intégralité d'un exemplaire physique complet livré en priorité aux donateurs.";
+        badge.innerText = "Statut Platine VIP";
+        badge.className = "px-3 py-1 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-[10px] font-bold uppercase tracking-wider";
       }
     }
 
@@ -560,7 +645,7 @@
       const container = document.getElementById('comments-container');
 
       const card = document.createElement('div');
-      card.className = "glass-card p-5 rounded-2xl border border-brand-cyan/40 space-y-2 animate-bounce-once";
+      card.className = "glass-card p-5 rounded-2xl border border-brand-cyan/40 space-y-2";
       card.innerHTML = `
         <div class="flex justify-between items-center">
           <span class="font-bold text-sm text-white flex items-center gap-2">
@@ -582,7 +667,7 @@
     function shareProject() {
       if (navigator.share) {
         navigator.share({
-          title: 'HOODIE PLUSH 2026',
+          title: 'HOODIE PLUSH 2027',
           text: 'Découvrez la peluche streetwear Hoodie Plush (15 cm) !',
           url: window.location.href,
         });
