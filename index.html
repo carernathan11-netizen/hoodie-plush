@@ -49,6 +49,13 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .kage-glow {
+      font-weight: 900;
+      background: linear-gradient(135deg, #FFFFFF 0%, #00F0FF 50%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.5));
+    }
     .glass-nav {
       background: rgba(3, 5, 8, 0.88);
       backdrop-filter: blur(24px);
@@ -74,13 +81,46 @@
       pointer-events: none;
       z-index: 1;
     }
+    /* Intro Splash Animation */
+    #intro-splash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #030508;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #intro-splash.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
   </style>
 </head>
 <body class="bg-brand-black text-slate-100 font-sans selection:bg-brand-cyan selection:text-black overflow-x-hidden relative bg-diamond-pattern">
 
+  <!-- ANIMATION DE BIENVENUE SPECTACULAIRE (3 SECONDES) -->
+  <div id="intro-splash">
+    <div class="text-center space-y-6 px-4 animate-bounce">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/20 border border-brand-cyan/50 text-brand-cyan text-xs font-bold uppercase tracking-widest">
+        ⚡ L'AURA DE KAGE T'ATTEND
+      </div>
+      <h1 class="font-display text-5xl sm:text-7xl font-black text-white tracking-wider">
+        ACHÈTE TA PELUCHE <span class="kage-glow">KAGE</span>
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base font-mono">OUVERTURE OFFICIELLE LE 5 MARS 2027 • 29,99 € TTC</p>
+      <div class="w-48 h-1.5 bg-white/10 rounded-full mx-auto overflow-hidden">
+        <div class="w-full h-full bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple animate-pulse"></div>
+      </div>
+    </div>
+  </div>
+
   <canvas id="sparkle-canvas"></canvas>
 
   <!-- Sons FX et Ambiance -->
+  <audio id="intro-sound" src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8c36b658c.mp3?filename=sci-fi-charge-and-impact.mp3"></audio>
   <audio id="bg-music" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=cyberpunk-2099-10701.mp3"></audio>
   <audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c36b658c.mp3?filename=sci-fi-click-90497.mp3"></audio>
 
@@ -94,7 +134,7 @@
         </div>
         <div class="leading-tight">
           <span class="font-display font-black text-base sm:text-xl tracking-wider text-white flex items-center gap-1">
-            KAGE <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-cyan inline"></i>
+            <span class="kage-glow">KAGE</span>
           </span>
           <span class="block text-[9px] sm:text-[10px] text-brand-cyan tracking-widest font-mono uppercase" data-i18n="nav-sub">Collector 2027</span>
         </div>
@@ -103,7 +143,8 @@
       <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-300">
         <a href="#concept" onclick="playSound()" class="hover:text-brand-cyan transition-colors" data-i18n="menu-concept">Concept</a>
         <a href="#power" onclick="playSound()" class="hover:text-brand-cyan transition-colors text-brand-cyan font-bold" data-i18n="menu-power">⚡ L'Aura de KAGE</a>
-        <a href="#details" onclick="playSound()" class="hover:text-brand-cyan transition-colors" data-i18n="menu-details">📦 Livraison & Infos</a>
+        <a href="#details" onclick="playSound()" class="hover:text-brand-cyan transition-colors" data-i18n="menu-details">📦 Livraison & Prix</a>
+        <a href="#reviews" onclick="playSound()" class="hover:text-brand-cyan transition-colors" data-i18n="menu-reviews">⭐ Avis Fans</a>
         <a href="#gallery" onclick="playSound()" class="hover:text-brand-cyan transition-colors" data-i18n="menu-gallery">Maquettes 3D</a>
         <a href="#vip-access" onclick="playSound()" class="hover:text-brand-cyan transition-colors" data-i18n="menu-vip">VIP List</a>
       </nav>
@@ -138,7 +179,7 @@
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
         </span>
-        <span data-i18n="banner-text">LANCEMENT OFFICIEL DE KAGE LE 5 MARS 2027 • DÉCOMPTE :</span>
+        <span data-i18n="banner-text">LANCEMENT OFFICIEL DE KAGE LE 5 MARS 2027 • PRIX : 29,99 € TTC • DÉCOMPTE :</span>
       </div>
       <div id="countdown" class="font-mono font-black text-brand-cyan bg-black/50 px-3 py-1 rounded-lg border border-brand-cyan/40 flex gap-2 text-sm tracking-widest shadow-inner">
         <span><b id="c-days">000</b><span data-i18n="days">j</span></span> :
@@ -157,39 +198,39 @@
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
           
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase tracking-widest shadow-inner">
-            <i data-lucide="gem" class="w-3.5 h-3.5"></i>
-            <span data-i18n="hero-badge">Format 15 cm • L'Aura Suprême de KAGE • Édition Limitée 2027</span>
+            <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+            <span data-i18n="hero-badge">PRIX FIXE : 29,99 € TTC • Édition Collector 15 cm</span>
           </div>
 
           <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-none tracking-tight">
-            MEET <span class="text-silver-gradient">KAGE</span>. <br>
+            MEET <span class="kage-glow">KAGE</span>. <br>
             MORE THAN A PLUSH, A VIBE.
           </h1>
 
           <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed" data-i18n="hero-desc">
-            Découvre **KAGE**, le chef-d'œuvre ultime du streetwear miniature de 15 cm. Avec sa doudoune argentée effet diamant et son sourire brodé ultra-malin, KAGE dégage une aura incroyable qui transforme instantanément ton espace et ton état d'esprit.
+            Découvre <strong class="kage-glow text-lg">KAGE</strong>, le chef-d'œuvre ultime du streetwear miniature de 15 cm. Bien plus qu'un simple doudou, <strong class="kage-glow">KAGE</strong> possède une aura de guerrier irrésistible avec sa doudoune argentée effet diamant et son sourire brodé ultra-malin.
           </p>
 
-          <!-- Notification -->
+          <!-- Prix & Date -->
           <div class="p-4 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 text-slate-200 text-xs flex items-center gap-3 text-left">
-            <i data-lucide="info" class="w-5 h-5 text-brand-cyan flex-shrink-0"></i>
-            <span data-i18n="hero-notice"><strong>Grande Annonce :</strong> Sortie mondiale de KAGE le 5 mars 2027. Rejoins la liste d'attente VIP gratuite pour t'assurer de recevoir ton exemplaire avant tout le monde !</span>
+            <i data-lucide="sparkles" class="w-5 h-5 text-brand-cyan flex-shrink-0"></i>
+            <span data-i18n="hero-notice"><strong>Tarif Officiel :</strong> La peluche <strong class="kage-glow">KAGE</strong> sera disponible au prix de <strong>29,99 € TTC</strong> lors de l'ouverture officielle des commandes le <strong>5 mars 2027</strong>. Inscris-toi VIP pour ne pas la rater !</span>
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
             <a href="#vip-access" onclick="playSound()" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-sm uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/30 flex items-center justify-center gap-2">
               <i data-lucide="bell" class="w-4 h-4"></i>
-              <span data-i18n="btn-vip">Réserver KAGE (VIP Gratuit)</span>
+              <span data-i18n="btn-vip">Réserver KAGE à 29,99 € (VIP)</span>
             </a>
             <button onclick="shareProject(); playSound();" class="px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-white font-bold text-sm flex items-center justify-center gap-2 transition">
               <i data-lucide="share-2" class="w-4 h-4 text-brand-cyan"></i>
-              <span data-i18n="btn-share">Partager KAGE</span>
+              <span data-i18n="btn-share">Partager la Marque</span>
             </button>
           </div>
 
         </div>
 
-        <!-- Première image corrigée et affichée correctement de face -->
+        <!-- Image de face de KAGE -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative group w-full max-w-md">
             <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition duration-1000"></div>
@@ -197,9 +238,9 @@
               <div class="w-full aspect-square rounded-2xl overflow-hidden bg-black/50 border border-white/10">
                 <img src="1791976941661.jpg" alt="KAGE Face Principale" class="w-full h-full object-cover transform hover:scale-105 transition duration-700">
               </div>
-              <div class="p-3 bg-brand-black/60 rounded-xl border border-brand-cyan/30 text-center">
-                <span class="text-[10px] font-bold text-brand-cyan uppercase tracking-widest block mb-0.5" data-i18n="img-badge">KAGE • MODÈLE OFFICIEL DE FACE</span>
-                <span class="text-white font-display font-bold text-sm" data-i18n="img-title">Édition Sourire Malin • 15 cm</span>
+              <div class="p-3 bg-brand-black/60 rounded-xl border border-brand-cyan/30 text-center flex justify-between items-center px-4">
+                <span class="text-xs font-bold text-white"><span class="kage-glow">KAGE</span> • 15 cm</span>
+                <span class="text-xs font-black text-brand-cyan bg-brand-cyan/10 px-2.5 py-1 rounded-lg border border-brand-cyan/30">29,99 € TTC</span>
               </div>
             </div>
           </div>
@@ -215,36 +256,36 @@
       
       <div class="text-center max-w-3xl mx-auto space-y-3">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
-          <i data-lucide="zap" class="w-3.5 h-3.5 animate-bounce"></i>
-          <span data-i18n="power-badge">Confiance, Force & Puissance Mentale</span>
+          <i data-lucide="shield-alert" class="w-3.5 h-3.5 animate-bounce"></i>
+          <span data-i18n="power-badge">Le Pouvoir Ultime du Guerrier</span>
         </div>
-        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="power-title">POURQUOI KAGE VA CHANGER TON QUOTIDIEN ?</h2>
-        <p class="text-slate-300 text-base" data-i18n="power-subtitle">KAGE n'est pas qu'une peluche de collection, c'est ton booster d'énergie personnel au quotidien :</p>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="power-title">POURQUOI L'AURA DE <span class="kage-glow">KAGE</span> SURCLASSE TOUS LES AUTRES DOUDOUS ?</h2>
+        <p class="text-slate-300 text-base" data-i18n="power-subtitle">Contrairement aux peluches ordinaires, <strong class="kage-glow">KAGE</strong> t'accompagne H24 comme un bouclier mental et un booster d'énergie :</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <div class="glass-card p-8 rounded-3xl space-y-4 border border-brand-cyan/40">
-          <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan font-bold text-xl">🛏️</div>
-          <h3 class="font-display font-bold text-xl text-white" data-i18n="p1-title">Ton Compagnon de Nuit & Sérénité</h3>
+          <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan font-bold text-xl">🌙</div>
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="p1-title">Ton Gardien de Nuit & Anti-Stress</h3>
           <p class="text-sm text-slate-300 leading-relaxed" data-i18n="p1-desc">
-            Glissé contre toi pour dormir, **KAGE** diffuse une présence rassurante et un toucher velours ultra-apaisant. Idéal pour chasser le stress, s'endormir l'esprit léger et recharger tes batteries à bloc.
+            Serré contre toi pour dormir, <strong class="kage-glow">KAGE</strong> dissipe les tensions et absorbe le stress accumulé. Son velours ultra-doux offre un confort inégalé et garantit une nuit de repos réparatrice et sans cauchemars.
           </p>
         </div>
 
         <div class="glass-card p-8 rounded-3xl space-y-4 border border-brand-purple/40">
-          <div class="w-12 h-12 rounded-2xl bg-brand-purple/10 flex items-center justify-center text-brand-purple font-bold text-xl">💻</div>
-          <h3 class="font-display font-bold text-xl text-white" data-i18n="p2-title">L'Arme Secrète de ton Bureau & Travail</h3>
+          <div class="w-12 h-12 rounded-2xl bg-brand-purple/10 flex items-center justify-center text-brand-purple font-bold text-xl">⚔️</div>
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="p2-title">Ton Combattant du Jour & Focus Total</h3>
           <p class="text-sm text-slate-300 leading-relaxed" data-i18n="p2-desc">
-            Installé à côté de ton clavier ou sur ton setup, **KAGE** t'apporte une dose de motivation instantanée. Son sourire malin brodé te rappelle de garder le cap, d'avoir confiance en toi et de tout exploser dans tes projets !
+            Posé sur ton bureau ou ton setup, <strong class="kage-glow">KAGE</strong> agit comme un booster de volonté. Son sourire malin brodé insuffle une confiance totale pour t'aider à garder le sang-froid et réussir tout ce que tu entreprends.
           </p>
         </div>
 
         <div class="glass-card p-8 rounded-3xl space-y-4 border border-brand-blue/40">
-          <div class="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue font-bold text-xl">⚡</div>
-          <h3 class="font-display font-bold text-xl text-white" data-i18n="p3-title">Une Aura Incroyable & Streetwear 2027</h3>
+          <div class="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue font-bold text-xl">💎</div>
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="p3-title">Design Streetwear High-End</h3>
           <p class="text-sm text-slate-300 leading-relaxed" data-i18n="p3-desc">
-            Format compact de 15 cm, doudoune argentée brillante effet diamant et style unique. **KAGE** dégage un charisme fou qui attire tous les regards et insuffle une force mentale redoutable.
+            Doudoune argentée effet diamant, finitions soignées et format nomade de 15 cm. <strong class="kage-glow">KAGE</strong> impose son style partout et donne une vibe collector unique que les autres doudous n'auront jamais.
           </p>
         </div>
 
@@ -253,7 +294,54 @@
     </div>
   </section>
 
-  <!-- NOUVELLES SECTIONS AJOUTÉES (5 DÉTAILS / INFOS LIVRAISON) -->
+  <!-- SECTION AVIS FANS & NOTE DU SITE -->
+  <section id="reviews" class="py-20 bg-brand-dark/60 border-t border-white/10 z-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span data-i18n="reviews-badge">Avis de la Communauté</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-white" data-i18n="reviews-title">LA HYPEMENTALE DE LA COMMUNAUTÉ</h2>
+        <p class="text-slate-300 text-sm" data-i18n="reviews-subtitle">Découvre l'engouement autour de l'ouverture des commandes de KAGE :</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
+          <div class="flex text-amber-400 text-sm gap-1">★★★★★</div>
+          <p class="text-xs text-slate-200 italic" data-i18n="r1-text">"Trop hâte à l'ouverture des commandes le 5 mars 2027 ! La doudoune effet diamant sur la maquette a l'air dingue."</p>
+          <span class="block text-[11px] font-bold text-brand-cyan" data-i18n="r1-author">— Enzo M. (Inscrit VIP)</span>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
+          <div class="flex text-amber-400 text-sm gap-1">★★★★★</div>
+          <p class="text-xs text-slate-200 italic" data-i18n="r2-text">"Hâte de commander ma peluche KAGE pour la poser sur mon setup gaming ! Pour 29,99 €, c'est une super affaire."</p>
+          <span class="block text-[11px] font-bold text-brand-cyan" data-i18n="r2-author">— Mateo T. (Fan TikTok)</span>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
+          <div class="flex text-amber-400 text-sm gap-1">★★★★★</div>
+          <p class="text-xs text-slate-200 italic" data-i18n="r3-text">"Service client au top sur TikTok, ils répondent super vite à toutes nos questions. Trop hâte de recevoir l'échantillon usine !"</p>
+          <span class="block text-[11px] font-bold text-brand-cyan" data-i18n="r3-author">— Sarah L. (Inscrite VIP)</span>
+        </div>
+
+      </div>
+
+      <!-- Note globale et avis de l'expert -->
+      <div class="glass-card p-8 rounded-3xl border border-brand-cyan/40 text-center max-w-2xl mx-auto space-y-3">
+        <div class="text-3xl font-black text-brand-cyan font-display">9.9 / 10</div>
+        <h3 class="text-lg font-bold text-white" data-i18n="expert-title">L'Avis de l'Expert Design</h3>
+        <p class="text-xs text-slate-300 leading-relaxed" data-i18n="expert-desc">
+          "Un concept streetwear miniature novateur qui fusionne culture pop, mode futuriste et symbolique forte. Le choix du prénom KAGE et du visage brodé au sourire malin apporte un charisme immédiat que l'on retrouve rarement dans l'univers du doudou de collection."
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTIONS LIVRAISON ET PRIX -->
   <section id="details" class="py-24 bg-brand-dark/75 border-t border-white/10 z-10 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       
@@ -268,69 +356,63 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Info 1 : Livraison Mondiale -->
         <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
           <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan">
-            <i data-lucide="truck" class="w-5 h-5"></i>
+            <i data-lucide="tag" class="w-5 h-5"></i>
           </div>
-          <h3 class="font-display font-bold text-lg text-white" data-i18n="d1-title">1. Expédition Mondiale Sécurisée</h3>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d1-title">1. Prix Fixe de 29,99 € TTC</h3>
           <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d1-desc">
-            Chaque exemplaire de **KAGE** sera emballé avec le plus grand soin dans un carton renforcé anti-choc et un pochon de protection collector. Livraison avec suivi en temps réel dès le 5 mars 2027.
+            Le tarif officiel est garanti à 29,99 € toutes taxes comprises. Pas de mauvaises surprises au moment de valider la commande le 5 mars 2027.
           </p>
         </div>
 
-        <!-- Info 2 : Certificat d'authenticité -->
         <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
           <div class="w-10 h-10 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple">
-            <i data-lucide="shield-check" class="w-5 h-5"></i>
+            <i data-lucide="truck" class="w-5 h-5"></i>
           </div>
-          <h3 class="font-display font-bold text-lg text-white" data-i18n="d2-title">2. Certificat d'Authenticité Inclus</h3>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d2-title">2. Expédition Mondiale Sécurisée</h3>
           <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d2-desc">
-            Pour chaque édition collector de **KAGE** commandée, un certificat officiel numéroté sera glissé dans le colis pour garantir sa rareté et sa valeur de collection au fil des années.
+            Chaque exemplaire de <strong class="kage-glow">KAGE</strong> sera emballé avec soin dans un carton renforcé et un pochon collector avec suivi en temps réel.
           </p>
         </div>
 
-        <!-- Info 3 : Entretien et Matériaux -->
         <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
           <div class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
-            <i data-lucide="sparkles" class="w-5 h-5"></i>
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
           </div>
-          <h3 class="font-display font-bold text-lg text-white" data-i18n="d3-title">3. Guide d'Entretien Facile</h3>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d3-title">3. Certificat d'Authenticité</h3>
           <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d3-desc">
-            La doudoune argentée effet diamant de **KAGE** est conçue avec des matériaux déperlants et résistants. Un simple chiffon humide suffit pour nettoyer les petites taches et préserver son éclat.
+            Un certificat officiel numéroté sera glissé dans chaque colis pour garantir sa rareté et sa valeur de collection au fil du temps.
           </p>
         </div>
 
-        <!-- Info 4 : Avantages VIP -->
         <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
           <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan">
             <i data-lucide="star" class="w-5 h-5"></i>
           </div>
-          <h3 class="font-display font-bold text-lg text-white" data-i18n="d4-title">4. Priorité VIP Exclusive</h3>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d4-title">4. Accès Prioritaire VIP</h3>
           <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d4-desc">
-            Les inscrits de la liste d'attente gratuite auront un accès prioritaire de 24 heures pour commander **KAGE** avant l'ouverture officielle au grand public le jour du lancement.
+            Les inscrits de la liste d'attente gratuite bénéficieront de 24h d'avance pour commander <strong class="kage-glow">KAGE</strong> avant tout le monde.
           </p>
         </div>
 
-        <!-- Info 5 : Support Réactif -->
         <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
           <div class="w-10 h-10 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple">
-            <i data-lucide="headphones" class="w-5 h-5"></i>
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
           </div>
-          <h3 class="font-display font-bold text-lg text-white" data-i18n="d5-title">5. Support & Communauté TikTok</h3>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d5-title">5. Entretien de la Doudoune</h3>
           <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d5-desc">
-            Suive l'avancée de la fabrication de **KAGE** en direct sur notre TikTok `@user3949202002` et pose toutes tes questions à l'équipe, on répond à tout le monde !
+            Matériaux déperlants et faciles à nettoyer avec un simple chiffon humide pour conserver l'éclat effet diamant au quotidien.
           </p>
         </div>
 
-        <!-- Bonus Info 6 : FAQ -->
         <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
           <div class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
-            <i data-lucide="help-circle" class="w-5 h-5"></i>
+            <i data-lucide="headphones" class="w-5 h-5"></i>
           </div>
-          <h3 class="font-display font-bold text-lg text-white" data-i18n="d6-title">6. FAQ Précommandes</h3>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d6-title">6. Support TikTok Réactif</h3>
           <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d6-desc">
-            Aucun paiement n'est requis aujourd'hui. L'inscription à la liste VIP pour **KAGE** est 100 % gratuite et sans engagement. Tu seras prévenu par email dès que les commandes ouvriront.
+            Rejoins la communauté sur `@user3949202002` pour suivre la confection des échantillons en live et poser toutes tes questions.
           </p>
         </div>
 
@@ -358,21 +440,21 @@
           <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-brand-cyan/20 text-brand-cyan text-[10px] font-bold uppercase" data-i18n="step1-badge">En cours</div>
           <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan font-bold">01</div>
           <h3 class="font-display font-bold text-base text-white" data-i18n="step1-title">Validation du Visage de KAGE</h3>
-          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="step1-desc">Les plans de broderie du sourire malin et des yeux plissés de **KAGE** ont été transmis pour la fabrication des prototypes usine.</p>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="step1-desc">Les plans de broderie du sourire malin de <strong class="kage-glow">KAGE</strong> ont été transmis pour la fabrication usine.</p>
         </div>
 
         <div class="glass-card p-6 rounded-3xl border border-white/15 space-y-3 relative overflow-hidden opacity-90">
           <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase" data-i18n="step2-badge">Étape 2</div>
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold">02</div>
           <h3 class="font-display font-bold text-base text-white" data-i18n="step2-title">Prototypage & Échantillons</h3>
-          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="step2-desc">Confection imminente du premier échantillon physique de **KAGE** avec sa doudoune brillante.</p>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="step2-desc">Confection imminente du premier échantillon physique de <strong class="kage-glow">KAGE</strong> avec sa doudoune brillante.</p>
         </div>
 
         <div class="glass-card p-6 rounded-3xl border border-white/10 space-y-3 relative overflow-hidden opacity-60">
           <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-slate-700 text-slate-300 text-[10px] font-bold uppercase" data-i18n="step3-badge">Étape 3</div>
           <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 font-bold">03</div>
           <h3 class="font-display font-bold text-base text-white" data-i18n="step3-title">Lancement Officiel 2027</h3>
-          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="step3-desc">Ouverture officielle des commandes et expédition des exemplaires collector de **KAGE** le 5 mars 2027.</p>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="step3-desc">Ouverture des commandes de <strong class="kage-glow">KAGE</strong> à 29,99 € le 5 mars 2027.</p>
         </div>
 
       </div>
@@ -380,7 +462,7 @@
     </div>
   </section>
 
-  <!-- Section Galerie Maquettes 3D (Intacte comme demandé) -->
+  <!-- Section Galerie Maquettes 3D (Intacte) -->
   <section id="gallery" class="py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
@@ -393,10 +475,9 @@
           VISUELS DE KAGE
         </h2>
         
-        <!-- Avertissement Transparence -->
         <div class="p-4 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 text-slate-200 text-xs leading-relaxed max-w-2xl mx-auto text-left flex items-start gap-3">
           <i data-lucide="alert-circle" class="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5"></i>
-          <span data-i18n="gal-notice"><strong>Note de Transparence :</strong> Les images présentées ci-dessous sont des <strong>modèles 3D et des maquettes d'interprétation visuelle</strong>. La peluche physique finale de **KAGE** est en cours de production, les échantillons d'usine vont bientôt arriver, et les photographies officielles définitives seront publiées dans le courant de l'année 2027 !</span>
+          <span data-i18n="gal-notice"><strong>Note de Transparence :</strong> Les images ci-dessous sont des <strong>modèles 3D et maquettes d'interprétation visuelle</strong>. La peluche physique finale de <strong class="kage-glow">KAGE</strong> est en cours de production et les échantillons physiques officiels arriveront très bientôt !</span>
         </div>
       </div>
 
@@ -455,10 +536,10 @@
       <div class="glass-card p-8 sm:p-12 rounded-3xl border border-brand-cyan/40 shadow-2xl space-y-6 text-center relative overflow-hidden">
         
         <div class="space-y-3 max-w-lg mx-auto relative z-10">
-          <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase" data-i18n="form-sub">ACCÈS AVANT-PREMIÈRE 100% GRATUIT</span>
+          <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase" data-i18n="form-sub">ACCÈS VIP 100% GRATUIT • PRIX : 29,99 €</span>
           <h3 class="font-display text-3xl sm:text-4xl font-black text-white" data-i18n="form-title">Réserver KAGE (VIP List)</h3>
           <p class="text-slate-300 text-sm leading-relaxed" data-i18n="form-desc">
-            Inscris ton email gratuitement pour recevoir en avant-première les photos des premiers échantillons physiques de <strong>KAGE</strong> dès leur sortie d'usine et être prévenu le <strong>5 mars 2027</strong>.
+            Inscris ton email gratuitement pour recevoir les photos des premiers échantillons de <strong class="kage-glow">KAGE</strong> et être prévenu en premier de l'ouverture des commandes le <strong>5 mars 2027</strong>.
           </p>
         </div>
 
@@ -496,7 +577,7 @@
         <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center font-display font-black text-black text-sm">
           K
         </div>
-        <span class="font-display font-bold text-white text-sm">KAGE © 2027</span>
+        <span class="font-display font-bold text-white text-sm"><span class="kage-glow">KAGE</span> © 2027</span>
       </div>
 
       <div class="flex items-center gap-6 text-xs text-slate-400">
@@ -512,6 +593,20 @@
 
   <script>
     lucide.createIcons();
+
+    // Lancement automatique du son et de l'intro de 3 secondes
+    window.addEventListener('DOMContentLoaded', () => {
+      const introAudio = document.getElementById('intro-sound');
+      if (introAudio) {
+        introAudio.volume = 0.6;
+        introAudio.play().catch(e => {});
+      }
+
+      setTimeout(() => {
+        const splash = document.getElementById('intro-splash');
+        if (splash) splash.classList.add('fade-out');
+      }, 3000);
+    });
 
     function playSound() {
       const click = document.getElementById('click-sound');
@@ -579,61 +674,71 @@
         "nav-sub": "Collector 2027",
         "menu-concept": "Concept",
         "menu-power": "⚡ L'Aura de KAGE",
-        "menu-details": "📦 Livraison & Infos",
+        "menu-details": "📦 Livraison & Prix",
+        "menu-reviews": "⭐ Avis Fans",
         "menu-gallery": "Maquettes 3D",
         "menu-vip": "VIP List",
         "btn-register": "S'INSCRIRE",
-        "banner-text": "LANCEMENT OFFICIEL DE KAGE LE 5 MARS 2027 • DÉCOMPTE :",
+        "banner-text": "LANCEMENT OFFICIEL DE KAGE LE 5 MARS 2027 • PRIX : 29,99 € TTC • DÉCOMPTE :",
         "days": "j",
-        "hero-badge": "Format 15 cm • L'Aura Suprême de KAGE • Édition Limitée 2027",
-        "hero-desc": "Découvre <strong>KAGE</strong>, le chef-d'œuvre ultime du streetwear miniature de 15 cm. Avec sa doudoune argentée effet diamant et son sourire brodé ultra-malin, KAGE dégage une aura incroyable qui transforme instantanément ton espace et ton état d'esprit.",
-        "hero-notice": "<strong>Grande Annonce :</strong> Sortie mondiale de KAGE le 5 mars 2027. Rejoins la liste d'attente VIP gratuite pour t'assurer de recevoir ton exemplaire avant tout le monde !",
-        "btn-vip": "Réserver KAGE (VIP Gratuit)",
-        "btn-share": "Partager KAGE",
-        "img-badge": "KAGE • MODÈLE OFFICIEL DE FACE",
-        "img-title": "Édition Sourire Malin • 15 cm",
-        "power-badge": "Confiance, Force & Puissance Mentale",
-        "power-title": "POURQUOI KAGE VA CHANGER TON QUOTIDIEN ?",
-        "power-subtitle": "KAGE n'est pas qu'une peluche de collection, c'est ton booster d'énergie personnel au quotidien :",
-        "p1-title": "Ton Compagnon de Nuit & Sérénité",
-        "p1-desc": "Glissé contre toi pour dormir, <strong>KAGE</strong> diffuse une présence rassurante et un toucher velours ultra-apaisant. Idéal pour chasser le stress, s'endormir l'esprit léger et recharger tes batteries à bloc.",
-        "p2-title": "L'Arme Secrète de ton Bureau & Travail",
-        "p2-desc": "Installé à côté de ton clavier ou sur ton setup, <strong>KAGE</strong> t'apporte une dose de motivation instantanée. Son sourire malin brodé te rappelle de garder le cap, d'avoir confiance en toi et de tout exploser dans tes projets !",
-        "p3-title": "Une Aura Incroyable & Streetwear 2027",
-        "p3-desc": "Format compact de 15 cm, doudoune argentée brillante effet diamant et style unique. <strong>KAGE</strong> dégage un charisme fou qui attire tous les regards et insuffle une force mentale redoutable.",
+        "hero-badge": "PRIX FIXE : 29,99 € TTC • Édition Collector 15 cm",
+        "hero-desc": "Découvre <strong class='kage-glow text-lg'>KAGE</strong>, le chef-d'œuvre ultime du streetwear miniature de 15 cm. Bien plus qu'un simple doudou, <strong class='kage-glow'>KAGE</strong> possède une aura de guerrier irrésistible avec sa doudoune argentée effet diamant et son sourire brodé ultra-malin.",
+        "hero-notice": "<strong>Tarif Officiel :</strong> La peluche <strong class='kage-glow'>KAGE</strong> sera disponible au prix de <strong>29,99 € TTC</strong> lors de l'ouverture officielle des commandes le <strong>5 mars 2027</strong>. Inscris-toi VIP pour ne pas la rater !",
+        "btn-vip": "Réserver KAGE à 29,99 € (VIP)",
+        "btn-share": "Partager la Marque",
+        "power-badge": "Le Pouvoir Ultime du Guerrier",
+        "power-title": "POURQUOI L'AURA DE <span class='kage-glow'>KAGE</span> SURCLASSE TOUS LES AUTRES DOUDOUS ?",
+        "power-subtitle": "Contrairement aux peluches ordinaires, <strong class='kage-glow'>KAGE</strong> t'accompagne H24 comme un bouclier mental et un booster d'énergie :",
+        "p1-title": "Ton Gardien de Nuit & Anti-Stress",
+        "p1-desc": "Serré contre toi pour dormir, <strong class='kage-glow'>KAGE</strong> dissipe les tensions et absorbe le stress accumulé. Son velours ultra-doux offre un confort inégalé et garantit une nuit de repos réparatrice et sans cauchemars.",
+        "p2-title": "Ton Combattant du Jour & Focus Total",
+        "p2-desc": "Posé sur ton bureau ou ton setup, <strong class='kage-glow'>KAGE</strong> agit comme un booster de volonté. Son sourire malin brodé insuffle une confiance totale pour t'aider à garder le sang-froid et réussir tout ce que tu entreprends.",
+        "p3-title": "Design Streetwear High-End",
+        "p3-desc": "Doudoune argentée effet diamant, finitions soignées et format nomade de 15 cm. <strong class='kage-glow'>KAGE</strong> impose son style partout et donne une vibe collector unique que les autres doudous n'auront jamais.",
+        "reviews-badge": "Avis de la Communauté",
+        "reviews-title": "LA HYPEMENTALE DE LA COMMUNAUTÉ",
+        "reviews-subtitle": "Découvre l'engouement autour de l'ouverture des commandes de KAGE :",
+        "r1-text": "\"Trop hâte à l'ouverture des commandes le 5 mars 2027 ! La doudoune effet diamant sur la maquette a l'air dingue.\"",
+        "r1-author": "— Enzo M. (Inscrit VIP)",
+        "r2-text": "\"Hâte de commander ma peluche KAGE pour la poser sur mon setup gaming ! Pour 29,99 €, c'est une super affaire.\"",
+        "r2-author": "— Mateo T. (Fan TikTok)",
+        "r3-text": "\"Service client au top sur TikTok, ils répondent super vite à toutes nos questions. Trop hâte de recevoir l'échantillon usine !\"",
+        "r3-author": "— Sarah L. (Inscrite VIP)",
+        "expert-title": "L'Avis de l'Expert Design",
+        "expert-desc": "\"Un concept streetwear miniature novateur qui fusionne culture pop, mode futuriste et symbolique forte. Le choix du prénom KAGE et du visage brodé au sourire malin apporte un charisme immédiat que l'on retrouve rarement dans l'univers du doudou de collection.\"",
         "details-badge": "Informations Pratiques & Logistique",
         "details-title": "TOUT CE QU'IL FAUT SAVOIR SUR KAGE & SA LIVRAISON",
         "details-subtitle": "Organisation rigoureuse pour garantir une expérience collector irréprochable :",
-        "d1-title": "1. Expédition Mondiale Sécurisée",
-        "d1-desc": "Chaque exemplaire de <strong>KAGE</strong> sera emballé avec le plus grand soin dans un carton renforcé anti-choc et un pochon de protection collector. Livraison avec suivi en temps réel dès le 5 mars 2027.",
-        "d2-title": "2. Certificat d'Authenticité Inclus",
-        "d2-desc": "Pour chaque édition collector de <strong>KAGE</strong> commandée, un certificat officiel numéroté sera glissé dans le colis pour garantir sa rareté et sa valeur de collection au fil des années.",
-        "d3-title": "3. Guide d'Entretien Facile",
-        "d3-desc": "La doudoune argentée effet diamant de <strong>KAGE</strong> est conçue avec des matériaux déperlants et résistants. Un simple chiffon humide suffit pour nettoyer les petites taches et préserver son éclat.",
-        "d4-title": "4. Priorité VIP Exclusive",
-        "d4-desc": "Les inscrits de la liste d'attente gratuite auront un accès prioritaire de 24 heures pour commander <strong>KAGE</strong> avant l'ouverture officielle au grand public le jour du lancement.",
-        "d5-title": "5. Support & Communauté TikTok",
-        "d5-desc": "Suis l'avancée de la fabrication de <strong>KAGE</strong> en direct sur notre TikTok `@user3949202002` et pose toutes tes questions à l'équipe, on répond à tout le monde !",
-        "d6-title": "6. FAQ Précommandes",
-        "d6-desc": "Aucun paiement n'est requis aujourd'hui. L'inscription à la liste VIP pour <strong>KAGE</strong> est 100 % gratuite et sans engagement. Tu seras prévenu par email dès que les commandes ouvriront.",
+        "d1-title": "1. Prix Fixe de 29,99 € TTC",
+        "d1-desc": "Le tarif officiel est garanti à 29,99 € toutes taxes comprises. Pas de mauvaises surprises au moment de valider la commande le 5 mars 2027.",
+        "d2-title": "2. Expédition Mondiale Sécurisée",
+        "d2-desc": "Chaque exemplaire de <strong class='kage-glow'>KAGE</strong> sera emballé avec soin dans un carton renforcé et un pochon collector avec suivi en temps réel.",
+        "d3-title": "3. Certificat d'Authenticité",
+        "d3-desc": "Un certificat officiel numéroté sera glissé dans chaque colis pour garantir sa rareté et sa valeur de collection au fil du temps.",
+        "d4-title": "4. Accès Prioritaire VIP",
+        "d4-desc": "Les inscrits de la liste d'attente gratuite bénéficieront de 24h d'avance pour commander <strong class='kage-glow'>KAGE</strong> avant tout le monde.",
+        "d5-title": "5. Entretien de la Doudoune",
+        "d5-desc": "Matériaux déperlants et faciles à nettoyer avec un simple chiffon humide pour conserver l'éclat effet diamant au quotidien.",
+        "d6-title": "6. Support TikTok Réactif",
+        "d6-desc": "Rejoins la communauté sur `@user3949202002` pour suivre la confection des échantillons en live et poser toutes tes questions.",
         "roadmap-badge": "Suivi de Production Réel",
         "roadmap-title": "AVANCEMENT DE KAGE EN DIRECT",
         "roadmap-subtitle": "Découvre les étapes clés du développement avant l'ouverture du 5 mars 2027 :",
         "step1-badge": "En cours",
         "step1-title": "Validation du Visage de KAGE",
-        "step1-desc": "Les plans de broderie du sourire malin et des yeux plissés de <strong>KAGE</strong> ont été transmis pour la fabrication des prototypes usine.",
+        "step1-desc": "Les plans de broderie du sourire malin de <strong class='kage-glow'>KAGE</strong> ont été transmis pour la fabrication usine.",
         "step2-badge": "Étape 2",
         "step2-title": "Prototypage & Échantillons",
-        "step2-desc": "Confection imminente du premier échantillon physique de <strong>KAGE</strong> avec sa doudoune brillante.",
+        "step2-desc": "Confection imminente du premier échantillon physique de <strong class='kage-glow'>KAGE</strong> avec sa doudoune brillante.",
         "step3-badge": "Étape 3",
         "step3-title": "Lancement Officiel 2027",
-        "step3-desc": "Ouverture officielle des commandes et expédition des exemplaires collector de <strong>KAGE</strong> le 5 mars 2027.",
+        "step3-desc": "Ouverture des commandes de <strong class='kage-glow'>KAGE</strong> à 29,99 € le 5 mars 2027.",
         "gal-badge": "Galerie des Maquettes 3D",
         "gal-title": "VISUELS DE KAGE",
-        "gal-notice": "<strong>Note de Transparence :</strong> Les images présentées ci-dessous sont des <strong>modèles 3D et des maquettes d'interprétation visuelle</strong>. La peluche physique finale de <strong>KAGE</strong> est en cours de production, les échantillons d'usine vont bientôt arriver, et les photographies officielles définitives seront publiées dans le courant de l'année 2027 !",
-        "form-sub": "ACCÈS AVANT-PREMIÈRE 100% GRATUIT",
+        "gal-notice": "<strong>Note de Transparence :</strong> Les images ci-dessous sont des <strong>modèles 3D et maquettes d'interprétation visuelle</strong>. La peluche physique finale de <strong class='kage-glow'>KAGE</strong> est en cours de production et les échantillons physiques officiels arriveront très bientôt !",
+        "form-sub": "ACCÈS VIP 100% GRATUIT • PRIX : 29,99 €",
         "form-title": "Réserver KAGE (VIP List)",
-        "form-desc": "Inscris ton email gratuitement pour recevoir en avant-première les photos des premiers échantillons physiques de <strong>KAGE</strong> dès leur sortie d'usine et être prévenu le <strong>5 mars 2027</strong>.",
+        "form-desc": "Inscris ton email gratuitement pour recevoir les photos des premiers échantillons de <strong class='kage-glow'>KAGE</strong> et être prévenu en premier de l'ouverture des commandes le <strong>5 mars 2027</strong>.",
         "label-name": "Ton Prénom",
         "label-email": "Ton Adresse Email",
         "btn-submit": "M'inscrire gratuitement pour KAGE",
@@ -643,61 +748,71 @@
         "nav-sub": "Collector 2027",
         "menu-concept": "Concept",
         "menu-power": "⚡ KAGE's Aura",
-        "menu-details": "📦 Shipping & Info",
+        "menu-details": "📦 Shipping & Price",
+        "menu-reviews": "⭐ Fan Reviews",
         "menu-gallery": "3D Mockups",
         "menu-vip": "VIP List",
         "btn-register": "SIGN UP",
-        "banner-text": "OFFICIAL LAUNCH OF KAGE ON MARCH 5, 2027 • COUNTDOWN:",
+        "banner-text": "OFFICIAL LAUNCH OF KAGE ON MARCH 5, 2027 • PRICE: €29.99 TAX INCL. • COUNTDOWN:",
         "days": "d",
-        "hero-badge": "15 cm Size • KAGE's Supreme Aura • Limited Edition 2027",
-        "hero-desc": "Discover <strong>KAGE</strong>, the ultimate 15 cm miniature streetwear masterpiece. Featuring a sparkling diamond-effect silver puffer jacket and an irresistible clever embroidered smile, KAGE emits an incredible aura that instantly transforms your space and mindset.",
-        "hero-notice": "<strong>Major Announcement:</strong> Worldwide release of KAGE on March 5, 2027. Join the free VIP waiting list to secure your collector item before anyone else!",
-        "btn-vip": "Reserve KAGE (Free VIP)",
-        "btn-share": "Share KAGE",
-        "img-badge": "KAGE • OFFICIAL FRONT MODEL",
-        "img-title": "Clever Smile Edition • 15 cm",
-        "power-badge": "Confidence, Strength & Mental Power",
-        "power-title": "WHY KAGE WILL CHANGE YOUR DAILY LIFE?",
-        "power-subtitle": "KAGE is not just a collector plush, it's your personal daily energy booster:",
-        "p1-title": "Your Night & Serenity Companion",
-        "p1-desc": "Tucked in next to you while you sleep, <strong>KAGE</strong> radiates a reassuring presence and an ultra-soothing velour touch. Perfect for chasing away stress, falling asleep peacefully, and recharging your batteries completely.",
-        "p2-title": "Your Desk & Work Secret Weapon",
-        "p2-desc": "Placed next to your keyboard or on your setup, <strong>KAGE</strong> gives you an instant boost of motivation. Its embroidered clever smile reminds you to stay focused, believe in yourself, and crush all your projects!",
-        "p3-title": "An Incredible Aura & 2027 Streetwear",
-        "p3-desc": "Compact 15 cm format, brilliant diamond-effect silver puffer jacket, and unique style. <strong>KAGE</strong> radiates crazy charisma that turns heads and instills fierce mental strength.",
+        "hero-badge": "FIXED PRICE: €29.99 TAX INCL. • 15 cm Collector Edition",
+        "hero-desc": "Discover <strong class='kage-glow text-lg'>KAGE</strong>, the ultimate 15 cm miniature streetwear masterpiece. Much more than a regular plush toy, <strong class='kage-glow'>KAGE</strong> possesses an irresistible warrior aura with its sparkling diamond-effect silver puffer jacket and clever embroidered smile.",
+        "hero-notice": "<strong>Official Pricing:</strong> The <strong class='kage-glow'>KAGE</strong> plush will be available for <strong>€29.99 tax incl.</strong> when official orders open on <strong>March 5, 2027</strong>. Sign up VIP so you don't miss out!",
+        "btn-vip": "Reserve KAGE at €29.99 (VIP)",
+        "btn-share": "Share Brand",
+        "power-badge": "The Ultimate Warrior Power",
+        "power-title": "WHY <span class='kage-glow'>KAGE</span>'S AURA OUTCLASSES ALL OTHER PLUSHES?",
+        "power-subtitle": "Unlike ordinary plush toys, <strong class='kage-glow'>KAGE</strong> stays with you 24/7 as a mental shield and an energy booster:",
+        "p1-title": "Your Night Guardian & Anti-Stress",
+        "p1-desc": "Cuddled up with you at night, <strong class='kage-glow'>KAGE</strong> dissipates tensions and absorbs accumulated stress. Its ultra-soft velour provides unmatched comfort for a restful, nightmare-free sleep.",
+        "p2-title": "Your Day Fighter & Total Focus",
+        "p2-desc": "Placed on your desk or gaming setup, <strong class='kage-glow'>KAGE</strong> acts as a willpower booster. Its embroidered clever smile instills total confidence to help you keep cool and succeed.",
+        "p3-title": "High-End Streetwear Design",
+        "p3-desc": "Diamond-effect silver puffer jacket, neat craftsmanship, and 15 cm portable format. <strong class='kage-glow'>KAGE</strong> brings a unique collector vibe that other plush toys will never have.",
+        "reviews-badge": "Community Reviews",
+        "reviews-title": "COMMUNITY HYPEMENTAL",
+        "reviews-subtitle": "Discover the excitement around the opening of KAGE orders:",
+        "r1-text": "\"Can't wait for orders to open on March 5, 2027! The diamond effect puffer jacket on the mockup looks insane.\"",
+        "r1-author": "— Enzo M. (VIP Member)",
+        "r2-text": "\"Pumped to order my KAGE plush to set on my gaming desk! For €29.99, it's a great deal.\"",
+        "r2-author": "— Mateo T. (TikTok Fan)",
+        "r3-text": "\"Top customer support on TikTok, they reply super fast to all our questions. Can't wait for factory samples!\"",
+        "r3-author": "— Sarah L. (VIP Member)",
+        "expert-title": "Design Expert Review",
+        "expert-desc": "\"An innovative miniature streetwear concept that merges pop culture, futuristic fashion, and strong symbolism. Choosing the name KAGE and the clever embroidered smile brings immediate charisma rarely found in collector plushies.\"",
         "details-badge": "Practical Info & Logistics",
         "details-title": "EVERYTHING YOU NEED TO KNOW ABOUT KAGE & SHIPPING",
         "details-subtitle": "Rigorous organization to guarantee an impeccable collector experience:",
-        "d1-title": "1. Secure Worldwide Shipping",
-        "d1-desc": "Each copy of <strong>KAGE</strong> will be carefully packed in a shock-resistant reinforced box and a collector protection pouch. Delivery with real-time tracking starting March 5, 2027.",
-        "d2-title": "2. Certificate of Authenticity Included",
-        "d2-desc": "For every collector edition of <strong>KAGE</strong> ordered, an official numbered certificate will be slipped into the package to guarantee its rarity and collection value over the years.",
-        "d3-title": "3. Easy Maintenance Guide",
-        "d3-desc": "The silver diamond-effect puffer jacket of <strong>KAGE</strong> is designed with water-repellent and resistant materials. A simple damp cloth is enough to clean small stains and preserve its shine.",
-        "d4-title": "4. Exclusive VIP Priority",
-        "d4-desc": "Free waiting list members will get a 24-hour priority access to order <strong>KAGE</strong> before the public opening on launch day.",
-        "d5-title": "5. Support & TikTok Community",
-        "d5-desc": "Follow the crafting of <strong>KAGE</strong> live on our TikTok `@user3949202002` and ask all your questions to the team, we answer everyone!",
-        "d6-title": "6. Pre-order FAQ",
-        "d6-desc": "No payment required today. Joining the VIP list for <strong>KAGE</strong> is 100% free and non-binding. You will be notified by email as soon as orders open.",
+        "d1-title": "1. Fixed Price of €29.99 Tax Incl.",
+        "d1-desc": "The official price is guaranteed at €29.99 all taxes included. No surprises when completing order on March 5, 2027.",
+        "d2-title": "2. Secure Worldwide Shipping",
+        "d2-desc": "Each copy of <strong class='kage-glow'>KAGE</strong> will be carefully packed in a reinforced box and collector pouch with real-time tracking.",
+        "d3-title": "3. Certificate of Authenticity",
+        "d3-desc": "An official numbered certificate will be included in every package to guarantee rarity and collector value over time.",
+        "d4-title": "4. VIP Early Access",
+        "d4-desc": "Free waiting list members get 24h priority to order <strong class='kage-glow'>KAGE</strong> before anyone else.",
+        "d5-title": "5. Puffer Jacket Care",
+        "d5-desc": "Water-repellent materials that are easy to clean with a damp cloth to preserve the diamond shine every day.",
+        "d6-title": "6. Responsive TikTok Support",
+        "d6-desc": "Join the community on `@user3949202002` to watch live sample crafting and ask any questions.",
         "roadmap-badge": "Real Production Tracking",
         "roadmap-title": "LIVE PROGRESS OF KAGE",
         "roadmap-subtitle": "Discover key development milestones before opening on March 5, 2027:",
         "step1-badge": "In progress",
         "step1-title": "Validation of KAGE's Face",
-        "step1-desc": "Embroidery plans for KAGE's clever smile and squinted eyes have been sent for factory prototype manufacturing.",
+        "step1-desc": "Embroidery plans for KAGE's clever smile have been sent for factory prototype manufacturing.",
         "step2-badge": "Step 2",
         "step2-title": "Prototyping & Samples",
-        "step2-desc": "Imminent crafting of the first physical sample of <strong>KAGE</strong> with its shiny puffer jacket.",
+        "step2-desc": "Imminent crafting of the first physical sample of <strong class='kage-glow'>KAGE</strong> with its shiny puffer jacket.",
         "step3-badge": "Step 3",
         "step3-title": "Official Launch 2027",
-        "step3-desc": "Official opening of orders and shipment of collector copies of <strong>KAGE</strong> on March 5, 2027.",
+        "step3-desc": "Opening of orders for <strong class='kage-glow'>KAGE</strong> at €29.99 on March 5, 2027.",
         "gal-badge": "3D Mockups Gallery",
         "gal-title": "KAGE VISUALS",
-        "gal-notice": "<strong>Transparency Notice:</strong> The images shown below are <strong>3D models and visual interpretation mockups</strong>. The final physical plush of <strong>KAGE</strong> is currently in production, factory samples are arriving soon, and final official photographs will be published during 2027!",
-        "form-sub": "100% FREE EARLY ACCESS",
+        "gal-notice": "<strong>Transparency Notice:</strong> The images below are <strong>3D models and interpretation mockups</strong>. The final physical plush of <strong class='kage-glow'>KAGE</strong> is in production and official physical samples are arriving soon!",
+        "form-sub": "100% FREE VIP ACCESS • PRICE: €29.99",
         "form-title": "Reserve KAGE (VIP List)",
-        "form-desc": "Register your email for free to preview photos of the first physical samples of <strong>KAGE</strong> straight from the factory and be notified on <strong>March 5, 2027</strong>.",
+        "form-desc": "Sign up with your email for free to preview photos of the first samples of <strong class='kage-glow'>KAGE</strong> and be notified first when orders open on <strong>March 5, 2027</strong>.",
         "label-name": "Your First Name",
         "label-email": "Your Email Address",
         "btn-submit": "Sign up for free for KAGE",
