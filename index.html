@@ -96,16 +96,16 @@
           <span class="font-display font-black text-base sm:text-xl tracking-wider text-white flex items-center gap-1">
             HOODIE PLUSH <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-cyan inline"></i>
           </span>
-          <span class="block text-[9px] sm:text-[10px] text-brand-cyan tracking-widest font-mono uppercase">Collector 2027</span>
+          <span class="block text-[9px] sm:text-[10px] text-brand-cyan tracking-widest font-mono uppercase" data-i18n="nav-sub">Collector 2027</span>
         </div>
       </div>
 
       <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-300">
-        <a href="#concept" onclick="playSound()" class="hover:text-brand-cyan transition-colors">Concept</a>
-        <a href="#power" onclick="playSound()" class="hover:text-brand-cyan transition-colors text-brand-cyan font-bold">⚡ Pouvoirs & Qualités</a>
-        <a href="#roadmap" onclick="playSound()" class="hover:text-brand-cyan transition-colors">📡 Avancement Usine</a>
-        <a href="#gallery" onclick="playSound()" class="hover:text-brand-cyan transition-colors">Maquettes 3D</a>
-        <a href="#vip-access" onclick="playSound()" class="hover:text-brand-cyan transition-colors">Rejoindre la VIP List</a>
+        <a href="#concept" onclick="playSound()" class="hover:text-brand-cyan transition-colors" data-i18n="menu-concept">Concept</a>
+        <a href="#power" onclick="playSound()" class="hover:text-brand-cyan transition-colors text-brand-cyan font-bold" data-i18n="menu-power">⚡ Pouvoirs</a>
+        <a href="#details" onclick="playSound()" class="hover:text-brand-cyan transition-colors" data-i18n="menu-details">📦 Livraison & Infos</a>
+        <a href="#gallery" onclick="playSound()" class="hover:text-brand-cyan transition-colors" data-i18n="menu-gallery">Maquettes 3D</a>
+        <a href="#vip-access" onclick="playSound()" class="hover:text-brand-cyan transition-colors" data-i18n="menu-vip">VIP List</a>
       </nav>
 
       <div class="flex items-center gap-2 sm:gap-3">
@@ -115,15 +115,15 @@
           <span id="music-text" class="hidden sm:inline">Ambiance OFF</span>
         </button>
 
-        <!-- Langue -->
+        <!-- Langue interactive -->
         <button id="lang-btn" onclick="toggleLanguage(); playSound();" class="px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-brand-cyan flex items-center gap-1.5 transition shadow-sm">
           <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-          <span id="lang-label">FR / EN</span>
+          <span id="lang-label">FR</span>
         </button>
 
         <a href="#vip-access" onclick="playSound()" class="px-3.5 py-2 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-xs uppercase tracking-wider hover:scale-105 transition shadow-lg shadow-brand-cyan/25 flex items-center gap-1">
           <i data-lucide="bell" class="w-3.5 h-3.5"></i>
-          <span>S'INSCRIRE</span>
+          <span data-i18n="btn-register">S'INSCRIRE</span>
         </a>
       </div>
 
@@ -138,10 +138,10 @@
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
         </span>
-        <span>LANCEMENT OFFICIEL DU PROJET LE 5 MARS 2027 • DÉCOMPTE :</span>
+        <span data-i18n="banner-text">LANCEMENT OFFICIEL DU PROJET LE 5 MARS 2027 • DÉCOMPTE :</span>
       </div>
       <div id="countdown" class="font-mono font-black text-brand-cyan bg-black/50 px-3 py-1 rounded-lg border border-brand-cyan/40 flex gap-2 text-sm tracking-widest shadow-inner">
-        <span><b id="c-days">000</b>j</span> :
+        <span><b id="c-days">000</b><span data-i18n="days">j</span></span> :
         <span><b id="c-hours">00</b>h</span> :
         <span><b id="c-mins">00</b>m</span> :
         <span><b id="c-secs">00</b>s</span>
@@ -158,7 +158,7 @@
           
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase tracking-widest shadow-inner">
             <i data-lucide="gem" class="w-3.5 h-3.5"></i>
-            <span>Format 15 cm • Visage Brodé Légendaire • Édition Limitée 2027</span>
+            <span data-i18n="hero-badge">Format 15 cm • Visage Brodé Légendaire • Édition Limitée 2027</span>
           </div>
 
           <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-none tracking-tight">
@@ -166,40 +166,40 @@
             <span class="text-silver-gradient">IT'S A VIBE.</span>
           </h1>
 
-          <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed" data-i18n="hero-desc">
             Bien plus qu'une simple peluche : le chef-d'œuvre ultime du streetwear miniature de 15 cm. Dotée d'un charisme absolu avec sa doudoune argentée étincelante effet diamant et son visage brodé au sourire malin irrésistible.
           </p>
 
           <!-- Notification -->
           <div class="p-4 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 text-slate-200 text-xs flex items-center gap-3 text-left">
             <i data-lucide="info" class="w-5 h-5 text-brand-cyan flex-shrink-0"></i>
-            <span><strong>Grande Annonce :</strong> Sortie mondiale programmée le 5 mars 2027. Rejoignez la liste d'attente VIP gratuite pour décrocher votre exemplaire collector !</span>
+            <span data-i18n="hero-notice"><strong>Grande Annonce :</strong> Sortie mondiale programmée le 5 mars 2027. Rejoignez la liste d'attente VIP gratuite pour décrocher votre exemplaire collector !</span>
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
             <a href="#vip-access" onclick="playSound()" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-sm uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/30 flex items-center justify-center gap-2">
               <i data-lucide="bell" class="w-4 h-4"></i>
-              <span>Rejoindre la Liste VIP (Gratuit)</span>
+              <span data-i18n="btn-vip">Rejoindre la Liste VIP (Gratuit)</span>
             </a>
             <button onclick="shareProject(); playSound();" class="px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-white font-bold text-sm flex items-center justify-center gap-2 transition">
               <i data-lucide="share-2" class="w-4 h-4 text-brand-cyan"></i>
-              <span>Partager la Marque</span>
+              <span data-i18n="btn-share">Partager la Marque</span>
             </button>
           </div>
 
         </div>
 
-        <!-- Image corrigée et espacée sans superposition -->
+        <!-- Première image corrigée et affichée correctement de face -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative group w-full max-w-md">
             <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition duration-1000"></div>
             <div class="relative glass-card rounded-3xl p-5 border border-white/20 shadow-2xl space-y-4">
               <div class="w-full aspect-square rounded-2xl overflow-hidden bg-black/50 border border-white/10">
-                <img src="1000059611.jpg" alt="Hoodie Plush Visage Brodé" class="w-full h-full object-cover transform hover:scale-105 transition duration-700">
+                <img src="1791976941661.jpg" alt="Hoodie Plush Face Principale" class="w-full h-full object-cover transform hover:scale-105 transition duration-700">
               </div>
               <div class="p-3 bg-brand-black/60 rounded-xl border border-brand-cyan/30 text-center">
-                <span class="text-[10px] font-bold text-brand-cyan uppercase tracking-widest block mb-0.5">MAQUETTE 3D OFFICIELLE</span>
-                <span class="text-white font-display font-bold text-sm">Modèle Sourire Malin • 15 cm</span>
+                <span class="text-[10px] font-bold text-brand-cyan uppercase tracking-widest block mb-0.5" data-i18n="img-badge">MODÈLE OFFICIEL DE FACE</span>
+                <span class="text-white font-display font-bold text-sm" data-i18n="img-title">Édition Sourire Malin • 15 cm</span>
               </div>
             </div>
           </div>
@@ -209,42 +209,128 @@
     </div>
   </section>
 
-  <!-- SECTION POUVOIRS & QUALITÉS ULTRA-EXagérées -->
+  <!-- SECTION POUVOIRS & QUALITÉS -->
   <section id="power" class="py-20 bg-brand-dark/40 border-t border-white/10 z-10 relative">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
       <div class="text-center max-w-3xl mx-auto space-y-3">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
           <i data-lucide="zap" class="w-3.5 h-3.5 animate-bounce"></i>
-          <span>Puissance & Exclusivité Absolue</span>
+          <span data-i18n="power-badge">Puissance & Exclusivité Absolue</span>
         </div>
-        <h2 class="font-display text-3xl sm:text-5xl font-black text-white">POURQUOI C'EST L'OBJET LE PLUS HYPE DE 2027 ?</h2>
-        <p class="text-slate-300 text-base">Découvrez les super-pouvoirs et la conception hors norme de cette pièce de collection :</p>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="power-title">POURQUOI C'EST L'OBJET LE PLUS HYPE DE 2027 ?</h2>
+        <p class="text-slate-300 text-base" data-i18n="power-subtitle">Découvrez les super-pouvoirs et la conception hors norme de cette pièce de collection :</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <div class="glass-card p-8 rounded-3xl space-y-4 border border-brand-cyan/40">
           <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan font-bold text-xl">💎</div>
-          <h3 class="font-display font-bold text-xl text-white">Matière Nanotechnologique Argentée</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="p1-title">Matière Nanotechnologique Argentée</h3>
+          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="p1-desc">
             Une texture effet miroir-diamant révolutionnaire qui capture la lumière sous tous les angles. Un toucher velours ultra-doux combiné à une brillance futuriste jamais vue sur une peluche !
           </p>
         </div>
 
         <div class="glass-card p-8 rounded-3xl space-y-4 border border-brand-purple/40">
           <div class="w-12 h-12 rounded-2xl bg-brand-purple/10 flex items-center justify-center text-brand-purple font-bold text-xl">😏</div>
-          <h3 class="font-display font-bold text-xl text-white">Le Pouvoir du Sourire Suprême</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="p2-title">Le Pouvoir du Sourire Suprême</h3>
+          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="p2-desc">
             Son expression brodée à la main insuffle instantanément une aura de confiance totale, de charisme et de sérénité. C'est le porte-bonheur absolu pour réussir tous tes projets sans stress !
           </p>
         </div>
 
         <div class="glass-card p-8 rounded-3xl space-y-4 border border-brand-blue/40">
           <div class="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue font-bold text-xl">🚀</div>
-          <h3 class="font-display font-bold text-xl text-white">Format Collector Ultra-Nomade</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
+          <h3 class="font-display font-bold text-xl text-white" data-i18n="p3-title">Format Collector Ultra-Nomade</h3>
+          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="p3-desc">
             Exactement 15 cm de pur style. Avec sa doudoune zippée amovible et sa capuche ajustable, elle trônera fièrement sur ton bureau, ton setup gaming ou dans ton sac pour flexer partout.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NOUVELLES SECTIONS AJOUTÉES (5 DÉTAILS / INFOS LIVRAISON) -->
+  <section id="details" class="py-24 bg-brand-dark/75 border-t border-white/10 z-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+          <i data-lucide="package-check" class="w-3.5 h-3.5"></i>
+          <span data-i18n="details-badge">Informations Pratiques & Logistique</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-white" data-i18n="details-title">TOUT CE QU'IL FAUT SAVOIR SUR LA LIVRAISON & LES AVANTAGES</h2>
+        <p class="text-slate-300 text-sm" data-i18n="details-subtitle">Organisation rigoureuse pour garantir une expérience collector irréprochable :</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Info 1 : Livraison Mondiale -->
+        <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
+          <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan">
+            <i data-lucide="truck" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d1-title">1. Expédition Mondiale Sécurisée</h3>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d1-desc">
+            Chaque peluche sera emballée avec soin dans un carton renforcé anti-choc et un pochon de protection collector. Livraison avec numéro de suivi en temps réel dès le 5 mars 2027.
+          </p>
+        </div>
+
+        <!-- Info 2 : Certificat d'authenticité -->
+        <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
+          <div class="w-10 h-10 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d2-title">2. Certificat d'Authenticité Inclus</h3>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d2-desc">
+            Pour chaque édition collector commandée, un certificat officiel numéroté sera glissé dans le colis pour garantir sa rareté et sa valeur de collection au fil des années.
+          </p>
+        </div>
+
+        <!-- Info 3 : Entretien et Matériaux -->
+        <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
+          <div class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d3-title">3. Guide d'Entretien Facile</h3>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d3-desc">
+            La doudoune argentée effet diamant est conçue avec des matériaux déperlants et résistants. Un simple chiffon humide suffit pour nettoyer les petites taches et préserver son éclat.
+          </p>
+        </div>
+
+        <!-- Info 4 : Avantages VIP -->
+        <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
+          <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan">
+            <i data-lucide="star" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d4-title">4. Priorité VIP Exclusive</h3>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d4-desc">
+            Les inscrits de la liste d'attente gratuite auront un accès prioritaire de 24 heures pour commander leur peluche avant l'ouverture au grand public le jour du lancement.
+          </p>
+        </div>
+
+        <!-- Info 5 : Support Réactif -->
+        <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
+          <div class="w-10 h-10 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple">
+            <i data-lucide="headphones" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d5-title">5. Support & Communauté TikTok</h3>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d5-desc">
+            Suivez l'avancée de la production en direct sur notre TikTok `@user3949202002` et posez toutes vos questions à l'équipe, nous répondons à tout le monde !
+          </p>
+        </div>
+
+        <!-- Bonus Info 6 : FAQ -->
+        <div class="glass-card p-6 rounded-3xl space-y-3 border border-white/10">
+          <div class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+            <i data-lucide="help-circle" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white" data-i18n="d6-title">6. FAQ Précommandes</h3>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="d6-desc">
+            Aucun paiement n'est requis aujourd'hui. L'inscription à la liste VIP est 100 % gratuite et sans engagement. Vous serez averti par email dès que les commandes ouvriront.
           </p>
         </div>
 
@@ -260,33 +346,33 @@
       <div class="text-center max-w-3xl mx-auto space-y-3">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
           <i data-lucide="radio" class="w-3.5 h-3.5 animate-pulse"></i>
-          <span>Suivi de Production Réel</span>
+          <span data-i18n="roadmap-badge">Suivi de Production Réel</span>
         </div>
-        <h2 class="font-display text-3xl sm:text-4xl font-black text-white">AVANCEMENT DU PROJET EN DIRECT</h2>
-        <p class="text-slate-300 text-sm">Découvrez les étapes clés du développement avant l'ouverture du 5 mars 2027 :</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-white" data-i18n="roadmap-title">AVANCEMENT DU PROJET EN DIRECT</h2>
+        <p class="text-slate-300 text-sm" data-i18n="roadmap-subtitle">Découvrez les étapes clés du développement avant l'ouverture du 5 mars 2027 :</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <div class="glass-card p-6 rounded-3xl border border-brand-cyan/40 space-y-3 relative overflow-hidden">
-          <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-brand-cyan/20 text-brand-cyan text-[10px] font-bold uppercase">En cours</div>
+          <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-brand-cyan/20 text-brand-cyan text-[10px] font-bold uppercase" data-i18n="step1-badge">En cours</div>
           <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan font-bold">01</div>
-          <h3 class="font-display font-bold text-base text-white">Validation du Visage Brodé</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">Les plans de broderie du sourire malin et des yeux plissés ont été transmis pour la fabrication des prototypes usine.</p>
+          <h3 class="font-display font-bold text-base text-white" data-i18n="step1-title">Validation du Visage Brodé</h3>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="step1-desc">Les plans de broderie du sourire malin et des yeux plissés ont été transmis pour la fabrication des prototypes usine.</p>
         </div>
 
         <div class="glass-card p-6 rounded-3xl border border-white/15 space-y-3 relative overflow-hidden opacity-90">
-          <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase">Étape 2</div>
+          <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase" data-i18n="step2-badge">Étape 2</div>
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold">02</div>
-          <h3 class="font-display font-bold text-base text-white">Prototypage & Échantillons</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">Confection imminente du premier échantillon physique avec la doudoune brillante et le visage brodé.</p>
+          <h3 class="font-display font-bold text-base text-white" data-i18n="step2-title">Prototypage & Échantillons</h3>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="step2-desc">Confection imminente du premier échantillon physique avec la doudoune brillante et le visage brodé.</p>
         </div>
 
         <div class="glass-card p-6 rounded-3xl border border-white/10 space-y-3 relative overflow-hidden opacity-60">
-          <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-slate-700 text-slate-300 text-[10px] font-bold uppercase">Étape 3</div>
+          <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-slate-700 text-slate-300 text-[10px] font-bold uppercase" data-i18n="step3-badge">Étape 3</div>
           <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 font-bold">03</div>
-          <h3 class="font-display font-bold text-base text-white">Lancement Officiel 2027</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">Ouverture officielle des commandes et expédition des peluches collectors le 5 mars 2027.</p>
+          <h3 class="font-display font-bold text-base text-white" data-i18n="step3-title">Lancement Officiel 2027</h3>
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="step3-desc">Ouverture officielle des commandes et expédition des peluches collectors le 5 mars 2027.</p>
         </div>
 
       </div>
@@ -294,23 +380,23 @@
     </div>
   </section>
 
-  <!-- Section Galerie Maquettes 3D avec Avis de Transparence -->
+  <!-- Section Galerie Maquettes 3D (Intacte comme demandé) -->
   <section id="gallery" class="py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
       <div class="text-center max-w-3xl mx-auto space-y-4">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
           <i data-lucide="image" class="w-3.5 h-3.5"></i>
-          <span>Galerie des Maquettes 3D</span>
+          <span data-i18n="gal-badge">Galerie des Maquettes 3D</span>
         </div>
-        <h2 class="font-display text-3xl sm:text-5xl font-black text-white">
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="gal-title">
           VISUELS DE CONCEPTION
         </h2>
         
-        <!-- Avertissement Transparence Demandé -->
+        <!-- Avertissement Transparence -->
         <div class="p-4 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 text-slate-200 text-xs leading-relaxed max-w-2xl mx-auto text-left flex items-start gap-3">
           <i data-lucide="alert-circle" class="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5"></i>
-          <span><strong>Note de Transparence :</strong> Les images présentées ci-dessous sont des <strong>modèles 3D et des maquettes d'interprétation visuelle</strong>. La peluche physique finale est en cours de production, les échantillons d'usine vont bientôt arriver, et les photographies officielles définitives seront publiées dans le courant de l'année 2027 !</span>
+          <span data-i18n="gal-notice"><strong>Note de Transparence :</strong> Les images présentées ci-dessous sont des <strong>modèles 3D et des maquettes d'interprétation visuelle</strong>. La peluche physique finale est en cours de production, les échantillons d'usine vont bientôt arriver, et les photographies officielles définitives seront publiées dans le courant de l'année 2027 !</span>
         </div>
       </div>
 
@@ -369,9 +455,9 @@
       <div class="glass-card p-8 sm:p-12 rounded-3xl border border-brand-cyan/40 shadow-2xl space-y-6 text-center relative overflow-hidden">
         
         <div class="space-y-3 max-w-lg mx-auto relative z-10">
-          <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">ACCÈS AVANT-PREMIÈRE 100% GRATUIT</span>
-          <h3 class="font-display text-3xl sm:text-4xl font-black text-white">Rejoindre la Liste VIP</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
+          <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase" data-i18n="form-sub">ACCÈS AVANT-PREMIÈRE 100% GRATUIT</span>
+          <h3 class="font-display text-3xl sm:text-4xl font-black text-white" data-i18n="form-title">Rejoindre la Liste VIP</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="form-desc">
             Inscrivez votre email gratuitement pour recevoir en avant-première les photos des premiers échantillons physiques dès leur sortie d'usine et être prévenu le <strong>5 mars 2027</strong>.
           </p>
         </div>
@@ -383,18 +469,18 @@
           <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">Votre Prénom</label>
+            <label class="block text-xs font-bold text-slate-300 mb-1" data-i18n="label-name">Votre Prénom</label>
             <input type="text" name="name" required placeholder="Ex: Lucas" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brand-cyan focus:outline-none">
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">Votre Adresse Email</label>
+            <label class="block text-xs font-bold text-slate-300 mb-1" data-i18n="label-email">Votre Adresse Email</label>
             <input type="email" name="email" required placeholder="votre.email@exemple.com" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brand-cyan focus:outline-none">
           </div>
 
           <button type="submit" onclick="playSound()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple text-black font-black text-sm uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/25 flex items-center justify-center gap-2">
             <i data-lucide="bell" class="w-5 h-5"></i>
-            <span>M'inscrire gratuitement</span>
+            <span data-i18n="btn-submit">M'inscrire gratuitement</span>
           </button>
         </form>
 
@@ -418,7 +504,7 @@
           <i data-lucide="video" class="w-4 h-4 text-brand-cyan"></i>
           <span>TikTok: @user3949202002</span>
         </a>
-        <span>Tous droits réservés</span>
+        <span data-i18n="footer-rights">Tous droits réservés</span>
       </div>
 
     </div>
@@ -484,6 +570,152 @@
         navigator.clipboard.writeText(window.location.href);
         alert('Lien du site copié dans le presse-papier !');
       }
+    }
+
+    // Système de Traduction FR / EN Interactif
+    let currentLang = 'FR';
+    const translations = {
+      FR: {
+        "nav-sub": "Collector 2027",
+        "menu-concept": "Concept",
+        "menu-power": "⚡ Pouvoirs",
+        "menu-details": "📦 Livraison & Infos",
+        "menu-gallery": "Maquettes 3D",
+        "menu-vip": "VIP List",
+        "btn-register": "S'INSCRIRE",
+        "banner-text": "LANCEMENT OFFICIEL DU PROJET LE 5 MARS 2027 • DÉCOMPTE :",
+        "days": "j",
+        "hero-badge": "Format 15 cm • Visage Brodé Légendaire • Édition Limitée 2027",
+        "hero-desc": "Bien plus qu'une simple peluche : le chef-d'œuvre ultime du streetwear miniature de 15 cm. Dotée d'un charisme absolu avec sa doudoune argentée étincelante effet diamant et son visage brodé au sourire malin irrésistible.",
+        "hero-notice": "<strong>Grande Annonce :</strong> Sortie mondiale programmée le 5 mars 2027. Rejoignez la liste d'attente VIP gratuite pour décrocher votre exemplaire collector !",
+        "btn-vip": "Rejoindre la Liste VIP (Gratuit)",
+        "btn-share": "Partager la Marque",
+        "img-badge": "MODÈLE OFFICIEL DE FACE",
+        "img-title": "Édition Sourire Malin • 15 cm",
+        "power-badge": "Puissance & Exclusivité Absolue",
+        "power-title": "POURQUOI C'EST L'OBJET LE PLUS HYPE DE 2027 ?",
+        "power-subtitle": "Découvrez les super-pouvoirs et la conception hors norme de cette pièce de collection :",
+        "p1-title": "Matière Nanotechnologique Argentée",
+        "p1-desc": "Une texture effet miroir-diamant révolutionnaire qui capture la lumière sous tous les angles. Un toucher velours ultra-doux combiné à une brillance futuriste jamais vue sur une peluche !",
+        "p2-title": "Le Pouvoir du Sourire Suprême",
+        "p2-desc": "Son expression brodée à la main insuffle instantanément une aura de confiance totale, de charisme et de sérénité. C'est le porte-bonheur absolu pour réussir tous tes projets sans stress !",
+        "p3-title": "Format Collector Ultra-Nomade",
+        "p3-desc": "Exactement 15 cm de pur style. Avec sa doudoune zippée amovible et sa capuche ajustable, elle trônera fièrement sur ton bureau, ton setup gaming ou dans ton sac pour flexer partout.",
+        "details-badge": "Informations Pratiques & Logistique",
+        "details-title": "TOUT CE QU'IL FAUT SAVOIR SUR LA LIVRAISON & LES AVANTAGES",
+        "details-subtitle": "Organisation rigoureuse pour garantir une expérience collector irréprochable :",
+        "d1-title": "1. Expédition Mondiale Sécurisée",
+        "d1-desc": "Chaque peluche sera emballée avec soin dans un carton renforcé anti-choc et un pochon de protection collector. Livraison avec numéro de suivi en temps réel dès le 5 mars 2027.",
+        "d2-title": "2. Certificat d'Authenticité Inclus",
+        "d2-desc": "Pour chaque édition collector commandée, un certificat officiel numéroté sera glissé dans le colis pour garantir sa rareté et sa valeur de collection au fil des années.",
+        "d3-title": "3. Guide d'Entretien Facile",
+        "d3-desc": "La doudoune argentée effet diamant est conçue avec des matériaux déperlants et résistants. Un simple chiffon humide suffit pour nettoyer les petites taches et préserver son éclat.",
+        "d4-title": "4. Priorité VIP Exclusive",
+        "d4-desc": "Les inscrits de la liste d'attente gratuite auront un accès prioritaire de 24 heures pour commander leur peluche avant l'ouverture au grand public le jour du lancement.",
+        "d5-title": "5. Support & Communauté TikTok",
+        "d5-desc": "Suivez l'avancée de la production en direct sur notre TikTok `@user3949202002` et posez toutes vos questions à l'équipe, nous répondons à tout le monde !",
+        "d6-title": "6. FAQ Précommandes",
+        "d6-desc": "Aucun paiement n'est requis aujourd'hui. L'inscription à la liste VIP est 100 % gratuite et sans engagement. Vous serez averti par email dès que les commandes ouvriront.",
+        "roadmap-badge": "Suivi de Production Réel",
+        "roadmap-title": "AVANCEMENT DU PROJET EN DIRECT",
+        "roadmap-subtitle": "Découvrez les étapes clés du développement avant l'ouverture du 5 mars 2027 :",
+        "step1-badge": "En cours",
+        "step1-title": "Validation du Visage Brodé",
+        "step1-desc": "Les plans de broderie du sourire malin et des yeux plissés ont été transmis pour la fabrication des prototypes usine.",
+        "step2-badge": "Étape 2",
+        "step2-title": "Prototypage & Échantillons",
+        "step2-desc": "Confection imminente du premier échantillon physique avec la doudoune brillante et le visage brodé.",
+        "step3-badge": "Étape 3",
+        "step3-title": "Lancement Officiel 2027",
+        "step3-desc": "Ouverture officielle des commandes et expédition des peluches collectors le 5 mars 2027.",
+        "gal-badge": "Galerie des Maquettes 3D",
+        "gal-title": "VISUELS DE CONCEPTION",
+        "gal-notice": "<strong>Note de Transparence :</strong> Les images présentées ci-dessous sont des <strong>modèles 3D et des maquettes d'interprétation visuelle</strong>. La peluche physique finale est en cours de production, les échantillons d'usine vont bientôt arriver, et les photographies officielles définitives seront publiées dans le courant de l'année 2027 !",
+        "form-sub": "ACCÈS AVANT-PREMIÈRE 100% GRATUIT",
+        "form-title": "Rejoindre la Liste VIP",
+        "form-desc": "Inscrivez votre email gratuitement pour recevoir en avant-première les photos des premiers échantillons physiques dès leur sortie d'usine et être prévenu le <strong>5 mars 2027</strong>.",
+        "label-name": "Votre Prénom",
+        "label-email": "Votre Adresse Email",
+        "btn-submit": "M'inscrire gratuitement",
+        "footer-rights": "Tous droits réservés"
+      },
+      EN: {
+        "nav-sub": "Collector 2027",
+        "menu-concept": "Concept",
+        "menu-power": "⚡ Powers",
+        "menu-details": "📦 Shipping & Info",
+        "menu-gallery": "3D Mockups",
+        "menu-vip": "VIP List",
+        "btn-register": "SIGN UP",
+        "banner-text": "OFFICIAL LAUNCH ON MARCH 5, 2027 • COUNTDOWN:",
+        "days": "d",
+        "hero-badge": "15 cm Size • Legendary Embroidered Face • Limited Edition 2027",
+        "hero-desc": "More than just a plush: the ultimate miniature streetwear masterpiece of 15 cm. Featuring absolute charisma with its sparkling diamond-effect silver puffer jacket and an irresistible clever embroidered smile.",
+        "hero-notice": "<strong>Major Announcement:</strong> Worldwide release scheduled for March 5, 2027. Join the free VIP waiting list to secure your collector item!",
+        "btn-vip": "Join VIP List (Free)",
+        "btn-share": "Share Brand",
+        "img-badge": "OFFICIAL FRONT MODEL",
+        "img-title": "Clever Smile Edition • 15 cm",
+        "power-badge": "Absolute Power & Exclusivity",
+        "power-title": "WHY IT'S THE HAPPIEST ITEM OF 2027?",
+        "power-subtitle": "Discover the superpowers and extraordinary design of this collector's piece:",
+        "p1-title": "Silver Nanotech Fabric",
+        "p1-desc": "A revolutionary mirror-diamond effect texture that catches light from every angle. Ultra-soft velour touch combined with a futuristic shine never seen before on a plush!",
+        "p2-title": "Power of the Supreme Smile",
+        "p2-desc": "Its hand-embroidered expression instantly instills an aura of total confidence, charisma, and serenity. The ultimate good luck charm to succeed in all your projects stress-free!",
+        "p3-title": "Ultra-Nomadic Collector Format",
+        "p3-desc": "Exactly 15 cm of pure style. With its removable zipped puffer jacket and adjustable hood, it will proudly sit on your desk, gaming setup, or bag to flex anywhere.",
+        "details-badge": "Practical Info & Logistics",
+        "details-title": "EVERYTHING YOU NEED TO KNOW ABOUT SHIPPING & BENEFITS",
+        "details-subtitle": "Rigorous organization to guarantee an impeccable collector experience:",
+        "d1-title": "1. Secure Worldwide Shipping",
+        "d1-desc": "Each plush will be carefully packed in a shock-resistant reinforced box and a collector protection pouch. Delivery with real-time tracking starting March 5, 2027.",
+        "d2-title": "2. Certificate of Authenticity Included",
+        "d2-desc": "For every collector edition ordered, an official numbered certificate will be slipped into the package to guarantee its rarity and collection value over the years.",
+        "d3-title": "3. Easy Maintenance Guide",
+        "d3-desc": "The silver diamond-effect puffer jacket is designed with water-repellent and resistant materials. A simple damp cloth is enough to clean small stains and preserve its shine.",
+        "d4-title": "4. Exclusive VIP Priority",
+        "d4-desc": "Free waiting list members will get a 24-hour priority access to order their plush before the public opening on launch day.",
+        "d5-title": "5. Support & TikTok Community",
+        "d5-desc": "Follow production progress live on our TikTok `@user3949202002` and ask all your questions to the team, we answer everyone!",
+        "d6-title": "6. Pre-order FAQ",
+        "d6-desc": "No payment required today. Joining the VIP list is 100% free and non-binding. You will be notified by email as soon as orders open.",
+        "roadmap-badge": "Real Production Tracking",
+        "roadmap-title": "LIVE PROJECT PROGRESS",
+        "roadmap-subtitle": "Discover key development milestones before opening on March 5, 2027:",
+        "step1-badge": "In progress",
+        "step1-title": "Embroidered Face Validation",
+        "step1-desc": "Embroidery plans for the clever smile and squinted eyes have been sent for factory prototype manufacturing.",
+        "step2-badge": "Step 2",
+        "step2-title": "Prototyping & Samples",
+        "step2-desc": "Imminent crafting of the first physical sample with the shiny puffer jacket and embroidered face.",
+        "step3-badge": "Step 3",
+        "step3-title": "Official Launch 2027",
+        "step3-desc": "Official opening of orders and shipment of collector plushies on March 5, 2027.",
+        "gal-badge": "3D Mockups Gallery",
+        "gal-title": "DESIGN VISUALS",
+        "gal-notice": "<strong>Transparency Notice:</strong> The images shown below are <strong>3D models and visual interpretation mockups</strong>. The final physical plush is currently in production, factory samples are arriving soon, and final official photographs will be published during 2027!",
+        "form-sub": "100% FREE EARLY ACCESS",
+        "form-title": "Join the VIP List",
+        "form-desc": "Register your email for free to preview photos of the first physical samples straight from the factory and be notified on <strong>March 5, 2027</strong>.",
+        "label-name": "Your First Name",
+        "label-email": "Your Email Address",
+        "btn-submit": "Sign up for free",
+        "footer-rights": "All rights reserved"
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'FR' ? 'EN' : 'FR';
+      document.getElementById('lang-label').innerText = currentLang;
+      
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
+        }
+      });
     }
 
     const canvas = document.getElementById('sparkle-canvas');
