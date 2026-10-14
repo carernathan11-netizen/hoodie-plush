@@ -85,8 +85,9 @@
 
   <canvas id="sparkle-canvas"></canvas>
 
-  <!-- Audio Player Ambiance -->
+  <!-- Sons FX et Ambiance -->
   <audio id="bg-music" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=cyberpunk-2099-10701.mp3"></audio>
+  <audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c36b658c.mp3?filename=sci-fi-click-90497.mp3"></audio>
 
   <!-- Navigation -->
   <header class="sticky top-0 z-50 glass-nav">
@@ -100,34 +101,34 @@
           <span class="font-display font-black text-base sm:text-xl tracking-wider text-white flex items-center gap-1">
             HOODIE PLUSH <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-cyan inline"></i>
           </span>
-          <span class="block text-[9px] sm:text-[10px] text-brand-cyan tracking-widest font-mono uppercase" data-i18n="nav_edition">Collector 2027</span>
+          <span class="block text-[9px] sm:text-[10px] text-brand-cyan tracking-widest font-mono uppercase">Collector 2027</span>
         </div>
       </div>
 
-      <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-300">
-        <a href="#concept" class="hover:text-brand-cyan transition-colors" data-i18n="nav_concept">Concept</a>
-        <a href="#story" class="hover:text-brand-cyan transition-colors" data-i18n="nav_story">Histoire</a>
-        <a href="#gallery" class="hover:text-brand-cyan transition-colors" data-i18n="nav_gallery">Galerie</a>
-        <a href="#advantages" class="hover:text-brand-cyan transition-colors" data-i18n="nav_advantages">Avantages VIP</a>
-        <a href="#simulator" class="hover:text-brand-cyan transition-colors" data-i18n="nav_sim">Impact Don</a>
-        <a href="#reviews" class="hover:text-brand-cyan transition-colors" data-i18n="nav_reviews">Avis Communauté</a>
-        <a href="#order" class="hover:text-brand-cyan transition-colors" data-i18n="nav_order">Soutenir / Don</a>
+      <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-300">
+        <a href="#concept" onclick="playSound()" class="hover:text-brand-cyan transition-colors">Concept</a>
+        <a href="#story" onclick="playSound()" class="hover:text-brand-cyan transition-colors">Histoire</a>
+        <a href="#gallery" onclick="playSound()" class="hover:text-brand-cyan transition-colors">Galerie</a>
+        <a href="#roadmap" onclick="playSound()" class="hover:text-brand-cyan transition-colors text-brand-cyan font-bold">📡 Suivre en direct</a>
+        <a href="#advantages" onclick="playSound()" class="hover:text-brand-cyan transition-colors">Avantages VIP</a>
+        <a href="#simulator" onclick="playSound()" class="hover:text-brand-cyan transition-colors">Impact Don</a>
+        <a href="#order" onclick="playSound()" class="hover:text-brand-cyan transition-colors">Soutenir / Don</a>
       </nav>
 
       <div class="flex items-center gap-2 sm:gap-3">
         <!-- Musique -->
-        <button id="music-btn" onclick="toggleAudio()" class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-slate-300 flex items-center gap-1.5 transition">
+        <button id="music-btn" onclick="toggleAudio(); playSound();" class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-slate-300 flex items-center gap-1.5 transition">
           <i data-lucide="music" class="w-4 h-4 text-brand-cyan"></i>
           <span id="music-text" class="hidden sm:inline">Ambiance OFF</span>
         </button>
 
         <!-- Langue -->
-        <button id="lang-btn" onclick="toggleLanguage()" class="px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-brand-cyan flex items-center gap-1.5 transition shadow-sm">
+        <button id="lang-btn" onclick="toggleLanguage(); playSound();" class="px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-brand-cyan flex items-center gap-1.5 transition shadow-sm">
           <i data-lucide="globe" class="w-3.5 h-3.5"></i>
           <span id="lang-label">FR / EN</span>
         </button>
 
-        <a href="#order" class="px-3.5 py-2 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-xs uppercase tracking-wider hover:scale-105 transition shadow-lg shadow-brand-cyan/25 flex items-center gap-1">
+        <a href="#order" onclick="playSound()" class="px-3.5 py-2 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-xs uppercase tracking-wider hover:scale-105 transition shadow-lg shadow-brand-cyan/25 flex items-center gap-1">
           <i data-lucide="heart" class="w-3.5 h-3.5"></i>
           <span>DON</span>
         </a>
@@ -144,9 +145,9 @@
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
         </span>
-        <span data-i18n="status_banner">COMMANDES OFFICIELLES LE 5 MARS 2027 • DÉCOMPTE :</span>
+        <span>COMMANDES OFFICIELLES LE 5 MARS 2027 • DÉCOMPTE :</span>
       </div>
-      <!-- Timer jusqu'au 5 mars 2027 -->
+      <!-- Timer -->
       <div id="countdown" class="font-mono font-black text-brand-cyan bg-black/50 px-3 py-1 rounded-lg border border-brand-cyan/40 flex gap-2 text-sm tracking-widest shadow-inner">
         <span><b id="c-days">000</b>j</span> :
         <span><b id="c-hours">00</b>h</span> :
@@ -165,7 +166,7 @@
           
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase tracking-widest shadow-inner">
             <i data-lucide="gem" class="w-3.5 h-3.5"></i>
-            <span data-i18n="hero_badge">Format 15 cm • Design Futuriste & Effet Diamant</span>
+            <span>Format 15 cm • Design Futuriste & Effet Diamant</span>
           </div>
 
           <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-none tracking-tight">
@@ -173,18 +174,18 @@
             <span class="text-silver-gradient">IT'S A VIBE.</span>
           </h1>
 
-          <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed" data-i18n="hero_desc">
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
             Le compagnon idéal de 15 cm pour votre lit, votre bureau ou votre décoration streetwear. Habillée d'une doudoune brillante à motif géométrique et d'une visière effet miroir.
           </p>
 
-          <!-- Barre de progression communautaire -->
+          <!-- Barre de progression de financement mise à 0% -->
           <div class="glass-card p-4 rounded-2xl border border-white/10 space-y-2">
             <div class="flex justify-between text-xs font-bold">
-              <span class="text-slate-300">Objectif Campagne 2027</span>
-              <span class="text-brand-cyan">68% Financé</span>
+              <span class="text-slate-300">Objectif Campagne 2027 (Lancement officiel)</span>
+              <span class="text-brand-cyan">0% Financé (Début)</span>
             </div>
             <div class="w-full h-2.5 bg-black/60 rounded-full overflow-hidden p-0.5 border border-white/10">
-              <div class="h-full bg-gradient-to-r from-brand-cyan to-brand-blue rounded-full w-[68%] animate-pulse"></div>
+              <div class="h-full bg-gradient-to-r from-brand-cyan to-brand-blue rounded-full w-[2%]"></div>
             </div>
           </div>
 
@@ -192,31 +193,31 @@
             <div class="glass-card p-3.5 rounded-2xl text-center">
               <i data-lucide="ruler" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
               <span class="text-xs font-bold block text-white">Taille 15 cm</span>
-              <span class="text-[10px] text-slate-400" data-i18n="feat_1_sub">Déco & Nuit</span>
+              <span class="text-[10px] text-slate-400">Déco & Nuit</span>
             </div>
             <div class="glass-card p-3.5 rounded-2xl text-center">
               <i data-lucide="cloud" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
-              <span class="text-xs font-bold block text-white" data-i18n="feat_2_title">Ultra Doux</span>
-              <span class="text-[10px] text-slate-400" data-i18n="feat_2_sub">Toucher velours</span>
+              <span class="text-xs font-bold block text-white">Ultra Doux</span>
+              <span class="text-[10px] text-slate-400">Toucher velours</span>
             </div>
             <div class="glass-card p-3.5 rounded-2xl text-center">
               <i data-lucide="shield-check" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
-              <span class="text-xs font-bold block text-white" data-i18n="feat_3_title">Détails Soignés</span>
-              <span class="text-[10px] text-slate-400" data-i18n="feat_3_sub">Visière & Zippers</span>
+              <span class="text-xs font-bold block text-white">Détails Soignés</span>
+              <span class="text-[10px] text-slate-400">Visière & Zippers</span>
             </div>
             <div class="glass-card p-3.5 rounded-2xl text-center">
               <i data-lucide="gift" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
-              <span class="text-xs font-bold block text-white" data-i18n="feat_4_title">Objet Collector</span>
-              <span class="text-[10px] text-slate-400" data-i18n="feat_4_sub">Packaging inclus</span>
+              <span class="text-xs font-bold block text-white">Objet Collector</span>
+              <span class="text-[10px] text-slate-400">Packaging inclus</span>
             </div>
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
-            <a href="#order" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-sm uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/30 flex items-center justify-center gap-2">
+            <a href="#order" onclick="playSound()" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-sm uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/30 flex items-center justify-center gap-2">
               <i data-lucide="heart" class="w-4 h-4"></i>
-              <span data-i18n="btn_donate">Soutenir & Faire un Don Libre</span>
+              <span>Soutenir & Faire un Don Libre</span>
             </a>
-            <button onclick="shareProject()" class="px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-white font-bold text-sm flex items-center justify-center gap-2 transition">
+            <button onclick="shareProject(); playSound();" class="px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-white font-bold text-sm flex items-center justify-center gap-2 transition">
               <i data-lucide="share-2" class="w-4 h-4 text-brand-cyan"></i>
               <span>Partager le site</span>
             </button>
@@ -230,14 +231,55 @@
             <div class="relative glass-card rounded-3xl p-4 border border-white/20 overflow-hidden shadow-2xl">
               <img src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Hoodie Plush Showcase" class="w-full h-auto rounded-2xl object-cover transform hover:scale-105 transition duration-700">
               <div class="absolute bottom-6 left-6 right-6 p-4 glass-nav rounded-2xl border border-white/20 text-center shadow-lg">
-                <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest block mb-0.5" data-i18n="hero_card_sub">STREETWEAR COLLECTION</span>
-                <span class="text-white font-display font-bold text-lg" data-i18n="hero_card_title">Le Compagnon 15 cm</span>
+                <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest block mb-0.5">STREETWEAR COLLECTION</span>
+                <span class="text-white font-display font-bold text-lg">Le Compagnon 15 cm</span>
               </div>
             </div>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- NOUVELLE SECTION : Suivre en direct (Roadmap & Progrès en Chine) -->
+  <section id="roadmap" class="py-24 relative bg-brand-dark/60 border-t border-white/10 z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+          <i data-lucide="radio" class="w-3.5 h-3.5 animate-pulse"></i>
+          <span>Journal de Bord en Direct</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-white">SUIVRE LA PROGRESSION EN TEMPS RÉEL</h2>
+        <p class="text-slate-300 text-sm">Découvrez chaque étape de fabrication et de production du projet avant sa sortie officielle.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="glass-card p-6 rounded-3xl border border-brand-cyan/40 space-y-3 relative overflow-hidden">
+          <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-brand-cyan/20 text-brand-cyan text-[10px] font-bold uppercase">En cours</div>
+          <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan font-bold">01</div>
+          <h3 class="font-display font-bold text-base text-white">Modèle envoyé aux usines en Chine</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">Les plans 3D et le design géométrique 15 cm ont été transmis à nos partenaires de fabrication spécialisés.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl border border-white/15 space-y-3 relative overflow-hidden opacity-90">
+          <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase">Négociation</div>
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold">02</div>
+          <h3 class="font-display font-bold text-base text-white">Négociations & Échantillons</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">Validation des matériaux velours et des tests d'éclat pour la doudoune argentée.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl border border-white/10 space-y-3 relative overflow-hidden opacity-60">
+          <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-slate-700 text-slate-300 text-[10px] font-bold uppercase">À venir</div>
+          <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 font-bold">03</div>
+          <h3 class="font-display font-bold text-base text-white">Production & Sortie Officielle</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">Lancement officiel des livraisons et des commandes directes le 5 mars 2027 !</p>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
@@ -302,12 +344,12 @@
       <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
           <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-          <span data-i18n="story_badge">Genèse d'un Projet Innovant</span>
+          <span>Genèse d'un Projet Innovant</span>
         </div>
-        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="story_title">
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white">
           L'HISTOIRE DE HOODIE PLUSH
         </h2>
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="story_subtitle">
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
           Né d'une fusion entre la culture streetwear urbaine et l'univers du design futuriste de 2026, Hoodie Plush redéfinit le concept de la peluche de collection.
         </p>
       </div>
@@ -316,24 +358,24 @@
         
         <div class="glass-card p-8 rounded-3xl space-y-4 relative overflow-hidden group">
           <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan font-display font-black text-lg">01</div>
-          <h3 class="font-display font-bold text-xl text-white" data-i18n="story_card1_title">L'Étincelle Créative</h3>
-          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="story_card1_desc">
+          <h3 class="font-display font-bold text-xl text-white">L'Étincelle Créative</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
             L'idée originale est née de l'envie de créer un objet physique unique, inspiré des codes vestimentaires contemporains tout en gardant l'aspect réconfortant d'une peluche de qualité supérieure.
           </p>
         </div>
 
         <div class="glass-card p-8 rounded-3xl space-y-4 relative overflow-hidden group">
           <div class="w-12 h-12 rounded-2xl bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue font-display font-black text-lg">02</div>
-          <h3 class="font-display font-bold text-xl text-white" data-i18n="story_card2_title">Le Concept & Le Design</h3>
-          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="story_card2_desc">
+          <h3 class="font-display font-bold text-xl text-white">Le Concept & Le Design</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
             Chaque détail a été pensé pour marquer les esprits : une doudoune étincelante effet diamant, un format idéal de 15 cm et une attention particulière portée aux finitions.
           </p>
         </div>
 
         <div class="glass-card p-8 rounded-3xl space-y-4 relative overflow-hidden group">
           <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-display font-black text-lg">03</div>
-          <h3 class="font-display font-bold text-xl text-white" data-i18n="story_card3_title">Soutien & Avenir</h3>
-          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="story_card3_desc">
+          <h3 class="font-display font-bold text-xl text-white">Soutien & Avenir</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
             Votre participation via un don libre permet de financer directement la production et le développement de nos projets artistiques indépendants.
           </p>
         </div>
@@ -350,12 +392,12 @@
       <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
           <i data-lucide="image" class="w-3.5 h-3.5"></i>
-          <span data-i18n="gallery_badge">Visuels Officiels</span>
+          <span>Visuels Officiels</span>
         </div>
-        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="gallery_title">
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white">
           GALERIE EXCLUSIVE
         </h2>
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="gallery_subtitle">
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
           Découvrez en images la peluche de 15 cm sous tous ses angles et les détails exceptionnels de l'Édition Collector.
         </p>
       </div>
@@ -430,87 +472,6 @@
     </div>
   </section>
 
-  <!-- SECTION INTERACTIVE : Avis & Commentaires Publics -->
-  <section id="reviews" class="py-24 relative z-10 border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      
-      <div class="text-center max-w-3xl mx-auto space-y-4">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
-          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
-          <span>Espace Communautaire</span>
-        </div>
-        <h2 class="font-display text-3xl sm:text-5xl font-black text-white">
-          AVIS & COMMENTAIRES EN DIRECT
-        </h2>
-        <p class="text-slate-300 text-sm sm:text-base">
-          Laissez votre avis ou votre message de soutien pour qu'il apparaisse publiquement sur le site !
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        <!-- Formulaire -->
-        <div class="lg:col-span-5 glass-card p-6 rounded-3xl border border-brand-cyan/30 space-y-4">
-          <h3 class="font-display font-bold text-lg text-white">Laissez votre message</h3>
-          <form id="comment-form" onsubmit="addComment(event)" class="space-y-4">
-            <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1">Votre Prénom / Pseudo</label>
-              <input type="text" id="author-name" required placeholder="Ex: Nathan_2026" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-cyan focus:outline-none">
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1">Votre Note</label>
-              <select id="author-rating" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-cyan focus:outline-none">
-                <option value="5">⭐⭐⭐⭐⭐ (5/5) - Incroyable !</option>
-                <option value="4">⭐⭐⭐⭐ (4/5) - Très cool</option>
-                <option value="3">⭐⭐⭐ (3/3) - Sympa</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1">Votre Avis ou Message</label>
-              <textarea id="author-msg" required rows="3" placeholder="Ex: J'adore le format 15 cm pour mon bureau !" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-cyan focus:outline-none"></textarea>
-            </div>
-
-            <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-95 transition shadow-lg shadow-brand-cyan/20 flex items-center justify-center gap-2">
-              <i data-lucide="send" class="w-4 h-4"></i>
-              <span>Publier mon avis en direct</span>
-            </button>
-          </form>
-        </div>
-
-        <!-- Liste des avis publics -->
-        <div class="lg:col-span-7 space-y-4" id="comments-container">
-          <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-2">
-            <div class="flex justify-between items-center">
-              <span class="font-bold text-sm text-white flex items-center gap-2">
-                <span class="w-7 h-7 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 flex items-center justify-center text-brand-cyan text-xs">M</span>
-                Maxime_D.
-              </span>
-              <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
-            </div>
-            <p class="text-xs text-slate-300">"Le format 15 cm est juste parfait pour poser sur le bureau. Vivement le 5 mars 2027 !"</p>
-            <span class="text-[10px] text-slate-500 block">Publié à l'instant • Membre VIP</span>
-          </div>
-
-          <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-2">
-            <div class="flex justify-between items-center">
-              <span class="font-bold text-sm text-white flex items-center gap-2">
-                <span class="w-7 h-7 rounded-full bg-brand-purple/20 border border-brand-purple/40 flex items-center justify-center text-brand-purple text-xs">S</span>
-                Sarah_K.
-              </span>
-              <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
-            </div>
-            <p class="text-xs text-slate-300">"Super concept ! J'ai fait un don libre pour donner de la force au projet."</p>
-            <span class="text-[10px] text-slate-500 block">Publié il y a 10 min • Donatrice</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
   <!-- Espace Don Libre -->
   <section id="order" class="py-24 relative z-10 border-t border-white/10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -525,7 +486,7 @@
         </div>
 
         <div class="max-w-md mx-auto space-y-4 pt-4 relative z-10">
-          <a href="Https://buy.stripe.com/9B6bJ0eMvaef76M4qcgYU01" target="_blank" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple text-black font-black text-sm sm:text-base uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/25 flex items-center justify-center gap-2 text-center">
+          <a href="Https://buy.stripe.com/9B6bJ0eMvaef76M4qcgYU01" target="_blank" onclick="playSound()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple text-black font-black text-sm sm:text-base uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/25 flex items-center justify-center gap-2 text-center">
             <i data-lucide="heart" class="w-5 h-5"></i>
             <span>Choisir mon montant et faire un don</span>
           </a>
@@ -564,6 +525,15 @@
   <script>
     lucide.createIcons();
 
+    // Effet Sonore de clic
+    function playSound() {
+      const click = document.getElementById('click-sound');
+      if (click) {
+        click.currentTime = 0;
+        click.play().catch(e => {});
+      }
+    }
+
     // Compte à Rebours Fixé exactement au 5 Mars 2027 00:00:00
     const targetDate = new Date("March 5, 2027 00:00:00").getTime();
     
@@ -589,7 +559,7 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Audio Player
+    // Audio Player Ambiance
     let isPlaying = false;
     function toggleAudio() {
       const audio = document.getElementById('bg-music');
@@ -632,35 +602,6 @@
         badge.innerText = "Statut Platine VIP";
         badge.className = "px-3 py-1 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-[10px] font-bold uppercase tracking-wider";
       }
-    }
-
-    // Ajout dynamique d'avis publics
-    function addComment(e) {
-      e.preventDefault();
-      const name = document.getElementById('author-name').value;
-      const rating = document.getElementById('author-rating').value;
-      const msg = document.getElementById('author-msg').value;
-
-      const stars = '⭐'.repeat(parseInt(rating));
-      const container = document.getElementById('comments-container');
-
-      const card = document.createElement('div');
-      card.className = "glass-card p-5 rounded-2xl border border-brand-cyan/40 space-y-2";
-      card.innerHTML = `
-        <div class="flex justify-between items-center">
-          <span class="font-bold text-sm text-white flex items-center gap-2">
-            <span class="w-7 h-7 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 flex items-center justify-center text-brand-cyan text-xs">${name.charAt(0).toUpperCase()}</span>
-            ${name}
-          </span>
-          <span class="text-xs text-amber-400">${stars}</span>
-        </div>
-        <p class="text-xs text-slate-300">"${msg}"</p>
-        <span class="text-[10px] text-brand-cyan block">Publié à l'instant • Avis Vérifié</span>
-      `;
-
-      container.prepend(card);
-      document.getElementById('comment-form').reset();
-      alert("Votre avis a bien été publié publiquement sur le site !");
     }
 
     // Partage
