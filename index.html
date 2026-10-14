@@ -85,6 +85,9 @@
 
   <canvas id="sparkle-canvas"></canvas>
 
+  <!-- Audio Player Ambiance -->
+  <audio id="bg-music" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=cyberpunk-2099-10701.mp3"></audio>
+
   <!-- Navigation -->
   <header class="sticky top-0 z-50 glass-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2">
@@ -105,21 +108,23 @@
         <a href="#concept" class="hover:text-brand-cyan transition-colors" data-i18n="nav_concept">Concept</a>
         <a href="#story" class="hover:text-brand-cyan transition-colors" data-i18n="nav_story">Histoire</a>
         <a href="#gallery" class="hover:text-brand-cyan transition-colors" data-i18n="nav_gallery">Galerie</a>
-        <a href="#craft" class="hover:text-brand-cyan transition-colors" data-i18n="nav_craft">Fabrication</a>
-        <a href="#reviews" class="hover:text-brand-cyan transition-colors" data-i18n="nav_reviews">Avis VIP</a>
+        <a href="#simulator" class="hover:text-brand-cyan transition-colors" data-i18n="nav_sim">Impact Don</a>
+        <a href="#reviews" class="hover:text-brand-cyan transition-colors" data-i18n="nav_reviews">Avis Communauté</a>
         <a href="#order" class="hover:text-brand-cyan transition-colors" data-i18n="nav_order">Soutenir / Don</a>
       </nav>
 
       <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Bouton Musique -->
+        <button id="music-btn" onclick="toggleAudio()" class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-slate-300 flex items-center gap-1.5 transition">
+          <i data-lucide="music" class="w-4 h-4 text-brand-cyan"></i>
+          <span id="music-text" class="hidden sm:inline">Ambiance OFF</span>
+        </button>
+
+        <!-- Langue -->
         <button id="lang-btn" onclick="toggleLanguage()" class="px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-bold text-brand-cyan flex items-center gap-1.5 transition shadow-sm">
           <i data-lucide="globe" class="w-3.5 h-3.5"></i>
           <span id="lang-label">FR / EN</span>
         </button>
-
-        <a href="https://tiktok.com/@user3949202002" target="_blank" class="hidden sm:flex px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-xs font-semibold items-center gap-1.5 transition">
-          <i data-lucide="video" class="w-3.5 h-3.5 text-brand-cyan"></i>
-          <span>TikTok</span>
-        </a>
 
         <a href="#order" class="px-3.5 py-2 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-xs uppercase tracking-wider hover:scale-105 transition shadow-lg shadow-brand-cyan/25 flex items-center gap-1">
           <i data-lucide="heart" class="w-3.5 h-3.5"></i>
@@ -130,13 +135,24 @@
     </div>
   </header>
 
-  <!-- Status Banner -->
-  <div class="bg-gradient-to-r from-purple-900/30 via-brand-cyan/20 to-purple-900/30 border-b border-brand-cyan/30 py-2.5 px-4 text-center text-xs font-semibold text-cyan-200 flex items-center justify-center gap-2 z-20 relative">
-    <span class="flex h-2 w-2 relative">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
-    </span>
-    <span data-i18n="status_banner">ÉDITION LIMITÉE 2026 • SOUTENEZ LE PROJET VIA UN DON LIBRE ET ACCÉDEZ AU STATUT VIP</span>
+  <!-- Status Banner & Compte à Rebours 100 Jours -->
+  <div class="bg-gradient-to-r from-purple-900/40 via-brand-cyan/20 to-purple-900/40 border-b border-brand-cyan/30 py-3 px-4 text-center text-xs font-semibold text-cyan-200 z-20 relative">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3">
+      <div class="flex items-center gap-2">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
+        </span>
+        <span data-i18n="status_banner">LANCEMENT OFFICIEL DANS :</span>
+      </div>
+      <!-- Timer -->
+      <div id="countdown" class="font-mono font-black text-brand-cyan bg-black/40 px-3 py-1 rounded-lg border border-brand-cyan/30 flex gap-2 text-sm tracking-widest shadow-inner">
+        <span><b id="c-days">100</b>d</span> :
+        <span><b id="c-hours">00</b>h</span> :
+        <span><b id="c-mins">00</b>m</span> :
+        <span><b id="c-secs">00</b>s</span>
+      </div>
+    </div>
   </div>
 
   <!-- Hero Section -->
@@ -148,7 +164,7 @@
           
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase tracking-widest shadow-inner">
             <i data-lucide="gem" class="w-3.5 h-3.5"></i>
-            <span data-i18n="hero_badge">Design Futuriste 2026 & Effet Diamant</span>
+            <span data-i18n="hero_badge">Format 15 cm • Design Futuriste & Effet Diamant</span>
           </div>
 
           <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-none tracking-tight">
@@ -157,14 +173,14 @@
           </h1>
 
           <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed" data-i18n="hero_desc">
-            Une pièce de collection streetwear unique. Habillée d'une doudoune brillante à motif géométrique, d'une visière effet miroir et confectionnée avec des finitions haut de gamme pour financer nos projets artistiques.
+            Le compagnon idéal de 15 cm pour votre lit, votre bureau ou votre décoration streetwear. Habillée d'une doudoune brillante à motif géométrique et d'une visière effet miroir.
           </p>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             <div class="glass-card p-3.5 rounded-2xl text-center">
-              <i data-lucide="gem" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
-              <span class="text-xs font-bold block text-white" data-i18n="feat_1_title">Matériaux Premium</span>
-              <span class="text-[10px] text-slate-400" data-i18n="feat_1_sub">Tissu scintillant</span>
+              <i data-lucide="ruler" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
+              <span class="text-xs font-bold block text-white">Taille 15 cm</span>
+              <span class="text-[10px] text-slate-400" data-i18n="feat_1_sub">Déco & Nuit</span>
             </div>
             <div class="glass-card p-3.5 rounded-2xl text-center">
               <i data-lucide="cloud" class="w-5 h-5 text-brand-cyan mx-auto mb-1.5"></i>
@@ -188,6 +204,10 @@
               <i data-lucide="heart" class="w-4 h-4"></i>
               <span data-i18n="btn_donate">Soutenir & Faire un Don Libre</span>
             </a>
+            <button onclick="shareProject()" class="px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-white font-bold text-sm flex items-center justify-center gap-2 transition">
+              <i data-lucide="share-2" class="w-4 h-4 text-brand-cyan"></i>
+              <span>Partager le site</span>
+            </button>
           </div>
 
         </div>
@@ -199,7 +219,7 @@
               <img src="532c176e-c523-495f-bc6b-4c3a5d5682c6.png" alt="Hoodie Plush Showcase" class="w-full h-auto rounded-2xl object-cover transform hover:scale-105 transition duration-700">
               <div class="absolute bottom-6 left-6 right-6 p-4 glass-nav rounded-2xl border border-white/20 text-center shadow-lg">
                 <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest block mb-0.5" data-i18n="hero_card_sub">STREETWEAR COLLECTION</span>
-                <span class="text-white font-display font-bold text-lg" data-i18n="hero_card_title">Le Compagnon 2026</span>
+                <span class="text-white font-display font-bold text-lg" data-i18n="hero_card_title">Le Compagnon 15 cm</span>
               </div>
             </div>
           </div>
@@ -209,7 +229,7 @@
     </div>
   </section>
 
-  <!-- Section Histoire & Origine -->
+  <!-- Section Histoire -->
   <section id="story" class="py-24 relative bg-brand-dark/40 border-y border-white/10 z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -240,7 +260,7 @@
           <div class="w-12 h-12 rounded-2xl bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue font-display font-black text-lg">02</div>
           <h3 class="font-display font-bold text-xl text-white" data-i18n="story_card2_title">Le Concept & Le Design</h3>
           <p class="text-sm text-slate-300 leading-relaxed" data-i18n="story_card2_desc">
-            Chaque détail a été pensé pour marquer les esprits : une doudoune étincelante effet diamant, un design géométrique rigoureux et une attention particulière portée aux finitions.
+            Chaque détail a été pensé pour marquer les esprits : une doudoune étincelante effet diamant, un format idéal de 15 cm et une attention particulière portée aux finitions.
           </p>
         </div>
 
@@ -257,7 +277,7 @@
     </div>
   </section>
 
-  <!-- Section Galerie Photos (Images vérifiées et nettoyées) -->
+  <!-- Section Galerie Photos -->
   <section id="gallery" class="py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -270,7 +290,7 @@
           GALERIE EXCLUSIVE
         </h2>
         <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="gallery_subtitle">
-          Découvrez en images la peluche sous tous ses angles et les détails exceptionnels de l'Édition Collector 2026.
+          Découvrez en images la peluche de 15 cm sous tous ses angles et les détails exceptionnels de l'Édition Collector 2026.
         </p>
       </div>
 
@@ -311,130 +331,110 @@
     </div>
   </section>
 
-  <!-- Section Fabrication & Logistique -->
-  <section id="craft" class="py-24 relative bg-brand-dark/50 border-t border-white/10 z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- NOUVELLE SECTION INTERACTIVE : Simualteur d'Impact de Don -->
+  <section id="simulator" class="py-20 bg-brand-dark/50 border-t border-white/10 z-10 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
       
-      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
-          <i data-lucide="package" class="w-3.5 h-3.5"></i>
-          <span data-i18n="craft_badge">Qualité & Logistique</span>
-        </div>
-        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="craft_title">
-          FABRICATION, EMBALLAGE & LIVRAISON
-        </h2>
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="craft_subtitle">
-          Un engagement total sur la qualité des matériaux, la transparence de production et le soin apporté à chaque colis envoyé chez vous.
-        </p>
+      <div class="space-y-2">
+        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">SIMULATEUR D'IMPACT</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-white">À QUOI SERT VOTRE DON ?</h2>
+        <p class="text-sm text-slate-300">Glissez le curseur pour voir comment votre don contribue concrètement au projet :</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <div class="glass-card p-8 rounded-3xl space-y-4 border border-white/10">
-          <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
-            <i data-lucide="factory" class="w-7 h-7"></i>
-          </div>
-          <h3 class="font-display font-bold text-xl text-white" data-i18n="craft_col1_title">Fabrication Sur-Mesure</h3>
-          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="craft_col1_desc">
-            Le design et les prototypes sont imaginés par notre équipe. La production physique est réalisée dans des usines spécialisées partenaires en Chine, reconnues pour leur excellence.
-          </p>
+      <div class="glass-card p-8 rounded-3xl border border-brand-cyan/30 space-y-6">
+        <div class="flex justify-between items-center font-display font-black text-2xl text-brand-cyan">
+          <span>Montant du don :</span>
+          <span id="donation-amount">15 €</span>
         </div>
 
-        <div class="glass-card p-8 rounded-3xl space-y-4 border border-white/10">
-          <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue">
-            <i data-lucide="gift" class="w-7 h-7"></i>
-          </div>
-          <h3 class="font-display font-bold text-xl text-white" data-i18n="craft_col2_title">Emballage Collector</h3>
-          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="craft_col2_desc">
-            Chaque Hoodie Plush est conditionné individuellement dans un sac de protection étanche et soigné, faisant office de packaging cadeau premium.
-          </p>
-        </div>
+        <input type="range" id="donation-range" min="5" max="100" step="5" value="15" oninput="updateImpact(this.value)" class="w-full accent-brand-cyan cursor-pointer h-2 bg-slate-800 rounded-lg">
 
-        <div class="glass-card p-8 rounded-3xl space-y-4 border border-white/10">
-          <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
-            <i data-lucide="truck" class="w-7 h-7"></i>
+        <div id="impact-card" class="p-4 rounded-2xl bg-white/5 border border-white/10 text-left space-y-2">
+          <div class="flex items-center gap-2 font-bold text-white text-base">
+            <i data-lucide="sparkles" class="w-5 h-5 text-brand-cyan"></i>
+            <span id="impact-title">Financement de la Visière Miroir (Prototype)</span>
           </div>
-          <h3 class="font-display font-bold text-xl text-white" data-i18n="craft_col3_title">Livraison Sécurisée</h3>
-          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="craft_col3_desc">
-            Vos colis sont préparés avec le plus grand soin et expédiés avec numéro de suivi directement à votre domicile.
-          </p>
+          <p id="impact-desc" class="text-xs text-slate-300">Votre don de 15 € permet de mouler et prototyper la visière réfléchissante haute précision pour une peluche.</p>
         </div>
-
       </div>
 
     </div>
   </section>
 
-  <!-- Nouvelle Section : Avis & Communauté TikTok/VIP -->
-  <section id="reviews" class="py-24 relative z-10 bg-brand-dark/30 border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- NOUVELLE SECTION INTERACTIVE : Avis & Commentaires Publics -->
+  <section id="reviews" class="py-24 relative z-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
-      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
           <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
-          <span data-i18n="reviews_badge">Engouement Communautaire</span>
+          <span>Espace Communautaire</span>
         </div>
-        <h2 class="font-display text-3xl sm:text-5xl font-black text-white" data-i18n="reviews_title">
-          CE QU'EN PENSE LA COMMUNAUTÉ
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white">
+          AVIS & COMMENTAIRES EN DIRECT
         </h2>
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="reviews_subtitle">
-          Un engouement grandissant sur les réseaux sociaux autour de l'Édition Collector 2026.
+        <p class="text-slate-300 text-sm sm:text-base">
+          Laissez votre avis ou votre message de soutien pour qu'il apparaisse publiquement sur le site !
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <div class="glass-card p-6 rounded-3xl space-y-4 border border-white/10">
-          <div class="flex items-center gap-1 text-amber-400">
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-          </div>
-          <p class="text-sm text-slate-200 italic">"Le design avec la doudoune brillante et le masque style ski est juste incroyable. J'ai hâte de recevoir la mienne !"</p>
-          <div class="flex items-center gap-3 pt-2">
-            <div class="w-8 h-8 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 flex items-center justify-center font-bold text-brand-cyan text-xs">M</div>
+        <!-- Formulaire de dépôt d'avis -->
+        <div class="lg:col-span-5 glass-card p-6 rounded-3xl border border-brand-cyan/30 space-y-4">
+          <h3 class="font-display font-bold text-lg text-white">Laissez votre message</h3>
+          <form id="comment-form" onsubmit="addComment(event)" class="space-y-4">
             <div>
-              <span class="block text-xs font-bold text-white">Maxime_D.</span>
-              <span class="block text-[10px] text-slate-400">Membre VIP TikTok</span>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Votre Prénom / Pseudo</label>
+              <input type="text" id="author-name" required placeholder="Ex: Nathan_2026" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-cyan focus:outline-none">
             </div>
-          </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Votre Note</label>
+              <select id="author-rating" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-cyan focus:outline-none">
+                <option value="5">⭐⭐⭐⭐⭐ (5/5) - Incroyable !</option>
+                <option value="4">⭐⭐⭐⭐ (4/5) - Très cool</option>
+                <option value="3">⭐⭐⭐ (3/3) - Sympa</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Votre Avis ou Message</label>
+              <textarea id="author-msg" required rows="3" placeholder="Ex: J'adore le format 15 cm pour mon bureau !" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-cyan focus:outline-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-95 transition shadow-lg shadow-brand-cyan/20 flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Publier mon avis en direct</span>
+            </button>
+          </form>
         </div>
 
-        <div class="glass-card p-6 rounded-3xl space-y-4 border border-white/10">
-          <div class="flex items-center gap-1 text-amber-400">
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-          </div>
-          <p class="text-sm text-slate-200 italic">"Un vrai concept original qui change des peluches classiques. Le don libre permet en plus de soutenir le créateur."</p>
-          <div class="flex items-center gap-3 pt-2">
-            <div class="w-8 h-8 rounded-full bg-brand-purple/20 border border-brand-purple/40 flex items-center justify-center font-bold text-brand-purple text-xs">S</div>
-            <div>
-              <span class="block text-xs font-bold text-white">Sarah_K.</span>
-              <span class="block text-[10px] text-slate-400">Donatrice VIP</span>
+        <!-- Liste des avis publics -->
+        <div class="lg:col-span-7 space-y-4" id="comments-container">
+          <!-- Avis par défaut -->
+          <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-2 animate-fade-in">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-sm text-white flex items-center gap-2">
+                <span class="w-7 h-7 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 flex items-center justify-center text-brand-cyan text-xs">M</span>
+                Maxime_D.
+              </span>
+              <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
             </div>
+            <p class="text-xs text-slate-300">"Le format 15 cm est juste parfait pour dormir avec ou poser sur le bureau. Vraiment hâte !"</p>
+            <span class="text-[10px] text-slate-500 block">Publié à l'instant • Membre VIP</span>
           </div>
-        </div>
 
-        <div class="glass-card p-6 rounded-3xl space-y-4 border border-white/10">
-          <div class="flex items-center gap-1 text-amber-400">
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-          </div>
-          <p class="text-sm text-slate-200 italic">"L'effet miroir sur la visière rend trop bien sur les visuels. Qualité au rendez-vous !"</p>
-          <div class="flex items-center gap-3 pt-2">
-            <div class="w-8 h-8 rounded-full bg-brand-blue/20 border border-brand-blue/40 flex items-center justify-center font-bold text-brand-blue text-xs">A</div>
-            <div>
-              <span class="block text-xs font-bold text-white">Alexandre_P.</span>
-              <span class="block text-[10px] text-slate-400">Abonné TikTok</span>
+          <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-2 animate-fade-in">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-sm text-white flex items-center gap-2">
+                <span class="w-7 h-7 rounded-full bg-brand-purple/20 border border-brand-purple/40 flex items-center justify-center text-brand-purple text-xs">S</span>
+                Sarah_K.
+              </span>
+              <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
             </div>
+            <p class="text-xs text-slate-300">"Super concept ! J'ai fait un don libre pour donner de la force au projet."</p>
+            <span class="text-[10px] text-slate-500 block">Publié il y a 10 min • Donatrice</span>
           </div>
         </div>
 
@@ -443,26 +443,23 @@
     </div>
   </section>
 
-  <!-- Espace Don Libre (Stripe Link personnalisé) -->
+  <!-- Espace Don Libre -->
   <section id="order" class="py-24 relative z-10 border-t border-white/10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="glass-card p-8 sm:p-12 rounded-3xl border border-brand-cyan/40 shadow-2xl space-y-6 text-center relative overflow-hidden">
         
-        <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-cyan/10 rounded-full blur-3xl"></div>
-
         <div class="space-y-3 max-w-lg mx-auto relative z-10">
-          <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase" data-i18n="order_badge">SOUTIEN & FINANCEMENT</span>
-          <h3 class="font-display text-3xl sm:text-4xl font-black text-white" data-i18n="order_title">Faire un don libre pour le projet</h3>
-          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="order_desc">
-            Les commandes directes sont temporairement bloquées. Tu peux choisir librement le montant de ton choix pour soutenir l'aventure Hoodie Plush et contribuer au lancement.
+          <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">SOUTIEN & FINANCEMENT</span>
+          <h3 class="font-display text-3xl sm:text-4xl font-black text-white">Faire un don libre pour le projet</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Les commandes directes sont temporairement bloquées pendant les 100 jours de préparation. Tu peux choisir librement le montant de ton choix pour soutenir l'aventure Hoodie Plush 15 cm !
           </p>
         </div>
 
         <div class="max-w-md mx-auto space-y-4 pt-4 relative z-10">
-          <!-- Lien Stripe Don Libre -->
           <a href="Https://buy.stripe.com/9B6bJ0eMvaef76M4qcgYU01" target="_blank" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple text-black font-black text-sm sm:text-base uppercase tracking-wider hover:scale-105 transition shadow-xl shadow-brand-cyan/25 flex items-center justify-center gap-2 text-center">
             <i data-lucide="heart" class="w-5 h-5"></i>
-            <span data-i18n="donate_btn">Choisir mon montant et faire un don</span>
+            <span>Choisir mon montant et faire un don</span>
           </a>
           <div class="flex items-center justify-center gap-4 text-slate-400 text-xs pt-2">
             <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-cyan"></i> Stripe Sécurisé</span>
@@ -471,52 +468,6 @@
         </div>
 
       </div>
-    </div>
-  </section>
-
-  <!-- Section FAQ -->
-  <section class="py-16 bg-brand-dark/60 border-t border-white/10 z-10 relative">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      
-      <div class="text-center space-y-2">
-        <h3 class="font-display text-2xl sm:text-3xl font-black text-white" data-i18n="faq_title">QUESTIONS FRÉQUENTES</h3>
-        <p class="text-xs text-slate-400" data-i18n="faq_subtitle">Tout ce que vous devez savoir sur le projet Hoodie Plush</p>
-      </div>
-
-      <div class="space-y-4">
-        
-        <details class="glass-card p-5 rounded-2xl border border-white/10 group">
-          <summary class="font-bold text-sm text-white cursor-pointer flex justify-between items-center">
-            <span>Comment fonctionne le don libre ?</span>
-            <i data-lucide="chevron-down" class="w-4 h-4 text-brand-cyan group-open:rotate-180 transition"></i>
-          </summary>
-          <p class="text-xs text-slate-300 pt-3 leading-relaxed">
-            Vous choisissez vous-même le montant que vous souhaitez donner sur notre page Stripe sécurisée. Ce don permet de soutenir financièrement le développement et la production physique du projet.
-          </p>
-        </details>
-
-        <details class="glass-card p-5 rounded-2xl border border-white/10 group">
-          <summary class="font-bold text-sm text-white cursor-pointer flex justify-between items-center">
-            <span>Quand les ventes directes de la peluche ouvriront-elles ?</span>
-            <i data-lucide="chevron-down" class="w-4 h-4 text-brand-cyan group-open:rotate-180 transition"></i>
-          </summary>
-          <p class="text-xs text-slate-300 pt-3 leading-relaxed">
-            Les commandes directes ouvriront officiellement à la fin du compte à rebours de la campagne de pré-lancement. Tous les donateurs et membres de la communauté seront informés en priorité.
-          </p>
-        </details>
-
-        <details class="glass-card p-5 rounded-2xl border border-white/10 group">
-          <summary class="font-bold text-sm text-white cursor-pointer flex justify-between items-center">
-            <span>Quelles sont les dimensions et les matériaux de la peluche ?</span>
-            <i data-lucide="chevron-down" class="w-4 h-4 text-brand-cyan group-open:rotate-180 transition"></i>
-          </summary>
-          <p class="text-xs text-slate-300 pt-3 leading-relaxed">
-            La peluche mesure environ 25 cm, est recouverte d'un tissu brillant effet diamant avec une doudoune rembourrée, une visière brillante et des finitions soignées en velours ultra doux.
-          </p>
-        </details>
-
-      </div>
-
     </div>
   </section>
 
@@ -536,7 +487,7 @@
           <i data-lucide="video" class="w-4 h-4 text-brand-cyan"></i>
           <span>TikTok: @user3949202002</span>
         </a>
-        <span data-i18n="footer_rights">Tous droits réservés</span>
+        <span>Tous droits réservés</span>
       </div>
 
     </div>
@@ -545,103 +496,103 @@
   <script>
     lucide.createIcons();
 
-    let currentLang = 'fr';
+    // Compte à Rebours 100 Jours
+    const targetDate = new Date().getTime() + (100 * 24 * 60 * 60 * 1000);
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
 
-    const translations = {
-      fr: {
-        nav_edition: "Collector 2026",
-        nav_concept: "Concept",
-        nav_story: "Histoire",
-        nav_gallery: "Galerie",
-        nav_craft: "Fabrication",
-        nav_reviews: "Avis VIP",
-        nav_order: "Soutenir / Don",
-        status_banner: "ÉDITION LIMITÉE 2026 • SOUTENEZ LE PROJET VIA UN DON LIBRE ET ACCÉDEZ AU STATUT VIP",
-        hero_badge: "Design Futuriste 2026 & Effet Diamant",
-        hero_desc: "Une pièce de collection streetwear unique. Habillée d'une doudoune brillante à motif géométrique, d'une visière effet miroir et confectionnée avec des finitions haut de gamme.",
-        feat_1_title: "Matériaux Premium",
-        feat_1_sub: "Tissu scintillant",
-        feat_2_title: "Ultra Doux",
-        feat_2_sub: "Toucher velours",
-        feat_3_title: "Détails Soignés",
-        feat_3_sub: "Visière & Zippers",
-        feat_4_title: "Objet Collector",
-        feat_4_sub: "Packaging inclus",
-        btn_donate: "Soutenir & Faire un Don Libre",
-        story_badge: "Genèse d'un Projet Innovant",
-        story_title: "L'HISTOIRE DE HOODIE PLUSH",
-        story_subtitle: "Né d'une fusion entre la culture streetwear urbaine et l'univers du design futuriste de 2026, Hoodie Plush redéfinit le concept de la peluche de collection.",
-        gallery_badge: "Visuels Officiels",
-        gallery_title: "GALERIE EXCLUSIVE",
-        gallery_subtitle: "Découvrez en images la peluche sous tous ses angles et les détails exceptionnels de l'Édition Collector 2026.",
-        craft_badge: "Qualité & Logistique",
-        craft_title: "FABRICATION, EMBALLAGE & LIVRAISON",
-        craft_subtitle: "Un engagement total sur la qualité des matériaux, la transparence de production et le soin apporté à chaque colis envoyé chez vous.",
-        reviews_badge: "Engouement Communautaire",
-        reviews_title: "CE QU'EN PENSE LA COMMUNAUTÉ",
-        reviews_subtitle: "Un engouement grandissant sur les réseaux sociaux autour de l'Édition Collector 2026.",
-        order_badge: "SOUTIEN & FINANCEMENT",
-        order_title: "Faire un don libre pour le projet",
-        order_desc: "Les commandes directes sont temporairement bloquées. Tu peux choisir librement le montant de ton choix pour soutenir l'aventure Hoodie Plush et contribuer au lancement.",
-        donate_btn: "Choisir mon montant et faire un don",
-        faq_title: "QUESTIONS FRÉQUENTES",
-        faq_subtitle: "Tout ce que vous devez savoir sur le projet Hoodie Plush",
-        footer_rights: "Tous droits réservés"
-      },
-      en: {
-        nav_edition: "Collector 2026",
-        nav_concept: "Concept",
-        nav_story: "Story",
-        nav_gallery: "Gallery",
-        nav_craft: "Craft",
-        nav_reviews: "VIP Reviews",
-        nav_order: "Support / Donate",
-        status_banner: "LIMITED EDITION 2026 • SUPPORT THE PROJECT VIA A FREE DONATION",
-        hero_badge: "Futuristic Design 2026 & Diamond Effect",
-        hero_desc: "A unique streetwear collector piece. Dressed in a shiny geometric pattern jacket, mirror visor, and crafted with high-end finishes.",
-        feat_1_title: "Premium Materials",
-        feat_1_sub: "Shiny fabric",
-        feat_2_title: "Ultra Soft",
-        feat_2_sub: "Velvet touch",
-        feat_3_title: "Meticulous Details",
-        feat_3_sub: "Visor & Zippers",
-        feat_4_title: "Collector Item",
-        feat_4_sub: "Packaging included",
-        btn_donate: "Support & Free Donation",
-        story_badge: "Genesis of an Innovative Project",
-        story_title: "THE STORY OF HOODIE PLUSH",
-        story_subtitle: "Born from a fusion of urban streetwear culture and 2026 futuristic design, Hoodie Plush redefines the collector plush concept.",
-        gallery_badge: "Official Visuals",
-        gallery_title: "EXCLUSIVE GALLERY",
-        gallery_subtitle: "Discover through images the plush from every angle and the exceptional details of the 2026 Collector Edition.",
-        craft_badge: "Quality & Logistics",
-        craft_title: "MANUFACTURING, PACKAGING & SHIPPING",
-        craft_subtitle: "Total commitment to material quality, production transparency, and care for every single package sent to your home.",
-        reviews_badge: "Community Buzz",
-        reviews_title: "WHAT THE COMMUNITY SAYS",
-        reviews_subtitle: "A growing buzz on social networks around the Collector Edition 2026.",
-        order_badge: "SUPPORT & FUNDING",
-        order_title: "Make a free donation for the project",
-        order_desc: "Direct orders are temporarily blocked. You can freely choose the amount you want to support the Hoodie Plush adventure and contribute to the launch.",
-        donate_btn: "Choose my amount and donate",
-        faq_title: "FREQUENTLY ASKED QUESTIONS",
-        faq_subtitle: "Everything you need to know about the Hoodie Plush project",
-        footer_rights: "All rights reserved"
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('c-days').innerText = d;
+      document.getElementById('c-hours').innerText = h < 10 ? '0' + h : h;
+      document.getElementById('c-mins').innerText = m < 10 ? '0' + m : m;
+      document.getElementById('c-secs').innerText = s < 10 ? '0' + s : s;
+    }, 1000);
+
+    // Audio Player
+    let isPlaying = false;
+    function toggleAudio() {
+      const audio = document.getElementById('bg-music');
+      const text = document.getElementById('music-text');
+      if (isPlaying) {
+        audio.pause();
+        text.innerText = "Ambiance OFF";
+      } else {
+        audio.play();
+        text.innerText = "Ambiance ON 🎵";
       }
-    };
-
-    function toggleLanguage() {
-      currentLang = currentLang === 'fr' ? 'en' : 'fr';
-      document.getElementById('lang-label').innerText = currentLang === 'fr' ? 'FR / EN' : 'EN / FR';
-      
-      document.querySelectorAll('[data-i18n]').forEach(elem => {
-        const key = elem.getAttribute('data-i18n');
-        if (translations[currentLang][key]) {
-          elem.innerHTML = translations[currentLang][key];
-        }
-      });
+      isPlaying = !isPlaying;
     }
 
+    // Simulateur d'impact
+    function updateImpact(val) {
+      document.getElementById('donation-amount').innerText = val + ' €';
+      const title = document.getElementById('impact-title');
+      const desc = document.getElementById('impact-desc');
+
+      if (val < 15) {
+        title.innerText = "Financement du Tissu Scintillant";
+        desc.innerText = "Permet de commander les échantillons de doudoune argentée à effet diamant.";
+      } else if (val < 35) {
+        title.innerText = "Moulage Visière Miroir 15 cm";
+        desc.innerText = "Finance la création du moule spécifique pour la visière miroir réfléchissante.";
+      } else if (val < 70) {
+        title.innerText = "Packaging Cadeau Premium";
+        desc.innerText = "Finance le sac étanche scellé et l'emballage collector individuel.";
+      } else {
+        title.innerText = "Financement Prototype Intégral VIP";
+        desc.innerText = "Couvre l'intégralité d'un exemplaire physique complet livré en priorité aux donateurs.";
+      }
+    }
+
+    // Ajout dynamique d'avis publics
+    function addComment(e) {
+      e.preventDefault();
+      const name = document.getElementById('author-name').value;
+      const rating = document.getElementById('author-rating').value;
+      const msg = document.getElementById('author-msg').value;
+
+      const stars = '⭐'.repeat(parseInt(rating));
+      const container = document.getElementById('comments-container');
+
+      const card = document.createElement('div');
+      card.className = "glass-card p-5 rounded-2xl border border-brand-cyan/40 space-y-2 animate-bounce-once";
+      card.innerHTML = `
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-sm text-white flex items-center gap-2">
+            <span class="w-7 h-7 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 flex items-center justify-center text-brand-cyan text-xs">${name.charAt(0).toUpperCase()}</span>
+            ${name}
+          </span>
+          <span class="text-xs text-amber-400">${stars}</span>
+        </div>
+        <p class="text-xs text-slate-300">"${msg}"</p>
+        <span class="text-[10px] text-brand-cyan block">Publié à l'instant • Avis Vérifié</span>
+      `;
+
+      container.prepend(card);
+      document.getElementById('comment-form').reset();
+      alert("Votre avis a bien été publié publiquement sur le site !");
+    }
+
+    // Partage
+    function shareProject() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'HOODIE PLUSH 2026',
+          text: 'Découvrez la peluche streetwear Hoodie Plush (15 cm) !',
+          url: window.location.href,
+        });
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Lien du site copié dans le presse-papier !');
+      }
+    }
+
+    // Canvas Sparkles
     const canvas = document.getElementById('sparkle-canvas');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
